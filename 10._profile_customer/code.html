@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#bacac3",
+                    "surface-container": "#efeded",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#87968f",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#59de9b",
+                    "inverse-primary": "#59de9b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-container": "#9df5c4",
+                    "primary": "#006d43",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "tertiary": "#53625c",
+                    "on-primary-container": "#00331d",
+                    "on-secondary-container": "#12734c",
+                    "outline": "#6d7a70",
+                    "secondary": "#036c46",
+                    "primary-container": "#00a86b",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006d43",
+                    "outline-variant": "#bccabe",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#111e1a",
+                    "surface-variant": "#e4e2e2",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#78fbb6",
+                    "secondary-fixed": "#9df5c4",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-fixed": "#002112",
+                    "on-tertiary-container": "#212e29",
+                    "background": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "on-secondary-fixed-variant": "#005234",
+                    "on-surface-variant": "#3d4a41"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-[#006d43] cursor-pointer" onclick="window.location.href='../1._homepage_customer_1/code.html'">TravelMate</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 hover:text-[#006d43] transition-all duration-300 font-['Be_Vietnam_Pro'] tracking-tight" href="#">Giới thiệu</a>
+<a class="text-stone-600 hover:text-[#006d43] transition-all duration-300 font-['Be_Vietnam_Pro'] tracking-tight" href="#">Trợ giúp</a>
+<a class="text-stone-600 hover:text-[#006d43] transition-all duration-300 font-['Be_Vietnam_Pro'] tracking-tight" href="#">Đối tác</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-100 rounded-full transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-[#00A86B] overflow-hidden">
+<img alt="Ảnh đại diện người dùng" class="w-full h-full object-cover" data-alt="portrait of a confident young woman with a friendly smile, soft natural lighting, outdoor greenery background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBghyBCiJh0_Rw_J04e6KOqA0jNZ0grZPLoXnucP8RJEz2GJzzU_BzIdUtrBCFPNFc026fFKluYNlsaj1ROKXtONr0eueiQKCo19stYWstvBbqKzNEnpczYVskaBl9JhiwDcmco-_Rcg85QlZ_P117i_r-FEwP-bi3-qgBKm1p8dVgsejruLrD4J-NfQWxHdSz9fwaGb4wF5mB5gTqpH8iDGtmVs8jzQaOe7-_i0aQihch1b4fandUC2UgHxFhm_c1GClGGjAyslA"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-28 pb-20 px-4 md:px-8 max-w-screen-xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Profile Card & Navigation -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest rounded-[24px] p-8 text-center relative overflow-hidden">
+<!-- Membership Badge Floating -->
+<div class="absolute top-4 right-4 bg-gradient-to-br from-[#FFD700] to-[#B8860B] text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+                        Thành viên Vàng
+                    </div>
+<div class="relative w-32 h-32 mx-auto mb-6">
+<div class="w-full h-full rounded-full overflow-hidden border-4 border-primary-container/20">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="high-quality portrait of a smiling woman, warm afternoon light, vibrant green leaves in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNqxu9Pf0GhaHe5I-g0BuSEJXNU1NFHKZIWrdYcThFuRrxYsw4p4k_yUawrvWSrU7fA5lNy5NZGFrdpLiKBh4vGvqZ2BLefneoMp_79XcvXJiaJ7yqNhX2eXiANwSIzHmsptTkd9NZJjuEpZXr3-6fx8NmWNx22NVXdw9HfTPdL6Hx8ZaXHHMH9bJ961uVZGNhic78GMQua7LnWm8-LuhC8hN5-oJaiSFCIUac88-bB8vLAPCn0u8IXgBz3eSJ2ZiI_XIhPioU4Q"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full hover:scale-105 active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<h1 class="text-2xl font-bold text-on-surface mb-1">Lê Minh Anh</h1>
+<p class="text-on-surface-variant text-sm mb-6 italic">Hà Nội, Việt Nam</p>
+<div class="grid grid-cols-2 gap-4 border-t border-surface-container pt-6">
+<div class="text-center">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Đánh giá</p>
+<p class="text-lg font-bold text-primary">12</p>
+</div>
+<div class="text-center border-l border-surface-container">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Điểm tích lũy</p>
+<p class="text-lg font-bold text-primary">2.450</p>
+</div>
+</div>
+</div>
+<!-- Personal Navigation -->
+<nav class="bg-surface-container-lowest rounded-[24px] overflow-hidden">
+<div class="p-2">
+<a class="flex items-center gap-4 p-4 rounded-xl bg-primary/10 text-primary font-bold" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Hồ sơ cá nhân</span>
+</a>
+<a class="flex items-center gap-4 p-4 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all" href="../8._my_bookings_customer_1/code.html">
+<span class="material-symbols-outlined">history</span>
+<span>Chuyến đi của tôi</span>
+</a>
+<a class="flex items-center gap-4 p-4 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span>Yêu thích</span>
+</a>
+<a class="flex items-center gap-4 p-4 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt tài khoản</span>
+</a>
+<div class="h-px bg-surface-container mx-4 my-2"></div>
+<a class="flex items-center gap-4 p-4 rounded-xl text-error hover:bg-error/5 transition-all" href="../2._login_register_customer_1/code.html">
+<span class="material-symbols-outlined">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</nav>
+</div>
+<!-- Right Column: Form & Reviews -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Editable Fields Section -->
+<section class="bg-surface-container-lowest rounded-[32px] p-8 shadow-sm">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-2xl font-bold text-on-surface">Thông tin cá nhân</h2>
+<p class="text-on-surface-variant text-sm mt-1">Cập nhật thông tin của bạn để có trải nghiệm tốt hơn</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-2 rounded-full font-semibold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">save</span>
+                            Lưu thay đổi
+                        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant ml-1">Họ và tên</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" type="text" value="Lê Minh Anh"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant ml-1">Số điện thoại</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" type="tel" value="098 765 4321"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant ml-1">Email</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" type="email" value="minhanh.le@travelmate.vn"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant ml-1">Địa chỉ</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" type="text" value="24 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội"/>
+</div>
+</div>
+</section>
+<!-- My Reviews (Bento Style) -->
+<section>
+<div class="flex items-center justify-between mb-6 px-2">
+<h2 class="text-2xl font-bold text-on-surface">Đánh giá của tôi</h2>
+<a class="text-primary font-semibold text-sm hover:underline" href="#">Xem tất cả</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Review Card 1 -->
+<div class="bg-surface-container-low rounded-[24px] p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex gap-0.5 text-[#FFD700]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant">15/10/2023</span>
+</div>
+<h3 class="font-bold text-on-surface mb-2">InterContinental Danang</h3>
+<p class="text-on-surface-variant text-sm line-clamp-3">Dịch vụ tuyệt vời, phòng có view hướng biển cực kỳ đẹp. Chắc chắn sẽ quay lại vào mùa hè tới.</p>
+</div>
+<div class="mt-4 flex gap-2">
+<div class="w-12 h-12 rounded-lg overflow-hidden">
+<img alt="Room" class="w-full h-full object-cover" data-alt="luxury resort room with balcony overlooking turquoise ocean water, modern tropical decor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuzArAXFrqFrbg4AOCk2yGJfVaytxZey9t_mFr-R14JZwEnbbVRKZxp_yrvV0Ab7LH7WW43GR_j8d77rH_QF5Je-Wp6lR5cqw6wOtVp_zG0d0K-KgsymDw753GtAvcmHUlec5eo07iRcxpLxDvjv2rNfJfRPj28qy2z1a4Ih7Nj0eB1v8Do8gmQp_7QtHkXxNpTqczvO10hHKRmsiwy-8r6cNJZ8n-Clh0UK7osgQLgrc42mNjhDnbOhu_ZVnMGkXfH2tM78y4dg"/>
+</div>
+<div class="w-12 h-12 rounded-lg overflow-hidden">
+<img alt="Pool" class="w-full h-full object-cover" data-alt="infinity pool at sunset with palm trees and soft orange sky reflected in water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXqEEbWcNaXRAyLqD9nqbDSdmd6vVE4estUHL_C2-PtufHDkBCK4eXn3yVnI9Ij46IHhLDlP3vr2D6R8i3lFxhMDn1zV-76fFl8l4BiSfPbM5KgO2Rslnp7ZKRI4--t2ZtyYnAF3uGWlXfUX_WcuUFn3plMApuP7jKop34OwwCU33tB0hVn_yxIYUK2iBUhEZXqVY8yUtDZ9kkdPwkdV2ebQj7-DPvvZJuCmv--8ey6pBQOkM4CUTTVaaS0nxtst58lObybuG8yA"/>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="px-4 py-1.5 text-xs font-bold rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-all flex items-center gap-1" onclick="window.location.href='../edit_review/code.html'">
+<span class="material-symbols-outlined text-sm">edit</span> Chỉnh sửa
+</button>
+</div>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-surface-container-low rounded-[24px] p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex gap-0.5 text-[#FFD700]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<span class="text-xs text-on-surface-variant">02/09/2023</span>
+</div>
+<h3 class="font-bold text-on-surface mb-2">Sapa Jade Hill Resort</h3>
+<p class="text-on-surface-variant text-sm italic">"Không gian yên tĩnh, không khí trong lành. Rất thích hợp để nghỉ dưỡng cùng gia đình."</p>
+</div>
+</div>
+</section>
+<!-- Account Security Quick Actions -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-6 bg-secondary-container/20 rounded-3xl border border-secondary-container/30 flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-container rounded-2xl flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-secondary-container uppercase">Mật khẩu</p>
+<p class="text-sm font-medium">Thay đổi ngay</p>
+</div>
+</div>
+<div class="p-6 bg-primary-container/20 rounded-3xl border border-primary-container/30 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-2xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-primary-container uppercase">Xác thực</p>
+<p class="text-sm font-medium">Đã xác minh</p>
+</div>
+</div>
+<div class="p-6 bg-tertiary-container/20 rounded-3xl border border-tertiary-container/30 flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-container rounded-2xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-tertiary-container uppercase">Thanh toán</p>
+<p class="text-sm font-medium">2 Thẻ đã lưu</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer Section -->
+<footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-8 border-t border-stone-200/50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
+<div class="space-y-4">
+<div class="font-bold text-[#006d43] text-xl">TravelMate</div>
+<p class="text-stone-500 font-['Be_Vietnam_Pro'] text-sm leading-relaxed">Người bạn đồng hành tin cậy trên mọi nẻo đường khám phá vẻ đẹp Việt Nam.</p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Công ty</h4>
+<div class="flex flex-col gap-2">
+<a class="text-stone-500 hover:text-[#00A86B] transition-transform hover:translate-x-1 font-['Be_Vietnam_Pro'] text-sm" href="#">Về chúng tôi</a>
+<a class="text-stone-500 hover:text-[#00A86B] transition-transform hover:translate-x-1 font-['Be_Vietnam_Pro'] text-sm" href="#">Tuyển dụng</a>
+<a class="text-stone-500 hover:text-[#00A86B] transition-transform hover:translate-x-1 font-['Be_Vietnam_Pro'] text-sm" href="#">Blog</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Hỗ trợ</h4>
+<div class="flex flex-col gap-2">
+<a class="text-stone-500 hover:text-[#00A86B] transition-transform hover:translate-x-1 font-['Be_Vietnam_Pro'] text-sm" href="#">Trợ giúp</a>
+<a class="text-stone-500 hover:text-[#00A86B] transition-transform hover:translate-x-1 font-['Be_Vietnam_Pro'] text-sm" href="#">Điều khoản bảo mật</a>
+<a class="text-stone-500 hover:text-[#00A86B] transition-transform hover:translate-x-1 font-['Be_Vietnam_Pro'] text-sm" href="#">Chính sách hoàn tiền</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Kết nối</h4>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">public</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-stone-200/50 text-center">
+<p class="text-stone-500 text-sm">© 2024 TravelMate. Tất cả quyền được bảo lưu.</p>
+</div>
+</footer>
+</body></html>

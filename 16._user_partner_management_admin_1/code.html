@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản lý người dùng &amp; Đối tác - TravelMate Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#bacac3",
+                    "surface-container": "#efeded",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#87968f",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#59de9b",
+                    "inverse-primary": "#59de9b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-container": "#9df5c4",
+                    "primary": "#006d43",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "tertiary": "#53625c",
+                    "on-primary-container": "#00331d",
+                    "on-secondary-container": "#12734c",
+                    "outline": "#6d7a70",
+                    "secondary": "#036c46",
+                    "primary-container": "#00a86b",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006d43",
+                    "outline-variant": "#bccabe",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#111e1a",
+                    "surface-variant": "#e4e2e2",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#78fbb6",
+                    "secondary-fixed": "#9df5c4",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-fixed": "#002112",
+                    "on-tertiary-container": "#212e29",
+                    "background": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "on-secondary-fixed-variant": "#005234",
+                    "on-surface-variant": "#3d4a41"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e4e2e2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Admin SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-stone-50 dark:bg-stone-950 flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-6 cursor-pointer" onclick="window.location.href='../15._dashboard_admin_1/code.html'">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-white shadow-lg overflow-hidden">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="close-up of a professional corporate logo design featuring organic leaf shapes in emerald green on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA8JuSXPR8MUAbBNHT0ORux1iAhBb2dm23aR_2_9VFEi-Jw0pOxOHqmsRymxQNzWKuH0IY3oWhFkk5cta623Ym5i3vLXtQNRE-XYdhoUD-lZqAXf7K-XsRKKjEq6QW_ThKvoDsgOiqoIAGMZG6CmBBUtVRIfJAnCYvQrbDWhrnLBj5BL2K1YY5sKq2ERyKtr7T_Y7Af0qZXCWolIWxrCiIEFDTS_DTUWEeGgfnSB2zDm3LcN263MWVWN_5rpTEI7He3yrKJPwMVA"/>
+</div>
+<div>
+<h1 class="text-xl font-bold text-[#006d43] leading-tight">Quản trị viên</h1>
+<p class="text-xs text-stone-500 font-medium">Hệ thống TravelMate</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../15._dashboard_admin_1/code.html">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Thống kê hệ thống</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#006d43] text-white rounded-lg mx-2 shadow-[0_8px_20px_rgba(0,168,107,0.2)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Quản lý người dùng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../17._content_review_management_admin_1/code.html">
+<span class="material-symbols-outlined" data-icon="contract">contract</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Quản lý nội dung</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../18._price_alert_management_admin_1/code.html">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Cảnh báo giá</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../permission_management/code.html">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Phân quyền</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../cs_ticket_management_dashboard/code.html">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Yêu cầu hỗ trợ</span>
+</a>
+</nav>
+<div class="px-4 mt-auto pt-6 border-t border-stone-200/50">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 transition-colors duration-200 rounded-lg mb-2" href="../admin_settings/code.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Cài đặt</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 transition-colors duration-200 rounded-lg" href="../2._login_register_customer_1/code.html">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-['Be_Vietnam_Pro'] text-sm font-medium">Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-8">
+<!-- Header & Stats Bento -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Quản lý Người dùng &amp; Đối tác</h2>
+<p class="text-on-surface-variant font-medium">Giám sát hoạt động và phê duyệt yêu cầu cộng tác</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-lowest text-on-surface px-6 py-3 rounded-xl flex items-center gap-2 shadow-sm hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="file_download">file_download</span>
+<span class="text-sm font-semibold">Xuất báo cáo</span>
+</button>
+<button class="bg-primary text-white px-6 py-3 rounded-xl flex items-center gap-2 shadow-[0_8px_20px_rgba(0,109,67,0.2)] hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="person_add">person_add</span>
+<span class="text-sm font-semibold">Thêm quản trị viên</span>
+</button>
+</div>
+</header>
+<!-- Main Dashboard Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left: Partner Approval Queue (Asymmetric Layout) -->
+<section class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-primary-container/5 rounded-[2rem] p-6 border border-primary-container/10">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                            Phê duyệt Đối tác
+                        </h3>
+<span class="bg-primary-container text-white text-[10px] font-black px-2 py-0.5 rounded-full">03 MỚI</span>
+</div>
+<!-- Queue List -->
+<div class="space-y-4">
+<!-- Request Card -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-transparent hover:border-primary/20 transition-all group">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img alt="Partner Avatar" class="w-full h-full object-cover" data-alt="logo for a luxury resort called 'The Palm' featuring a stylized golden palm leaf against a cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC7U5pGYZiYpP8qasKQm4BRWJnw1q1UN8FoAXsic0EpD01W9Opdo6gAuhpDpWaCiAaQVEFL8g2VZ8Ny0vZE-sHuaYgk23_bg43OKZEvZ9zxpBJaXuFn_65qgDoUCNrnvR0HTMZOMVKVsOggMkLgaeZXxXZb9XJ7kBHzOSrNzDGCiXFRezHc2iGIR2nUJ2fxrlyQ_t5MIMUFjEgWtdNeDUMGSG0p8pGbA92oAY2dvQDa2HBL48_wg9y3z8EI-m7nnINEsFoX9pu2w"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface leading-tight">The Palm Resort &amp; Spa</h4>
+<p class="text-xs text-on-surface-variant mb-3">Yêu cầu: 2 giờ trước</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-xs font-bold text-white bg-primary rounded-lg">Duyệt</button>
+<button class="px-3 py-2 text-xs font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5">Hồ sơ</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-transparent hover:border-primary/20 transition-all group opacity-80 hover:opacity-100">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img alt="Partner Avatar" class="w-full h-full object-cover" data-alt="clean minimalist logo for an urban homestay service with a house outline and a green pine tree icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuhIxHvfrnpD42Xvt9zPMk92k0-yf7gwK-xknIGD0Y_Omq4EWc2Be22vOsRsVrRGjsEfWnefQY0UKUTpocx-vj7Q0ek85Gpmf30T-dyGPBoO0iqfWtdW12Zsr2BE0Br72IvjkvcTG2ajKi0-qGr4CjTJZcoLYCf7ji2e78icFkmCrYJHhKL1C7gtuZQp1QC1FlzJ0EFhh0EgIkp7Q84qN-C-m53WP_Hck-FCbwfZnieUBdQ23P6yXsKNueeKtNkWtJA3_hnlmOIQ"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface leading-tight">Pine Homestay Đà Lạt</h4>
+<p class="text-xs text-on-surface-variant mb-3">Yêu cầu: Hôm qua</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-xs font-bold text-white bg-primary rounded-lg">Duyệt</button>
+<button class="px-3 py-2 text-xs font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5">Hồ sơ</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2">
+                        Xem toàn bộ danh sách
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Secondary Action Card -->
+<div class="bg-surface-container-low rounded-[2rem] p-8 flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-icon="lock_reset" style="font-variation-settings: 'FILL' 1;">lock_reset</span>
+<h4 class="font-bold text-lg mb-2">Khóa tài khoản nhanh</h4>
+<p class="text-sm text-on-surface-variant mb-6">Nhập Email hoặc ID để thực hiện khóa tài khoản vi phạm ngay lập tức.</p>
+<div class="w-full relative">
+<input class="w-full bg-surface-container-lowest border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-stone-400" placeholder="ID người dùng..." type="text"/>
+<button class="absolute right-2 top-1.5 p-1.5 text-primary hover:bg-primary/5 rounded-lg">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right: Users Table & Search -->
+<section class="col-span-12 lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-[0_12px_40px_rgba(0,109,67,0.03)] p-8">
+<!-- Search and Filter Bar -->
+<div class="flex flex-col md:flex-row gap-4 mb-8">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-stone-400" placeholder="Tìm kiếm tên, email, số điện thoại..." type="text"/>
+</div>
+<div class="flex gap-3">
+<select class="bg-surface-container-low border-none rounded-2xl px-6 py-4 text-sm font-bold text-on-surface focus:ring-2 focus:ring-primary/20 appearance-none">
+<option>Vai trò</option>
+<option>Người dùng</option>
+<option>Đối tác</option>
+</select>
+<select class="bg-surface-container-low border-none rounded-2xl px-6 py-4 text-sm font-bold text-on-surface focus:ring-2 focus:ring-primary/20 appearance-none">
+<option>Trạng thái</option>
+<option>Hoạt động</option>
+<option>Đã khóa</option>
+</select>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant text-[11px] font-black uppercase tracking-[0.1em] border-b border-surface-container/50">
+<th class="px-4 py-6">Thành viên</th>
+<th class="px-4 py-6">Vai trò</th>
+<th class="px-4 py-6">Ngày tham gia</th>
+<th class="px-4 py-6">Trạng thái</th>
+<th class="px-4 py-6 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container/30">
+<!-- User Row 1 -->
+<tr class="group hover:bg-surface-bright transition-colors">
+<td class="px-4 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="portrait of a professional young asian man in a business casual outfit with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqp95BQ6d4rASvVtYr-rJrRE4tOnxlnVIx-Fh22QHgrFcFBGa4IPD-8wK84yoyjiG5qbuDOtxZ0v9onvPcmluFT-blnR23EI-eaIpyMnJb7C9c9j23ziQHsQUvPxtK2CmWosNGOFunNDDJm1DlJ99HO2aR5ihcOD1XmD-IzsX4ytpIyRiHxC6AN-rtJWWHDsxX9bMtk1PYLfGU-MmNeGjIozczXHCLETt8Pjf-TjPIvT2-DLRV8uL_BoWxsT4GF5QTPLIHW4ENAQ"/>
+</div>
+<div>
+<div class="font-bold text-on-surface">Lê Hoàng Nam</div>
+<div class="text-xs text-on-surface-variant">hoangnam.le@gmail.com</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-5">
+<span class="text-xs font-semibold px-3 py-1 bg-stone-100 text-stone-600 rounded-full">Người dùng</span>
+</td>
+<td class="px-4 py-5 text-sm text-on-surface-variant">12 Th04, 2024</td>
+<td class="px-4 py-5">
+<div class="flex items-center gap-1.5 text-[#00a86b] text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00a86b]"></span>
+                                            Hoạt động
+                                        </div>
+</td>
+<td class="px-4 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- User Row 2 -->
+<tr class="group hover:bg-surface-bright transition-colors">
+<td class="px-4 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="portrait of a friendly professional asian woman with long black hair against a neutral office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIvYKs8a8SRcBDXscE-x0-MeGH8fjUzDSxWouDCB1qSnQlGObIofhoTwYQDjsNaD-TlTGz1RyzqTosnC02dS46o4Li2uGIJfgzy6FAhzG7mPpBLQeH7dmGHfZBEvKa8tmQagzOyBFJ89Bm4qBIqb-ocRGyrKWOllCxzfjH--g3ca2a41r2_-3RYNUF6lTJvj7-zY402Q-EZuneejHJSMtocoeD96hehb3nRxwCK7qEpAa81OBujDjI5mXW5EmDwTHM8OdKtDyHXQ"/>
+</div>
+<div>
+<div class="font-bold text-on-surface">Nguyễn Thu Hà</div>
+<div class="text-xs text-on-surface-variant">thuha.nguyen@outlook.com</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-5">
+<span class="text-xs font-semibold px-3 py-1 bg-primary-container/10 text-primary rounded-full">Đối tác</span>
+</td>
+<td class="px-4 py-5 text-sm text-on-surface-variant">28 Th03, 2024</td>
+<td class="px-4 py-5">
+<div class="flex items-center gap-1.5 text-[#00a86b] text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00a86b]"></span>
+                                            Hoạt động
+                                        </div>
+</td>
+<td class="px-4 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- User Row 3 (Locked State) -->
+<tr class="group hover:bg-surface-bright transition-colors bg-stone-50/50">
+<td class="px-4 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden grayscale">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged man in a dark polo shirt with a serious expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHuyzxPZMM75deYBBDU5HkubzdFJsjngZBBLMQYU-tK0qyvBBEvDzSkgKYbAEsWrhZRp3HcfqV_iyDR97vBxfSIggFdtpDhAWcb2jTL2MID-NQJRvLEpnLTd1mRa_EJAzMIdiR4WtGl1rrpWDdnus-YfykX0uaEsFp4isQ-M8ydPhN1F7RT0eYyHfRxsJvsq8bNeXpo8QIiQeFjHPAF7lyLcSdd1tpGI2XzH531CE5ob3C5v6dOQUxzWq0J1qXkQlsIIKS-RlzBQ"/>
+</div>
+<div>
+<div class="font-bold text-on-surface-variant">Trần Minh Quân</div>
+<div class="text-xs text-on-surface-variant">minhquan.tran@gmail.com</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-5">
+<span class="text-xs font-semibold px-3 py-1 bg-stone-100 text-stone-600 rounded-full">Người dùng</span>
+</td>
+<td class="px-4 py-5 text-sm text-on-surface-variant">15 Th02, 2024</td>
+<td class="px-4 py-5">
+<div class="flex items-center gap-1.5 text-error text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                            Đã khóa
+                                        </div>
+</td>
+<td class="px-4 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-primary bg-primary/10 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="lock_open">lock_open</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex items-center justify-between">
+<p class="text-xs text-on-surface-variant font-medium">Hiển thị 1 - 10 của 1,248 kết quả</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-primary text-white font-bold text-sm shadow-md">1</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-low text-on-surface font-bold text-sm hover:bg-surface-container-high transition-all">2</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-low text-on-surface font-bold text-sm hover:bg-surface-container-high transition-all">3</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Lock Reason Modal (Absolute/Overlay Concept) -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4">
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm"></div>
+<div class="bg-surface-container-lowest w-full max-w-md rounded-[2.5rem] p-8 relative shadow-2xl">
+<button class="absolute top-6 right-6 text-on-surface-variant hover:bg-surface-container rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="mb-8">
+<h3 class="text-2xl font-extrabold text-on-surface tracking-tight mb-2">Khóa tài khoản</h3>
+<p class="text-on-surface-variant text-sm">Vui lòng cung cấp lý do chi tiết cho hành động này. Người dùng sẽ nhận được thông báo qua Email.</p>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-black uppercase tracking-widest text-on-surface-variant mb-2">Lý do khóa</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 appearance-none">
+<option>Vi phạm điều khoản cộng đồng</option>
+<option>Nghi ngờ gian lận thanh toán</option>
+<option>Spam thông tin/nội dung</option>
+<option>Khác...</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-black uppercase tracking-widest text-on-surface-variant mb-2">Mô tả chi tiết</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-stone-400" placeholder="Nhập chi tiết vi phạm..." rows="4"></textarea>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 py-4 text-sm font-bold text-on-surface bg-surface-container-high rounded-2xl hover:bg-surface-dim transition-all">Hủy bỏ</button>
+<button class="flex-1 py-4 text-sm font-bold text-white bg-error rounded-2xl shadow-[0_8px_20px_rgba(186,26,26,0.2)] hover:scale-[1.02] active:scale-95 transition-all">Xác nhận khóa</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

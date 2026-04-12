@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelMate Admin - Cài đặt hệ thống</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary-fixed-dim": "#bacac3",
+          "surface-container": "#efeded",
+          "error-container": "#ffdad6",
+          "error": "#ba1a1a",
+          "surface-container-lowest": "#ffffff",
+          "tertiary-container": "#87968f",
+          "inverse-surface": "#303030",
+          "primary-fixed-dim": "#59de9b",
+          "inverse-primary": "#59de9b",
+          "surface-container-low": "#f5f3f3",
+          "on-secondary": "#ffffff",
+          "tertiary-fixed": "#d6e6de",
+          "surface-bright": "#fbf9f8",
+          "secondary-container": "#9df5c4",
+          "primary": "#006d43",
+          "surface-container-high": "#eae8e7",
+          "on-tertiary": "#ffffff",
+          "surface": "#fbf9f8",
+          "tertiary": "#53625c",
+          "on-primary-container": "#00331d",
+          "on-secondary-container": "#12734c",
+          "outline": "#6d7a70",
+          "secondary": "#036c46",
+          "primary-container": "#00a86b",
+          "surface-container-highest": "#e4e2e2",
+          "on-primary-fixed-variant": "#005232",
+          "surface-tint": "#006d43",
+          "outline-variant": "#bccabe",
+          "on-surface": "#1b1c1c",
+          "on-tertiary-fixed-variant": "#3c4a44",
+          "on-primary": "#ffffff",
+          "on-primary-fixed": "#002111",
+          "on-tertiary-fixed": "#111e1a",
+          "surface-variant": "#e4e2e2",
+          "on-error-container": "#93000a",
+          "primary-fixed": "#78fbb6",
+          "secondary-fixed": "#9df5c4",
+          "inverse-on-surface": "#f2f0f0",
+          "on-error": "#ffffff",
+          "surface-dim": "#dbd9d9",
+          "on-secondary-fixed": "#002112",
+          "on-tertiary-container": "#212e29",
+          "background": "#fbf9f8",
+          "on-background": "#1b1c1c",
+          "secondary-fixed-dim": "#82d8a9",
+          "on-secondary-fixed-variant": "#005234",
+          "on-surface-variant": "#3d4a41"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "fontFamily": {
+          "headline": ["Be Vietnam Pro"],
+          "body": ["Be Vietnam Pro"],
+          "label": ["Be Vietnam Pro"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #bccabe; border-radius: 10px; }
+  .toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #d1d5db; border-radius: 24px; transition: .3s; }
+  .toggle-slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: .3s; }
+  input:checked + .toggle-slider { background-color: #006d43; }
+  input:checked + .toggle-slider:before { transform: translateX(20px); }
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+
+<!-- SideNavBar (Admin) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-stone-50 flex flex-col py-6 z-50">
+  <div class="px-6 mb-8 flex items-center gap-3 cursor-pointer" onclick="window.location.href='../15._dashboard_admin_1/code.html'">
+    <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">travel_explore</span>
+    </div>
+    <div>
+      <h2 class="text-xl font-bold text-[#006d43]">Quản trị viên</h2>
+      <p class="text-xs text-stone-500 font-medium">Hệ thống TravelMate</p>
+    </div>
+  </div>
+  <nav class="flex-1 space-y-1">
+    <a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../15._dashboard_admin_1/code.html">
+      <span class="material-symbols-outlined">analytics</span>
+      <span class="font-medium text-sm">Thống kê hệ thống</span>
+    </a>
+    <a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../16._user_partner_management_admin_1/code.html">
+      <span class="material-symbols-outlined">group</span>
+      <span class="font-medium text-sm">Quản lý người dùng</span>
+    </a>
+    <a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../17._content_review_management_admin_1/code.html">
+      <span class="material-symbols-outlined">contract</span>
+      <span class="font-medium text-sm">Quản lý nội dung</span>
+    </a>
+    <a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../18._price_alert_management_admin_1/code.html">
+      <span class="material-symbols-outlined">notifications_active</span>
+      <span class="font-medium text-sm">Cảnh báo giá</span>
+    </a>
+    <a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../permission_management/code.html">
+      <span class="material-symbols-outlined">admin_panel_settings</span>
+      <span class="font-medium text-sm">Phân quyền</span>
+    </a>
+    <a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 rounded-lg" href="../cs_ticket_management_dashboard/code.html">
+      <span class="material-symbols-outlined">confirmation_number</span>
+      <span class="font-medium text-sm">Yêu cầu hỗ trợ</span>
+    </a>
+  </nav>
+  <div class="mt-auto px-2 space-y-1">
+    <!-- Active: Cài đặt -->
+    <a class="flex items-center gap-3 py-3 px-4 bg-[#00A86B] text-white rounded-lg mx-0 shadow-[0_8px_20px_rgba(0,168,107,0.2)]" href="#">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+      <span class="text-sm font-semibold">Cài đặt</span>
+    </a>
+    <a class="flex items-center gap-3 py-3 px-4 text-error hover:bg-error-container/20 rounded-lg transition-colors" href="../2._login_register_customer_1/code.html">
+      <span class="material-symbols-outlined">logout</span>
+      <span class="text-sm font-medium">Đăng xuất</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="ml-64 flex-1 p-8 custom-scrollbar overflow-y-auto">
+  <!-- Header -->
+  <header class="flex justify-between items-end mb-8">
+    <div>
+      <nav class="flex items-center gap-2 text-sm text-on-surface-variant mb-2">
+        <span>Hệ thống</span>
+        <span class="material-symbols-outlined text-xs">chevron_right</span>
+        <span class="font-medium text-primary">Cài đặt</span>
+      </nav>
+      <h2 class="text-3xl font-black tracking-tight text-on-surface">Cài đặt hệ thống</h2>
+      <p class="text-on-surface-variant mt-1">Quản lý cấu hình và tùy chỉnh hệ thống TravelMate.</p>
+    </div>
+    <button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(0,109,67,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all" onclick="alert('Đã lưu tất cả thay đổi cài đặt.')">
+      <span class="material-symbols-outlined text-sm">save</span>
+      Lưu thay đổi
+    </button>
+  </header>
+
+  <!-- Settings Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Left Column: main settings -->
+    <div class="lg:col-span-2 space-y-6">
+
+      <!-- 1. Price Alert Config -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-error-container/40 flex items-center justify-center">
+            <span class="material-symbols-outlined text-error">notifications_active</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-on-surface">Ngưỡng cảnh báo giá</h3>
+            <p class="text-xs text-on-surface-variant">Cấu hình mức chênh lệch kích hoạt cảnh báo</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-on-surface mb-2">Ngưỡng cảnh báo thông thường (%)</label>
+            <div class="flex items-center gap-4">
+              <input type="range" min="5" max="100" value="30" class="flex-1 accent-primary" oninput="document.getElementById('thresholdNormal').textContent=this.value+'%'"/>
+              <span id="thresholdNormal" class="w-12 text-center font-bold text-primary text-sm bg-primary/10 py-1 px-2 rounded-lg">30%</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1">Biến động giá vượt ngưỡng này sẽ tạo cảnh báo "Đang xử lý".</p>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-on-surface mb-2">Ngưỡng cảnh báo khẩn cấp (%)</label>
+            <div class="flex items-center gap-4">
+              <input type="range" min="10" max="200" value="50" class="flex-1 accent-red-600" oninput="document.getElementById('thresholdUrgent').textContent=this.value+'%'"/>
+              <span id="thresholdUrgent" class="w-12 text-center font-bold text-error text-sm bg-error-container/30 py-1 px-2 rounded-lg">50%</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1">Biến động vượt ngưỡng này sẽ tạo cảnh báo "Mới" màu đỏ cần xử lý ngay.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-on-surface mb-2">Khu vực áp dụng ngưỡng ven biển</label>
+            <select class="w-full px-4 py-2.5 bg-surface-container-low border border-outline-variant rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-transparent">
+              <option>Toàn quốc</option>
+              <option selected>Khu vực ven biển (Đà Nẵng, Nha Trang, Phú Quốc...)</option>
+              <option>Khu vực phía Bắc</option>
+              <option>Khu vực phía Nam</option>
+            </select>
+          </div>
+          <div class="flex items-center justify-between py-3 border-t border-surface-container">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Tự động đình chỉ khi vi phạm nghiêm trọng</p>
+              <p class="text-xs text-on-surface-variant">Đối tác bị tự động ẩn nếu tăng giá &gt; 150% mà không có lý do</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Notification Settings -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-secondary-container/50 flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-secondary-container">email</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-on-surface">Cài đặt thông báo</h3>
+            <p class="text-xs text-on-surface-variant">Quản lý kênh và tần suất gửi thông báo</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between py-3">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Thông báo email cho admin</p>
+              <p class="text-xs text-on-surface-variant">Gửi tóm tắt cảnh báo giá hàng ngày qua email</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="border-t border-surface-container pt-4">
+            <label class="block text-sm font-semibold text-on-surface mb-2">Địa chỉ email nhận cảnh báo</label>
+            <input type="email" value="admin@travelmate.vn" class="w-full px-4 py-2.5 bg-surface-container-low border border-outline-variant rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-transparent"/>
+          </div>
+          <div class="border-t border-surface-container pt-4 flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Thông báo trong ứng dụng</p>
+              <p class="text-xs text-on-surface-variant">Hiện badge thông báo trên thanh điều hướng</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="border-t border-surface-container pt-4 flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Thông báo cho đối tác khi bị xử lý</p>
+              <p class="text-xs text-on-surface-variant">Gửi email tự động khi admin đình chỉ hoặc từ chối cập nhật giá</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="border-t border-surface-container pt-4">
+            <label class="block text-sm font-semibold text-on-surface mb-2">Tần suất gửi báo cáo tổng hợp</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button class="py-2 rounded-xl text-xs font-bold border-2 border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('border-primary','text-primary','bg-primary/5')); this.classList.add('border-primary','text-primary','bg-primary/5')">Hàng ngày</button>
+              <button class="py-2 rounded-xl text-xs font-bold border-2 border-primary text-primary bg-primary/5" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('border-primary','text-primary','bg-primary/5')); this.classList.add('border-primary','text-primary','bg-primary/5')">Hàng tuần</button>
+              <button class="py-2 rounded-xl text-xs font-bold border-2 border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('border-primary','text-primary','bg-primary/5')); this.classList.add('border-primary','text-primary','bg-primary/5')">Hàng tháng</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. AI Recommendation Settings -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-primary-fixed/60 flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-primary-fixed-variant">auto_awesome</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-on-surface">AI & Đề xuất thông minh</h3>
+            <p class="text-xs text-on-surface-variant">Cấu hình tính năng trí tuệ nhân tạo</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between py-3">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Gợi ý chỗ nghỉ bằng AI</p>
+              <p class="text-xs text-on-surface-variant">Phân tích lịch sử đặt phòng để cá nhân hóa đề xuất</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="border-t border-surface-container pt-4 flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Tự động điều chỉnh ngưỡng cảnh báo theo mùa</p>
+              <p class="text-xs text-on-surface-variant">AI tự học xu hướng giá theo mùa du lịch để giảm cảnh báo sai</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="border-t border-surface-container pt-4">
+            <label class="block text-sm font-semibold text-on-surface mb-2">Model AI sử dụng</label>
+            <select class="w-full px-4 py-2.5 bg-surface-container-low border border-outline-variant rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-transparent">
+              <option selected>TravelMate AI v2.1 (Khuyến nghị)</option>
+              <option>TravelMate AI v1.8</option>
+              <option>Phân tích quy tắc cơ bản (không dùng AI)</option>
+            </select>
+          </div>
+          <div class="bg-primary/5 border border-primary/15 rounded-2xl p-4">
+            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Gợi ý hệ thống hiện tại</p>
+            <p class="text-sm text-on-surface-variant">Phát hiện xu hướng tăng giá mùa hè (T6–T8). Đề xuất nâng ngưỡng cảnh báo lên <span class="font-bold text-primary">60%</span> cho khu vực ven biển.</p>
+            <button class="mt-3 px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/80 transition-colors" onclick="alert('Đã áp dụng cài đặt tự động từ AI. Ngưỡng ven biển cập nhật lên 60%.')">Áp dụng ngay</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: security + backup + info -->
+    <div class="space-y-6">
+
+      <!-- 4. Security Settings -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-surface-variant">security</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-on-surface">Bảo mật hệ thống</h3>
+            <p class="text-xs text-on-surface-variant">Quản lý quyền truy cập & phiên đăng nhập</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Xác thực 2 bước (2FA)</p>
+              <p class="text-xs text-on-surface-variant">Bắt buộc với tài khoản admin</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="border-t border-surface-container pt-4">
+            <label class="block text-sm font-semibold text-on-surface mb-2">Thời gian hết hạn phiên (phút)</label>
+            <input type="number" value="60" min="15" max="480" class="w-full px-4 py-2.5 bg-surface-container-low border border-outline-variant rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-transparent"/>
+          </div>
+          <div class="border-t border-surface-container pt-4 flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold text-on-surface">Ghi nhật ký hoạt động admin</p>
+              <p class="text-xs text-on-surface-variant">Lưu audit log cho mọi hành động</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <button class="w-full py-2.5 mt-1 border-2 border-error/30 text-error hover:bg-error-container/20 rounded-xl text-sm font-bold transition-colors" onclick="if(confirm('Đăng xuất tất cả phiên đang hoạt động?')) alert('Đã đăng xuất tất cả phiên. Người dùng cần đăng nhập lại.')">
+            Đăng xuất tất cả phiên
+          </button>
+        </div>
+      </section>
+
+      <!-- 5. Backup & Restore -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-tertiary-fixed/60 flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-tertiary-fixed-variant">backup</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-on-surface">Sao lưu & Khôi phục</h3>
+            <p class="text-xs text-on-surface-variant">Quản lý dữ liệu và cấu hình hệ thống</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold text-on-surface">Sao lưu tự động</p>
+              <p class="text-xs text-on-surface-variant">Lần cuối: Hôm nay, 03:00</p>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          </div>
+          <button class="w-full py-2.5 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2" onclick="alert('Đang tạo bản sao lưu... Hoàn tất sau vài giây.')">
+            <span class="material-symbols-outlined text-sm">cloud_upload</span>
+            Sao lưu ngay
+          </button>
+          <button class="w-full py-2.5 border border-outline-variant hover:bg-surface-container-low text-on-surface-variant rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2" onclick="alert('Tính năng xuất cài đặt sẽ tải file JSON về máy.')">
+            <span class="material-symbols-outlined text-sm">download</span>
+            Xuất cài đặt (.json)
+          </button>
+          <button class="w-full py-2.5 border border-outline-variant hover:bg-surface-container-low text-on-surface-variant rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2" onclick="alert('Chọn file JSON để nhập lại cài đặt hệ thống.')">
+            <span class="material-symbols-outlined text-sm">upload</span>
+            Nhập cài đặt (.json)
+          </button>
+        </div>
+      </section>
+
+      <!-- 6. System Info -->
+      <section class="bg-primary/5 border border-primary/10 rounded-3xl p-6">
+        <h3 class="font-bold text-primary mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">info</span>
+          Thông tin hệ thống
+        </h3>
+        <div class="space-y-2.5">
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-on-surface-variant">Phiên bản</span>
+            <span class="text-xs font-bold text-on-surface">TravelMate v3.2.1</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-on-surface-variant">Cập nhật lần cuối</span>
+            <span class="text-xs font-bold text-on-surface">10/04/2026</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-on-surface-variant">Môi trường</span>
+            <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Production</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-on-surface-variant">Tổng người dùng</span>
+            <span class="text-xs font-bold text-on-surface">24.812</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-on-surface-variant">Đối tác đang hoạt động</span>
+            <span class="text-xs font-bold text-on-surface">1.247</span>
+          </div>
+          <div class="border-t border-primary/10 pt-3 mt-1">
+            <button class="w-full py-2 text-xs font-bold text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-1" onclick="alert('Đang kiểm tra cập nhật hệ thống...\n\nHệ thống đang dùng phiên bản mới nhất.')">
+              <span class="material-symbols-outlined text-sm">system_update</span>
+              Kiểm tra cập nhật
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+</body>
+</html>

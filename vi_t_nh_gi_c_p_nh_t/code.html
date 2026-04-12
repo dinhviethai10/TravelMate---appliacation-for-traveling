@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Viết đánh giá - TravelMate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#006d43",
+                    "on-secondary-container": "#12734c",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-fixed": "#9df5c4",
+                    "surface-container": "#efeded",
+                    "on-primary-fixed-variant": "#005232",
+                    "primary-fixed": "#78fbb6",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "on-secondary-fixed": "#002112",
+                    "on-primary-container": "#00331d",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#005234",
+                    "tertiary-fixed-dim": "#bacac3",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-container-highest": "#e4e2e2",
+                    "inverse-primary": "#59de9b",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#3d4a41",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1b1c1c",
+                    "surface": "#fbf9f8",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "background": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "primary": "#006d43",
+                    "on-tertiary-container": "#212e29",
+                    "outline": "#6d7a70",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed": "#002111",
+                    "secondary-container": "#9df5c4",
+                    "tertiary": "#53625c",
+                    "primary-fixed-dim": "#59de9b",
+                    "outline-variant": "#bccabe",
+                    "secondary": "#036c46",
+                    "surface-container-low": "#f5f3f3",
+                    "on-surface": "#1b1c1c",
+                    "primary-container": "#00a86b",
+                    "inverse-surface": "#303030",
+                    "tertiary-container": "#87968f",
+                    "on-tertiary-fixed": "#111e1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .star-active { font-variation-settings: 'FILL' 1; color: #EAB308; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopNavBar (Updated to match SCREEN_26) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#006d43] dark:text-[#00A86B]">TravelMate</span>
+<div class="hidden md:flex gap-6">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Giới thiệu</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Trợ giúp</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Đối tác</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-300 rounded-full relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container scale-95 active:opacity-80 cursor-pointer">
+<img alt="Ảnh đại diện người dùng" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXM1nAXpRaNVpHMrkFdePp1Spup_zGxf1SRyQumQptQtBvqsuJecaZCtDmcaZw9ctSye4GJhsTJ7RaPU-wLdVGUwbV242bwhxalTOXdas2KTcvxMdfcxR1GQAQqAeLiCxtb1J7zGivxhoDvTywjvl9kNLlYBJjbcZtE48sV7hn-EhnnkyTZTUweTFPwhSXZ-HGnzewNsBMS7XDfwv_9Qm2y8H_03MQovABE6_8TLROs8mPS4HCEIPYtENaLhyH-dBKJJjl_sbOXQ"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-3xl mx-auto pt-32 px-6">
+<!-- Header Title -->
+<div class="mb-8">
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Viết đánh giá</h1>
+<p class="text-on-surface-variant mt-2">Chia sẻ trải nghiệm của bạn tại Verdant Sanctuary để giúp cộng đồng du lịch tốt hơn.</p>
+</div>
+<!-- Booking Summary Card -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 mb-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col md:flex-row gap-6 items-center md:items-stretch border border-outline-variant/30">
+<div class="w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0">
+<img alt="Verdant Sanctuary Resort" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzXDNyGOn8OLIbhzrHk0d39RPsrQsdYbSudMHTe1X_wGJfjkSfiS7ZzQzW-RD5BbD-zfsNBBYqmeHciZQ74geOgs6ZoXuZUDTE7vCeZkyP2hcyYIERwrrHTaWVMj3rhb4SFoa_gM62DYeSpHt_wcFyvDpRczlykstNkEREbgmuLsNn3ueUDTW4z7lhQqly_AKBHo91WBZLegUDNBgiZmxDA6xE6YeI1lG8l8FqcXK_xln20JyXyqh0MMpUrmyJZn7RW6099u_59Q"/>
+</div>
+<div class="flex flex-col justify-center w-full">
+<div class="flex justify-between items-start mb-1">
+<h2 class="text-xl font-bold text-on-surface">Verdant Sanctuary Resort</h2>
+<span class="text-xs font-mono bg-surface-container px-2 py-1 rounded text-on-surface-variant">#TM-0036</span>
+</div>
+<div class="flex items-center gap-4 mt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+<span class="text-sm font-medium">10/12/2024 - 15/12/2024</span>
+</div>
+</div>
+<div class="mt-3 flex gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container text-on-secondary-container">
+                        Đã hoàn thành
+                    </span>
+</div>
+</div>
+</section>
+<!-- Review Section -->
+<div class="space-y-10">
+<!-- Star Rating -->
+<div class="text-center md:text-left">
+<h3 class="text-lg font-bold mb-4">Bạn đánh giá trải nghiệm này thế nào?</h3>
+<div class="flex justify-center md:justify-start gap-2">
+<button class="p-1 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-4xl star-active">star</span></button>
+<button class="p-1 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-4xl star-active">star</span></button>
+<button class="p-1 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-4xl star-active">star</span></button>
+<button class="p-1 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-4xl star-active">star</span></button>
+<button class="p-1 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-4xl text-outline-variant">star</span></button>
+</div>
+</div>
+<!-- Text Feedback -->
+<div class="space-y-3">
+<h3 class="text-lg font-bold">Viết nội dung đánh giá</h3>
+<div class="relative">
+<textarea class="w-full min-h-[200px] p-6 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-zinc-400 font-body transition-all" placeholder="Chia sẻ trải nghiệm của bạn về dịch vụ, không gian và cảm nhận cá nhân..."></textarea>
+<div class="absolute bottom-4 right-6 text-xs text-zinc-400 font-medium tracking-wide">
+                        Tối thiểu 50 ký tự
+                    </div>
+</div>
+</div>
+<!-- Photo Upload Area -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<h3 class="text-lg font-bold">Hình ảnh thực tế</h3>
+<span class="text-xs text-on-surface-variant font-medium uppercase tracking-widest">Tải lên tối đa 5 ảnh</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<!-- Placeholder Add Button -->
+<button class="aspect-square rounded-2xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-2 bg-surface-container-low hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">add_a_photo</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Thêm ảnh</span>
+</button>
+<!-- Empty States -->
+<div class="hidden md:block aspect-square rounded-2xl bg-surface-container-highest/30 border border-outline-variant/10"></div>
+<div class="hidden md:block aspect-square rounded-2xl bg-surface-container-highest/30 border border-outline-variant/10"></div>
+<div class="hidden md:block aspect-square rounded-2xl bg-surface-container-highest/30 border border-outline-variant/10"></div>
+<div class="hidden md:block aspect-square rounded-2xl bg-surface-container-highest/30 border border-outline-variant/10"></div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-16 flex flex-col md:flex-row gap-4 items-center justify-end border-t border-surface-container py-8">
+<button class="w-full md:w-auto px-10 py-3 rounded-full border border-outline text-on-surface-variant font-bold hover:bg-surface-container-low transition-all">
+                Hủy
+            </button>
+<button class="w-full md:w-auto px-12 py-4 rounded-full bg-primary text-white font-bold shadow-[0_8px_25px_rgba(0,109,67,0.2)] hover:shadow-[0_12px_40px_rgba(0,109,67,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
+                Gửi đánh giá
+            </button>
+</div>
+</main>
+<!-- Footer (Translated and Styled to Verdant Horizon) -->
+<footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-8 border-t border-stone-200/50 dark:border-stone-800/50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
+<div class="md:col-span-1">
+<span class="font-bold text-[#006d43] text-2xl block mb-6">TravelMate</span>
+<p class="text-stone-500 mb-6">Ứng dụng đặt phòng và trải nghiệm du lịch hàng đầu Việt Nam. Mang đến cho bạn những hành trình xanh và ý nghĩa.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">camera</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">youtube_activity</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#006d43] mb-6 uppercase tracking-widest text-xs">Về chúng tôi</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Câu chuyện thương hiệu</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Cơ hội nghề nghiệp</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trở thành đối tác</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Liên hệ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#006d43] mb-6 uppercase tracking-widest text-xs">Trợ giúp</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trung tâm trợ giúp</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Chính sách bảo mật</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Điều khoản sử dụng</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Quy trình hoàn tiền</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#006d43] mb-6 uppercase tracking-widest text-xs">Tải ứng dụng</h4>
+<div class="flex flex-col gap-4">
+<div class="bg-stone-200 dark:bg-stone-800 p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors">
+<span class="material-symbols-outlined text-3xl">phone_iphone</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-stone-500">Tải về trên</p>
+<p class="font-bold text-stone-800 dark:text-stone-100">App Store</p>
+</div>
+</div>
+<div class="bg-stone-200 dark:bg-stone-800 p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors">
+<span class="material-symbols-outlined text-3xl">ad_units</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-stone-500">Tải về trên</p>
+<p class="font-bold text-stone-800 dark:text-stone-100">Google Play</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-stone-200/50 dark:border-stone-800/50 text-center text-stone-400 text-xs">
+            © 2024 TravelMate. Tất cả quyền được bảo lưu. Thiết kế cho Verdant Sanctuary.
+        </div>
+</footer>
+</body></html>

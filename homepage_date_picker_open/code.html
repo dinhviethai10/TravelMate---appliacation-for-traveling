@@ -1,0 +1,266 @@
+<html><head>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface text-on-surface">```html
+<meta charset="utf-8"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface": "#fbf9f8",
+          "tertiary-container": "#87968f",
+          "on-surface": "#1b1c1c",
+          "surface-dim": "#dbd9d9",
+          "on-secondary-container": "#12734c",
+          "tertiary-fixed-dim": "#bacac3",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-fixed": "#002111",
+          "surface-variant": "#e4e2e2",
+          "surface-tint": "#006d43",
+          "outline-variant": "#bccabe",
+          "background": "#fbf9f8",
+          "surface-container": "#efeded",
+          "on-secondary-fixed-variant": "#005234",
+          "on-secondary": "#ffffff",
+          "secondary-fixed": "#9df5c4",
+          "on-surface-variant": "#3d4a41",
+          "on-primary-container": "#00331d",
+          "on-background": "#1b1c1c",
+          "on-secondary-fixed": "#002112",
+          "surface-bright": "#fbf9f8",
+          "surface-container-high": "#eae8e7",
+          "on-primary-fixed-variant": "#005232",
+          "error-container": "#ffdad6",
+          "on-tertiary-container": "#212e29",
+          "on-error-container": "#93000a",
+          "secondary": "#036c46",
+          "inverse-primary": "#59de9b",
+          "error": "#ba1a1a",
+          "inverse-on-surface": "#f2f0f0",
+          "secondary-container": "#9df5c4",
+          "primary-fixed": "#78fbb6",
+          "surface-container-low": "#f5f3f3",
+          "secondary-fixed-dim": "#82d8a9",
+          "on-error": "#ffffff",
+          "primary-container": "#00a86b",
+          "outline": "#6d7a70",
+          "on-tertiary-fixed-variant": "#3c4a44",
+          "primary": "#006d43",
+          "tertiary-fixed": "#d6e6de",
+          "surface-container-highest": "#e4e2e2",
+          "primary-fixed-dim": "#59de9b",
+          "on-primary": "#ffffff",
+          "inverse-surface": "#303030",
+          "tertiary": "#53625c",
+          "on-tertiary-fixed": "#111e1a",
+          "on-tertiary": "#ffffff"
+        },
+        "fontFamily": {
+          "headline": ["Be Vietnam Pro"],
+          "body": ["Be Vietnam Pro"],
+          "label": ["Be Vietnam Pro"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+  }
+</style>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)] h-20">
+<div class="flex justify-between items-center px-8 h-full w-full max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] tracking-tight">
+<div class="text-2xl font-black text-[#006d43] dark:text-[#00A86B]">TravelMate</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Giới thiệu</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Trợ giúp</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Đối tác</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-all scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-stone-600">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Ảnh đại diện người dùng" class="w-full h-full object-cover" data-alt="professional portrait of a person with friendly expression in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjC-4rRDpt7NfMyMOce4mYIHkirLN5F6qoqCNeLA9z2fr6lNMWhKVBXHHv7UYRYkwnogEN5GAmuWvOX44vY4BdDUUoTqrMANvHtZCI1kP_i839bY4CjdVTwxevIgFoy-6TBQi5YUa7BoQ-CjAYUfvV8fKt-u6ST6VFjuFzKcrEvTxaOszvlyIJ1P68xMOdqqTB5lIVDo5OPawPks0s8HHDZ4tIa4QhbiZMhhorXFhz3qohaLdhvWRXr66eZlSFfnF80hnN2ys2lA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section with Content Dimming -->
+<main class="relative min-h-screen pt-20">
+<!-- Background Content (Blurred) -->
+<div class="absolute inset-0 z-0 overflow-hidden blur-[8px] brightness-[0.85] transition-all duration-700">
+<div class="grid grid-cols-12 h-full">
+<!-- Editorial Image Layout -->
+<div class="col-span-7 h-full p-8">
+<div class="w-full h-full rounded-[2rem] overflow-hidden">
+<img alt="Hạ Long Bay" class="w-full h-full object-cover" data-alt="Breathtaking aerial view of Ha Long Bay limestone karsts rising from emerald waters during morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbpn_7R9qov8K-DnR9CVjT24BzoVRc0RyXvrNQ-XUgbD00gif1U_7AuauU8DjxFCo5Cg_BFnjSBCwI-ld9ahk0PVY-69Ccfax1qgEAspOjL9VtF7KE6Wl6FPsmHYKTQOKPHtLMc4OHhWt9-EPV8SKTyFsl2HlU3AGrUliBX2qMOvmtDWhzp0i1kwlhwGVs862k4FTd-kx4_AvmUOCsrZvDSzgoNASQ49kOIWmZeha4KlJ41VLjFRHfaBL1EF0fMZEzvmlMM9T74A"/>
+</div>
+</div>
+<div class="col-span-5 h-full p-8 flex flex-col gap-8">
+<div class="h-1/2 rounded-[2rem] overflow-hidden">
+<img alt="Ancient Town" class="w-full h-full object-cover" data-alt="Charming narrow street of Hoi An ancient town with colorful yellow walls and blooming bougainvillea" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX64oX4QMZpunHSb6KYPf0L-T7ZDxMyQcEb7owCCdHgNAlPFLq2XcAWzeouWQt_DHWKWs1N2ajo9LGCDI8S1BXG75s1yxEuUWnr9M4e40DcDIw8uBJn-Jg3RQ6xh--4Y7T1WTQOmCaTeBf3krP1TKo5nfVTRwokTLaeZtxVc5Btfs3Sl7k34byikVbUTl2xYW2vwBVdkFzyaT_xeJXJwXiiAJ2qEXD-A6AQklEcthzT7arV620lOF9JytjjjIYHLK0LLTvaMZIFQ"/>
+</div>
+<div class="h-1/2 rounded-[2rem] overflow-hidden">
+<img alt="Rice Terraces" class="w-full h-full object-cover" data-alt="Lush green rice terraces of Mu Cang Chai winding through mountains under soft golden hour sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALGsWq_N2BBvu52RWfPHQPTZOr0Vph7aZ1-KhfK9QSeL5-jMp9uNxMAfvb_OHCW24lO5xLoV89cnhKlbPN2WQ1Kvq4IN9UzLldmS6nnJPgDhEr_P_iqoBnWOK552hsU5Zju7LJaAY2l4TSieP1m82dBOjre7Kr_FkdYAmn3GQQnWiN95x2JWp3eprJhkbAP3BAlRNUgNp6LBqjKBghbJPHnbeMSwt8jJdcASPlpRZtfOIRXHg6o8KLQ4AV99ulIYKlW560Te3QFg"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Overlay & Date Picker Focus State -->
+<div class="relative z-10 flex flex-col items-center justify-start pt-24 px-8 max-w-screen-2xl mx-auto min-h-screen">
+<!-- Typography Hierarchy -->
+<div class="text-center mb-12 max-w-3xl">
+<h1 class="text-6xl font-black tracking-tight text-on-surface mb-6 leading-[1.1]">
+          Khám phá những <span class="text-primary italic">miền xanh</span> tuyệt diệu
+        </h1>
+<p class="text-xl text-on-surface-variant font-medium">Khởi hành từ tâm hồn, trải nghiệm sự an nhiên tại những điểm đến được tinh tuyển.</p>
+</div>
+<!-- Search Bar Anchor -->
+<div class="relative w-full max-w-4xl">
+<div class="bg-surface-container-lowest rounded-full p-2 shadow-2xl flex items-center gap-2 pr-4 border border-outline-variant/10">
+<div class="flex-1 flex items-center px-6 gap-4 border-r border-stone-100">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-wider font-bold text-stone-400">Địa điểm</span>
+<span class="font-semibold text-on-surface">Đà Lạt, Việt Nam</span>
+</div>
+</div>
+<div class="flex-1 flex items-center px-6 gap-4">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-wider font-bold text-stone-400">Thời gian</span>
+<span class="font-semibold text-on-surface">Chọn ngày đi</span>
+</div>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white h-14 w-14 rounded-full flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+<!-- Date Picker Overlay -->
+<div class="absolute top-full mt-6 left-1/2 -translate-x-1/2 w-full max-w-md bg-white rounded-[2rem] shadow-[0_24px_48px_rgba(0,109,67,0.12)] p-8 border border-stone-100 animate-in fade-in zoom-in duration-300">
+<div class="flex justify-between items-center mb-8">
+<button class="p-2 hover:bg-stone-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">chevron_left</span>
+</button>
+<h3 class="text-lg font-bold text-on-surface">Tháng 12, 2024</h3>
+<button class="p-2 hover:bg-stone-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 gap-y-4 text-center">
+<!-- Weekdays -->
+<div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">CN</div>
+<div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">T2</div>
+<div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">T3</div>
+<div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">T4</div>
+<div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">T5</div>
+<div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">T6</div>
+<div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">T7</div>
+<!-- Calendar Days (Simulated) -->
+<div class="py-2 text-stone-300">26</div>
+<div class="py-2 text-stone-300">27</div>
+<div class="py-2 text-stone-300">28</div>
+<div class="py-2 text-stone-300">29</div>
+<div class="py-2 text-stone-300">30</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">1</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">2</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">3</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">4</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">5</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">6</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">7</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">8</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">9</div>
+<!-- Range Selection State -->
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">10</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">11</div>
+<div class="relative py-2 text-white font-bold bg-[#00A86B] rounded-l-xl cursor-pointer">12</div>
+<div class="py-2 font-bold bg-[#00A86B]/10 text-[#006d43] cursor-pointer">13</div>
+<div class="py-2 font-bold bg-[#00A86B]/10 text-[#006d43] cursor-pointer">14</div>
+<div class="relative py-2 text-white font-bold bg-[#00A86B] rounded-r-xl cursor-pointer">15</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">16</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">17</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">18</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">19</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">20</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">21</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">22</div>
+<div class="py-2 font-medium hover:bg-stone-50 rounded-xl cursor-pointer">23</div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 py-3 text-sm font-bold text-on-surface-variant hover:bg-stone-50 rounded-xl transition-colors">Hủy</button>
+<button class="flex-[2] py-3 text-sm font-bold bg-[#006d43] text-white rounded-xl shadow-lg shadow-[#006d43]/20">Áp dụng ngày</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Featured Experiences (Subtlely visible in background) -->
+<section class="py-24 px-8 max-w-screen-2xl mx-auto blur-[4px] opacity-40">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-4xl font-black text-[#006d43] mb-2">Trải nghiệm tinh tuyển</h2>
+<p class="text-on-surface-variant">Những hành trình được thiết kế riêng cho bạn</p>
+</div>
+<button class="text-[#006d43] font-bold flex items-center gap-2">
+        Xem tất cả <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest rounded-[2rem] p-6 shadow-sm">
+<div class="h-64 rounded-2xl overflow-hidden mb-6">
+<img alt="Resort" class="w-full h-full object-cover" data-alt="Luxury eco-resort villa with private pool overlooking a tropical jungle valley at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIW9UNTn2TVuwm7bXMjsBllcAupAGh0YCQFyS_cPGltbccNSOc2tbOEz6Yojggu5A5hKOU8X2AvHjg957-vByY4MpAuq5Gf3vzxWZkFGlsL_xg8jCDU_CLy6t8EYKgRSd8ciGxAsdo7n-W8vZsSUdRdrJj1mEZTc-K-In0utykiwq3MCXDtaEkj2Hu-EjfstvxNV-ZNQESU2b9vnpq9DhjU3HUfHQ0c357Sb9GDoA4O3g6Hz72ZJS2cafFWF2rglPDhbYxw7mADw"/>
+</div>
+<h3 class="text-xl font-bold mb-2">Six Senses Ninh Van Bay</h3>
+<p class="text-sm text-on-surface-variant mb-4">Nha Trang, Khánh Hòa</p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-black text-[#006d43]">12.500.000đ<span class="text-sm font-normal text-stone-400">/đêm</span></span>
+</div>
+</div>
+<!-- Add more cards as needed -->
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-8 border-t border-stone-200/50 dark:border-stone-800/50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
+<div>
+<div class="font-bold text-[#006d43] text-xl mb-4">TravelMate</div>
+<p class="text-stone-500">Người bạn đồng hành tin cậy trên mọi nẻo đường khám phá vẻ đẹp Việt Nam.</p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Công ty</h4>
+<ul class="space-y-2">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Về chúng tôi</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trợ giúp</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Hợp tác</h4>
+<ul class="space-y-2">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trở thành đối tác</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Điều khoản bảo mật</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Kết nối</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#006d43] cursor-pointer">language</span>
+<span class="material-symbols-outlined text-[#006d43] cursor-pointer">share</span>
+</div>
+<p class="mt-4 text-stone-500">© 2024 TravelMate. Tất cả quyền được bảo lưu.</p>
+</div>
+</div>
+</footer>
+
+```</body></html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thanh toán - TravelMate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#bacac3",
+                        "surface-container": "#efeded",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#87968f",
+                        "inverse-surface": "#303030",
+                        "primary-fixed-dim": "#59de9b",
+                        "inverse-primary": "#59de9b",
+                        "surface-container-low": "#f5f3f3",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d6e6de",
+                        "surface-bright": "#fbf9f8",
+                        "secondary-container": "#9df5c4",
+                        "primary": "#006d43",
+                        "surface-container-high": "#eae8e7",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbf9f8",
+                        "tertiary": "#53625c",
+                        "on-primary-container": "#00331d",
+                        "on-secondary-container": "#12734c",
+                        "outline": "#6d7a70",
+                        "secondary": "#036c46",
+                        "primary-container": "#00a86b",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-primary-fixed-variant": "#005232",
+                        "surface-tint": "#006d43",
+                        "outline-variant": "#bccabe",
+                        "on-surface": "#1b1c1c",
+                        "on-tertiary-fixed-variant": "#3c4a44",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#002111",
+                        "on-tertiary-fixed": "#111e1a",
+                        "surface-variant": "#e4e2e2",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#78fbb6",
+                        "secondary-fixed": "#9df5c4",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#002112",
+                        "on-tertiary-container": "#212e29",
+                        "background": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "secondary-fixed-dim": "#82d8a9",
+                        "on-secondary-fixed-variant": "#005234",
+                        "on-surface-variant": "#3d4a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Be Vietnam Pro"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow { box-shadow: 0 12px 40px rgba(0, 109, 67, 0.06); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] tracking-tight">
+<div class="text-2xl font-black text-[#006d43] dark:text-[#00A86B] cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_20}}'">TravelMate</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Giới thiệu</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Trợ giúp</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Đối tác</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-all duration-300 scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/20">
+<img alt="Ảnh đại diện người dùng" class="w-full h-full object-cover" data-alt="professional portrait of a person for user profile avatar with clean minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-y_QOeR8-6ggHlgtkIJ8osqdJcBSK2vDICyuSb2dSRd2trEVq87ib7hEkrWOZnSa9olwAsjPkHPP4i89guK_ebd8MiJ9PK4Bdv7g2FMVHtLkuyAF6JX_OU4X5Fo742yPT7qZDnuWHoVrK6cmhj55vqXGo1tH84cYWNles9VD86fkgedt-7_bRq1sp1PZT912TN4IdToOIKN5MKQmXn0yQF3ONXgeE3maKNDx4xrfuciXXtwrLF-dBMqGl7IgZIwbo-X5-YqFSTw"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-28 pb-20 px-4 md:px-8 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Side: Payment Methods & Details -->
+<div class="lg:col-span-8 space-y-8">
+<section>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Thanh toán</h1>
+<p class="text-on-surface-variant mb-8">Vui lòng chọn phương thức thanh toán và hoàn tất thông tin.</p>
+<!-- Payment Tabs -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+<button class="flex flex-col items-center justify-center p-6 rounded-xl border-2 border-primary bg-primary/5 text-primary transition-all">
+<span class="material-symbols-outlined mb-2 text-3xl">credit_card</span>
+<span class="text-sm font-semibold">Visa/Mastercard</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:border-primary/50 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined mb-2 text-3xl">wallet</span>
+<span class="text-sm font-semibold">MoMo</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:border-primary/50 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined mb-2 text-3xl">account_balance_wallet</span>
+<span class="text-sm font-semibold">ZaloPay</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:border-primary/50 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined mb-2 text-3xl">qr_code_2</span>
+<span class="text-sm font-semibold">Mã QR</span>
+</button>
+</div>
+<!-- Card Input Form -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl editorial-shadow space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2 space-y-2">
+<label class="text-sm font-medium text-on-surface-variant px-1">Tên trên thẻ</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-low border-transparent focus:border-primary focus:ring-0 focus:bg-surface-container-lowest transition-all uppercase tracking-wider font-semibold placeholder:normal-case placeholder:font-normal" placeholder="NGUYEN VAN A" type="text"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-sm font-medium text-on-surface-variant px-1">Số thẻ</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-low border-transparent focus:border-primary focus:ring-0 focus:bg-surface-container-lowest transition-all font-medium" placeholder="0000 0000 0000 0000" type="text"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant/40">credit_card</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-on-surface-variant px-1">Ngày hết hạn</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-low border-transparent focus:border-primary focus:ring-0 focus:bg-surface-container-lowest transition-all" placeholder="MM/YY" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-on-surface-variant px-1">CVC/CVV</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-low border-transparent focus:border-primary focus:ring-0 focus:bg-surface-container-lowest transition-all" placeholder="***" type="password"/>
+</div>
+</div>
+<div class="flex items-start gap-3 pt-2">
+<input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" id="save-card" type="checkbox"/>
+<label class="text-sm text-on-surface-variant leading-relaxed" for="save-card">Lưu thông tin thẻ cho những lần thanh toán sau. Thông tin được mã hóa bảo mật theo tiêu chuẩn quốc tế.</label>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Side: Order Summary -->
+<aside class="lg:col-span-4 sticky top-28">
+<div class="bg-surface-container-low p-6 rounded-2xl space-y-6">
+<h2 class="text-xl font-bold text-on-surface">Chi tiết đơn hàng</h2>
+<!-- Property Summary Card -->
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden shrink-0">
+<img alt="Hội An Boutique Resort" class="w-full h-full object-cover" data-alt="high-end luxury resort in Hoi An with traditional architecture, infinity pool and lush tropical palms at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdgJWQPpWHOmjeklb-4eMzs_whbD-2xealY_cjCdypcEouCd3wHJaQxB0mVR8yA2enCOK5U1OAqxc43rXgQx63V1l3VXaN0jVlLx7a_irnmeIEoIrf3924DrjSmZ8Oeo7F0GiQKFFb_kuqhY32qeg0WroGzIvW_-4pz0elmdol31OCBR9SwbfyECAWt4cEjUdjAGucidz81MdomY5nEzazjMMTZfrdLGY6z9gOw80lfLp8zMuQKYE4lp9KxaV8O3gfFjYr56aUug"/>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="font-bold text-on-surface text-lg">Hội An Boutique Resort</h3>
+<div class="flex items-center gap-1 text-primary text-sm font-medium mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Quảng Nam, Việt Nam</span>
+</div>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-outline-variant/20">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Ngày nhận phòng</span>
+<span class="font-semibold text-on-surface">24 Th10, 2024</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Thời gian nghỉ</span>
+<span class="font-semibold text-on-surface">2 đêm</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Loại phòng</span>
+<span class="font-semibold text-on-surface">Deluxe Ocean View</span>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-outline-variant/20">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Giá phòng (2 đêm)</span>
+<span class="text-on-surface">4.500.000₫</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Phí dịch vụ &amp; Thuế</span>
+<span class="text-on-surface">450.000₫</span>
+</div>
+<div class="flex justify-between text-sm text-primary-container font-medium">
+<span>Khuyến mãi (TRAVEL20)</span>
+<span>- 200.000₫</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/40 flex justify-between items-center">
+<span class="text-lg font-bold text-on-surface">Tổng cộng</span>
+<div class="text-right">
+<span class="text-2xl font-black text-primary">4.750.000₫</span>
+<p class="text-[10px] text-on-surface-variant">Đã bao gồm VAT</p>
+</div>
+</div>
+<button class="w-full py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-white font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all" onclick="window.location.href='{{DATA:SCREEN:SCREEN_6}}'">
+                        Xác nhận thanh toán
+                    </button>
+</div>
+<div class="mt-6 flex items-center justify-center gap-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-xs font-medium">Bảo mật bởi chuẩn mã hóa PCI DSS</span>
+</div>
+</aside>
+</div>
+</main>
+<!-- OTP Verification Modal (Visible for flow demonstration) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center px-4">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm"></div>
+<!-- Modal Content -->
+<div class="relative bg-surface-container-lowest w-full max-w-md rounded-2xl p-8 editorial-shadow">
+<div class="text-center space-y-4">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
+<span class="material-symbols-outlined text-3xl">sms</span>
+</div>
+<h2 class="text-2xl font-bold text-on-surface">Xác minh OTP</h2>
+<p class="text-on-surface-variant">Chúng tôi đã gửi mã OTP 6 chữ số đến số điện thoại kết thúc bằng <span class="font-bold text-on-surface">**** 8888</span></p>
+<div class="flex justify-between gap-2 py-6">
+<input class="w-12 h-14 text-center text-xl font-bold rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 transition-all" maxlength="1" type="text" value="4"/>
+<input class="w-12 h-14 text-center text-xl font-bold rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 transition-all" maxlength="1" type="text" value="2"/>
+<input class="w-12 h-14 text-center text-xl font-bold rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 transition-all" maxlength="1" placeholder="•" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 transition-all" maxlength="1" placeholder="•" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 transition-all" maxlength="1" placeholder="•" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 transition-all" maxlength="1" placeholder="•" type="text"/>
+</div>
+<div class="space-y-4">
+<button class="w-full py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary-fixed-dim transition-colors" onclick="window.location.href='{{DATA:SCREEN:SCREEN_6}}'">
+                        Xác nhận
+                    </button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+                        Gửi lại mã (59s)
+                    </button>
+</div>
+</div>
+<button class="absolute top-4 right-4 p-1 hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-8 border-t border-stone-200/50 dark:border-stone-800/50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<span class="font-bold text-[#006d43] text-xl">TravelMate</span>
+<p class="mt-4 text-stone-500">Khám phá vẻ đẹp Việt Nam cùng ứng dụng du lịch hàng đầu. Trải nghiệm sang trọng, dịch vụ tận tâm.</p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Dịch vụ</h4>
+<ul class="space-y-3">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Về chúng tôi</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trợ giúp</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Đối tác</h4>
+<ul class="space-y-3">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trở thành đối tác</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Cổng thông tin đại lý</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Pháp lý</h4>
+<ul class="space-y-3">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Điều khoản bảo mật</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Quy chế hoạt động</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-stone-200/50 text-center text-stone-400 max-w-screen-2xl mx-auto">
+            © 2024 TravelMate. Tất cả quyền được bảo lưu.
+        </div>
+</footer>
+</body></html>

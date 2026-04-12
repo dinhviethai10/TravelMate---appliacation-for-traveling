@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#005234",
+                    "secondary": "#036c46",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary": "#53625c",
+                    "surface-variant": "#e4e2e2",
+                    "on-surface-variant": "#3d4a41",
+                    "secondary-container": "#9df5c4",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-bright": "#fbf9f8",
+                    "inverse-primary": "#59de9b",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#78fbb6",
+                    "primary-container": "#00a86b",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#006d43",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-dim": "#dbd9d9",
+                    "tertiary-fixed-dim": "#bacac3",
+                    "on-primary-fixed": "#002111",
+                    "on-primary-container": "#00331d",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#87968f",
+                    "primary-fixed-dim": "#59de9b",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#002112",
+                    "on-secondary-container": "#12734c",
+                    "outline": "#6d7a70",
+                    "primary": "#006d43",
+                    "on-error": "#ffffff",
+                    "background": "#fbf9f8",
+                    "outline-variant": "#bccabe",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "secondary-fixed": "#9df5c4",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary-fixed": "#111e1a",
+                    "inverse-surface": "#303030",
+                    "surface-container-low": "#f5f3f3",
+                    "on-tertiary-container": "#212e29",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "inverse-on-surface": "#f2f0f0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#006d43] dark:text-[#00A86B]">TravelMate</span>
+<div class="hidden md:flex gap-6">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Giới thiệu</a>
+<a class="text-[#006d43] font-bold border-b-2 border-[#006d43] pb-1" href="#">Trợ giúp</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#006d43] transition-all duration-300" href="#">Đối tác</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-300 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container scale-95 active:opacity-80 cursor-pointer">
+<img alt="Ảnh đại diện người dùng" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOzbhTesJyCpzMdAKvN9bBLK3xT5EvzIUZlJPe76z-DBF_FcWI2zbztJsxI2YZMREWW73tYiPtHRu3zIrjcSy3KJaKWworQ9V3AOnhM2c-kgBTiL2U_kVvRKgl3Qw5rADQpwhTSYT2mlV2n7NqI6gJn_QAhaeVAdHUq3mOOiCwwQxG2FrSSlzcJiNAj7AxqtapDKOq_sAKiR_PID95Qg3RfbUt-Fw8T6KpVf4TpplEHLhG2YIBLHxVj_jq2UVAaq1pwCcQAUvJaw"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-20 px-4 md:px-8 max-w-5xl mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Editorial Content -->
+<div class="lg:col-span-5 space-y-8">
+<div class="space-y-4">
+<h1 class="text-5xl font-black tracking-tighter text-on-surface leading-tight">
+                    Chúng tôi luôn <br/><span class="text-primary-container">lắng nghe</span> bạn.
+                </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                    Mọi thắc mắc về hành trình, thủ tục hoặc sự cố kỹ thuật sẽ được đội ngũ chuyên gia của TravelMate xử lý ưu tiên. 
+                </p>
+</div>
+<div class="relative rounded-xl overflow-hidden aspect-[4/5] shadow-2xl shadow-primary/10">
+<img alt="Hỗ trợ khách hàng" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0XVFpVEj3Dlmifen7xy8H2muCOU4fEXp1KDXYCIRFXqfN4AlaZaLelPefodRvHlMjV7Ez30ngHDduCjhwtMIwo9kT4KyIWAI2e3T5q7Rq1eGtJga3PlO8_L6wEgdyGUTJmOTE8TjjRhnW90-J8qnC12E3zXtO4qHvrcifcFtAfpNhtouFm1IRC_a7JCT4DuS7TgOP67e_4ZEHphsGYSUj3z5Wb71Jvn-QazzzB7pxurF0GnSkMmQY2uG34YdJcxozmU3fwD497A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+<div class="flex items-center gap-3 text-white">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="text-sm font-semibold tracking-wider uppercase">Hỗ trợ 24/7</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Support Form -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest rounded-xl p-8 md:p-10 shadow-xl shadow-emerald-900/5">
+<form class="space-y-6">
+<!-- Success Toast -->
+<div class="bg-primary/10 border border-primary/20 rounded-lg p-4 flex items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500">
+<div class="bg-primary text-white p-2 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="text-on-primary-container font-semibold text-sm">Yêu cầu #TK-0089 đã được tạo.</p>
+<p class="text-on-primary-container/70 text-xs">Chúng tôi sẽ phản hồi trong vòng 24 giờ tới.</p>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">Tiêu đề</label>
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 placeholder-stone-400 text-on-surface" placeholder="Vấn đề bạn đang gặp phải..." type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">Loại yêu cầu</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 appearance-none text-on-surface">
+<option>Hủy đặt phòng</option>
+<option>Thay đổi thông tin</option>
+<option>Lỗi thanh toán</option>
+<option>Góp ý dịch vụ</option>
+<option>Khác</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-stone-400" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">Mã đặt phòng liên quan</label>
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 placeholder-stone-400 text-on-surface uppercase" placeholder="#TM-XXXX" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">Mô tả chi tiết</label>
+<textarea class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 placeholder-stone-400 text-on-surface" placeholder="Hãy mô tả chi tiết để chúng tôi hỗ trợ bạn nhanh nhất..." rows="5"></textarea>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border-2 border-dashed border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="cloud_upload">cloud_upload</span>
+<div class="text-xs">
+<p class="font-bold text-on-surface">File đính kèm</p>
+<p class="text-on-surface-variant/70">JPG, PNG, PDF (tối đa 5MB)</p>
+</div>
+</div>
+<button class="bg-surface-container-highest px-4 py-2 rounded-lg text-xs font-bold text-on-surface hover:bg-surface-dim transition-colors" type="button">
+                            Chọn tệp
+                        </button>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 rounded-lg font-black tracking-tight text-lg shadow-xl shadow-emerald-900/20 active:scale-95 transition-transform" type="submit">
+                        Gửi yêu cầu hỗ trợ
+                    </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-8 border-t border-stone-200/50 dark:border-stone-800/50 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
+<div class="md:col-span-1">
+<span class="font-bold text-[#006d43] text-2xl block mb-6">TravelMate</span>
+<p class="text-stone-500 mb-6">Ứng dụng đặt phòng và trải nghiệm du lịch hàng đầu Việt Nam. Mang đến cho bạn những hành trình xanh và ý nghĩa.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">camera</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">youtube_activity</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#006d43] mb-6 uppercase tracking-widest text-xs">Về chúng tôi</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Câu chuyện thương hiệu</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Cơ hội nghề nghiệp</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trở thành đối tác</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Liên hệ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#006d43] mb-6 uppercase tracking-widest text-xs">Trợ giúp</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trung tâm trợ giúp</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Chính sách bảo mật</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Điều khoản sử dụng</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Quy trình hoàn tiền</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#006d43] mb-6 uppercase tracking-widest text-xs">Tải ứng dụng</h4>
+<div class="flex flex-col gap-4">
+<div class="bg-stone-200 dark:bg-stone-800 p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors">
+<span class="material-symbols-outlined text-3xl">phone_iphone</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-stone-500">Tải trên</p>
+<p class="font-bold text-stone-800 dark:text-stone-100">App Store</p>
+</div>
+</div>
+<div class="bg-stone-200 dark:bg-stone-800 p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors">
+<span class="material-symbols-outlined text-3xl">ad_units</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-stone-500">Tải trên</p>
+<p class="font-bold text-stone-800 dark:text-stone-100">Google Play</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-stone-200/50 dark:border-stone-800/50 text-center text-stone-400 text-xs">
+        © 2024 TravelMate. Tất cả quyền được bảo lưu.
+    </div>
+</footer>
+</body></html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelMate - Chi tiết phòng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fbf9f8",
+                    "tertiary-container": "#87968f",
+                    "on-surface": "#1b1c1c",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-container": "#12734c",
+                    "tertiary-fixed-dim": "#bacac3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "surface-variant": "#e4e2e2",
+                    "surface-tint": "#006d43",
+                    "outline-variant": "#bccabe",
+                    "background": "#fbf9f8",
+                    "surface-container": "#efeded",
+                    "on-secondary-fixed-variant": "#005234",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#9df5c4",
+                    "on-surface-variant": "#3d4a41",
+                    "on-primary-container": "#00331d",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#002112",
+                    "surface-bright": "#fbf9f8",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed-variant": "#005232",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#212e29",
+                    "on-error-container": "#93000a",
+                    "secondary": "#036c46",
+                    "inverse-primary": "#59de9b",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f0f0",
+                    "secondary-container": "#9df5c4",
+                    "primary-fixed": "#78fbb6",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "on-error": "#ffffff",
+                    "primary-container": "#00a86b",
+                    "outline": "#6d7a70",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "primary": "#006d43",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary-fixed-dim": "#59de9b",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "tertiary": "#53625c",
+                    "on-tertiary-fixed": "#111e1a",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 12px 40px rgba(0, 109, 67, 0.06);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)] h-20">
+<div class="flex justify-between items-center px-8 h-full w-full max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] tracking-tight">
+<div class="flex items-center gap-12">
+<a class="text-2xl font-black text-[#006d43] dark:text-[#00A86B]" href="#">TravelMate</a>
+<div class="hidden md:flex gap-8">
+<a class="text-stone-500 hover:text-[#00A86B] transition-all duration-300" href="#">Giới thiệu</a>
+<a class="text-stone-500 hover:text-[#00A86B] transition-all duration-300" href="#">Trợ giúp</a>
+<a class="text-stone-500 hover:text-[#00A86B] transition-all duration-300" href="#">Đối tác</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-300 scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/10">
+<img alt="Ảnh đại diện người dùng" class="w-full h-full object-cover" data-alt="Close up portrait of a professional man with a friendly smile, natural soft lighting, blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjJZCII-B7Zhg17IQjqW-WpWpYddAYb4XhBngshC3sg2I4y4pa5N_Q_mQsVZndyONeU00YxO7ii6w0YaS6ldDul24Ko3b1rzuQqhcK6PPYcg5oxN6EeRSUDkl0V4D7uj7FxiSDIYTUZZUXAaigtM2EvnpCLnHGuhAqWs1SpmjIGgdikjXHvyl2hywHR96hij6B35KYGGXfHLJVnHPNJhpNsW6KYJw2ZMXqXPFdRjIJyAMZFeXhA797NpC4_D9I_CpEgfm2J0RS4Q"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Hotel Header Section -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-full tracking-wider">PREMIUM PARTNER</span>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-4">Amanoi Resort Vĩnh Hy</h1>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-lg">Vịnh Vĩnh Hy, Ninh Hải, Ninh Thuận, Việt Nam</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-surface-container-low text-on-surface font-medium hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">share</span> Chia sẻ
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-surface-container-low text-on-surface font-medium hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">favorite</span> Lưu lại
+                    </button>
+</div>
+</div>
+</header>
+<!-- Dynamic Content Layout: Room Selection -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Side: Editorial Details -->
+<div class="lg:col-span-4 space-y-8">
+<div class="p-8 rounded-3xl bg-surface-container-low">
+<h2 class="text-xl font-bold mb-6">Thông tin đặt phòng</h2>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-primary editorial-shadow">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Ngày nhận phòng</p>
+<p class="font-semibold">24 Th05, 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-primary editorial-shadow">
+<span class="material-symbols-outlined">event_busy</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Ngày trả phòng</p>
+<p class="font-semibold">26 Th05, 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-primary editorial-shadow">
+<span class="material-symbols-outlined">group</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Khách</p>
+<p class="font-semibold">2 người lớn, 1 trẻ em</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-4 bg-primary text-white rounded-xl font-bold hover:opacity-90 transition-opacity">Thay đổi tìm kiếm</button>
+</div>
+<div class="aspect-square rounded-3xl overflow-hidden relative group">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+<div class="absolute bottom-6 left-6 z-20">
+<p class="text-white text-sm font-medium mb-1">Khám phá vị trí</p>
+<h3 class="text-white text-xl font-bold">Vịnh Vĩnh Hy</h3>
+</div>
+<img alt="Vịnh Vĩnh Hy" class="w-full h-full object-cover" data-alt="Aerial view of a turquoise tropical bay surrounded by lush green mountains and white sand beaches, cinematic lighting" data-location="Vinh Hy Bay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMyFmKUZbVX6tQt_YN4eIH-MhwXaMdOm2ZpFWV8iW_-9r_A7mVJyNk7UsKxU2mWHPAp5zqfUxS91Nf2GCnXs3Y5d2wCf5b-sHFYvMDbR4Mlf1Irz0trXrBgq5Q5CHNrR9q5ECLpRm9jrT7zYiiqiutwH0Z7vUL3Y3uyzoTIz6lW5rzuePpq0qOe41iuzTFVlUAr7xsCehQUzs9TG_zcQFz1wJ5MgX9KEYReJ5xichAWkzjpcJUb-XxCU0M-EU40Vf0LdTSbk0fYQ"/>
+</div>
+</div>
+<!-- Right Side: Room Selection Expanded -->
+<div class="lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-2xl font-bold text-on-surface">Chọn loại phòng</h2>
+<span class="text-on-surface-variant text-sm font-medium">Tìm thấy 4 loại phòng phù hợp</span>
+</div>
+<!-- Room Card: Available 1 -->
+<div class="bg-surface-container-lowest rounded-[24px] overflow-hidden flex flex-col md:flex-row editorial-shadow group transition-transform hover:scale-[1.01]">
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden relative">
+<img alt="Phòng Ocean Pavilion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Luxury hotel room with dark wood accents, a king size bed with white linens, and a large window overlooking the ocean at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRCYAlGFD4348fasc5F5Cb5b7sj_GkwiaK5ZoV8KrQrRyTpEXFhFGuZOne8XBdU9WkvPKadigI8yYyn-f9q8AUWkd26iXXzzbAMEXEGLkvxo-m48Pnu7Gf_KTBXDXGasbVbN8tr7QsHRshzVEAgunc_cT2_FvzgNrdJKTeNZ1_gGcrAVmOE5fcyhsRWM8V6TlYhYnqow3-VL2AlQQjlFEuV5jG87PRj2pOBqFDPemHyI-L57wqds-2MaGImz5y1VmCSDmZ1Y2_OA"/>
+<div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-extrabold text-primary tracking-tighter uppercase">Phổ biến nhất</div>
+</div>
+<div class="p-8 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold text-on-surface">Ocean Pavilion</h3>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant line-through">18.500.000đ</p>
+<p class="text-xl font-black text-primary">15.200.000đ</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">/ đêm</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Tầm nhìn tuyệt đẹp hướng ra Vịnh Vĩnh Hy, ban công rộng rãi với ghế nằm thư giãn.</p>
+<div class="flex flex-wrap gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+<span class="text-xs font-medium">95 m²</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">king_bed</span>
+<span class="text-xs font-medium">1 Giường King</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">wifi</span>
+<span class="text-xs font-medium">Wifi miễn phí</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-sm">restaurant</span>
+<span class="text-xs font-bold">Bao gồm bữa sáng</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="text-xs font-bold text-[#00A86B]">Còn 2 phòng trống</span>
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95">Đặt ngay</button>
+</div>
+</div>
+</div>
+<!-- Room Card: Available 2 -->
+<div class="bg-surface-container-lowest rounded-[24px] overflow-hidden flex flex-col md:flex-row editorial-shadow group transition-transform hover:scale-[1.01]">
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+<img alt="Mountain Villa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Modern minimalist villa nestled in a green mountainside, large glass walls, private terrace, soft morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATBAV_5Qd5Bv5hI43qV8uzvW-3BqPgWm_kI2O3K_o2YhZyOabpkTiLpgD2x95sBGQbNFyxY6AcHQddaS7cfeMQfbBjC9yecp11bc3XNEEeQwsju3v9bhbba1Rycu4Etd6NtLnA1xTfD18a8CE1iqgiT3fnGCrZkOcTZecBDDCsO1V8gPC9wnv8mv816B7vEBM6ZS8lVqqPKcGcilGsHEOqlSyCCP6x4Eqx7KDOOlgdW0lD1_g71C87gJyuzYIOzoUavoggtlTlIw"/>
+</div>
+<div class="p-8 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold text-on-surface">Mountain Villa</h3>
+<div class="text-right">
+<p class="text-xl font-black text-primary">12.800.000đ</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">/ đêm</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Ẩn mình giữa rừng cây xanh mát của vườn quốc gia Núi Chúa, sự riêng tư tuyệt đối.</p>
+<div class="flex flex-wrap gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">square_foot</span>
+<span class="text-xs font-medium">125 m²</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">pool</span>
+<span class="text-xs font-medium">Hồ bơi riêng</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">bathtub</span>
+<span class="text-xs font-medium">Bồn tắm ngoài trời</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="text-xs font-bold text-[#00A86B]">Sẵn sàng đặt</span>
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95">Đặt ngay</button>
+</div>
+</div>
+</div>
+<!-- Room Card: Unavailable -->
+<div class="bg-surface-container-low rounded-[24px] overflow-hidden flex flex-col md:flex-row relative opacity-75 grayscale-[0.5]">
+<div class="absolute inset-0 bg-white/30 z-10 pointer-events-none"></div>
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden relative">
+<img alt="Wellness Pool Villa" class="w-full h-full object-cover" data-alt="Spacious luxury villa with a large infinity pool reflecting the sky, modern architectural design, daytime clear sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuFEh8lRvDCQusa2G0GHW1abvuX9k10dLly9f8cl-qU8lNn1tgP2hrVBw-LawFCqhTEMBUsU_IViVzQJnxzYhVDw5xvU7PK35dz9h7Iw2pbKyWieTVb4NY8kai4bA6c7mCxM3tjBuBsTIZ6HzbBwHFdtwEICLloAggR5gekPeaBCkhkOLtZ0YAUBIbYOMzUKKq3-7d2in_ya0Z8yuEE2iL7YlLYGevYg68N0Bki_6cR7paOop0F55WdPLKxZUq8C7O_-FN0ckUDA"/>
+<div class="absolute inset-0 bg-stone-900/40 flex items-center justify-center z-20">
+<span class="px-6 py-2 bg-stone-800 text-white text-sm font-bold rounded-full border border-white/20">Hết phòng</span>
+</div>
+</div>
+<div class="p-8 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold text-on-surface">Wellness Pool Villa</h3>
+<div class="text-right">
+<p class="text-xl font-black text-on-surface-variant">22.000.000đ</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">/ đêm</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Trải nghiệm chăm sóc sức khỏe toàn diện với phòng trị liệu riêng và hồ bơi vô cực.</p>
+<div class="flex flex-wrap gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">spa</span>
+<span class="text-xs font-medium">Spa tại phòng</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">king_bed</span>
+<span class="text-xs font-medium">2 Giường King</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container/50">
+<span class="text-xs font-bold text-error">Hết chỗ vào ngày bạn chọn</span>
+<button class="px-8 py-3 bg-stone-400 text-white rounded-xl font-bold cursor-not-allowed" disabled="">Hết phòng</button>
+</div>
+</div>
+</div>
+<!-- Room Card: Unavailable 2 -->
+<div class="bg-surface-container-low rounded-[24px] overflow-hidden flex flex-col md:flex-row relative opacity-75 grayscale-[0.5]">
+<div class="absolute inset-0 bg-white/30 z-10 pointer-events-none"></div>
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden relative">
+<img alt="Amanoi Ocean Pool Villa" class="w-full h-full object-cover" data-alt="Ultimate luxury villa with panoramic ocean views, private sundeck, elegant outdoor seating area, bright sunny day" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzJ1TE8D9fXiFfhFx7yrGjDQRMcGDJdK4JlzdfLl_Ee4S37e6ZaR8IRMpoTa2eHCPAoh65mWjqD4AqYyXtwlP92zYHhR3Qsq5tJ7atqFsQYXIKuo5p6-ab8opGG5x_S0MDLFsO9Qz7sxiZscmf02wivhzkY1rP2faWsM1vcwG2B4QiGxrjyayP3PaQLVq3vznSGvB-eIaXf1ubKoseeigZCgm2vuWlf2W31ULByo5Zb_Zw6Hnpc5cBn9EqMs978zcazBIynsoOow"/>
+<div class="absolute inset-0 bg-stone-900/40 flex items-center justify-center z-20">
+<span class="px-6 py-2 bg-stone-800 text-white text-sm font-bold rounded-full border border-white/20">Hết phòng</span>
+</div>
+</div>
+<div class="p-8 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold text-on-surface">Amanoi Ocean Pool Villa</h3>
+<div class="text-right">
+<p class="text-xl font-black text-on-surface-variant">35.500.000đ</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">/ đêm</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Villa cao cấp nhất với hồ bơi riêng 50m2 và tầm nhìn 270 độ ra đại dương.</p>
+<div class="flex flex-wrap gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">home</span>
+<span class="text-xs font-medium">280 m²</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">concierge</span>
+<span class="text-xs font-medium">Quản gia riêng</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container/50">
+<span class="text-xs font-bold text-error">Hết chỗ vào ngày bạn chọn</span>
+<button class="px-8 py-3 bg-stone-400 text-white rounded-xl font-bold cursor-not-allowed" disabled="">Hết phòng</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-8 border-t border-stone-200/50 dark:border-stone-800/50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
+<div class="space-y-4">
+<span class="font-bold text-[#006d43] text-xl">TravelMate</span>
+<p class="text-stone-500">Khám phá những trải nghiệm du lịch cao cấp và độc bản tại Việt Nam.</p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Dịch vụ</h4>
+<ul class="space-y-2">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Về chúng tôi</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trợ giúp</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Hợp tác</h4>
+<ul class="space-y-2">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Trở thành đối tác</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Chương trình Affiliate</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Pháp lý</h4>
+<ul class="space-y-2">
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Điều khoản bảo mật</a></li>
+<li><a class="text-stone-500 hover:text-[#00A86B] hover:translate-x-1 transition-transform inline-block" href="#">Chính sách hoàn tiền</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-stone-200/50 dark:border-stone-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-stone-500">© 2024 TravelMate. Tất cả quyền được bảo lưu.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer">language</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer">mail</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelMate - Quản lý nội dung &amp; Đánh giá</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#bacac3",
+                    "surface-container": "#efeded",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#87968f",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#59de9b",
+                    "inverse-primary": "#59de9b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-container": "#9df5c4",
+                    "primary": "#006d43",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "tertiary": "#53625c",
+                    "on-primary-container": "#00331d",
+                    "on-secondary-container": "#12734c",
+                    "outline": "#6d7a70",
+                    "secondary": "#036c46",
+                    "primary-container": "#00a86b",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006d43",
+                    "outline-variant": "#bccabe",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#111e1a",
+                    "surface-variant": "#e4e2e2",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#78fbb6",
+                    "secondary-fixed": "#9df5c4",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-fixed": "#002112",
+                    "on-tertiary-container": "#212e29",
+                    "background": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "on-secondary-fixed-variant": "#005234",
+                    "on-surface-variant": "#3d4a41"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Admin) -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-stone-50 dark:bg-stone-950 flex flex-col py-6 font-['Be_Vietnam_Pro'] text-sm font-medium z-40">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">travel_explore</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-[#006d43]">Quản trị viên</h1>
+<p class="text-[10px] text-stone-500 tracking-wider">Hệ thống TravelMate</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_15}}">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Thống kê hệ thống</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_19}}">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Quản lý người dùng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#00A86B] text-white rounded-lg mx-2 shadow-[0_8px_20px_rgba(0,168,107,0.2)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="contract">contract</span>
+<span>Quản lý nội dung</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_8}}">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span>Cảnh báo giá</span>
+</a>
+</nav>
+<div class="mt-auto px-2 space-y-1 border-t border-stone-200/50 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200 rounded-lg transition-colors" href="../admin_settings/code.html">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-8 bg-surface">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center gap-2 text-on-surface-variant text-sm mb-2">
+<span>Nội dung</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="font-semibold text-primary">Đánh giá khách hàng</span>
+</nav>
+<h2 class="text-3xl font-black text-on-surface tracking-tight">Quản lý &amp; Kiểm duyệt</h2>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-low px-4 py-2.5 rounded-xl flex items-center gap-2 text-on-surface hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="text-sm font-medium">Xuất báo cáo</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl flex items-center gap-2 hover:opacity-90 transition-all shadow-[0_4px_12px_rgba(0,109,67,0.2)]">
+<span class="material-symbols-outlined text-sm">rule</span>
+<span class="text-sm font-semibold">Tự động kiểm duyệt</span>
+</button>
+</div>
+</header>
+<!-- Main Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- Filters & Table Section -->
+<section class="col-span-8 flex flex-col gap-6">
+<!-- Filters Bar -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-transparent focus-within:border-primary/30 transition-all w-full max-w-md">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-stone-400" placeholder="Tìm tên khách hàng, mã đặt phòng..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mr-2">Trạng thái:</span>
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold">Tất cả</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-bold hover:bg-secondary-container transition-colors">Hiển thị</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-bold hover:bg-secondary-container transition-colors">Ẩn</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-bold hover:bg-error-container transition-colors">Đã xóa</button>
+</div>
+</div>
+<!-- Reviews Table -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Khách hàng</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Đánh giá</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Thời gian</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant text-center">Trạng thái</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="professional portrait of a young man with a friendly smile, studio lighting, clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiIAjWm6VI1uLikpOwaHf1keRffJECmmLrHxyU7OWaME38JKr33vKs68oVtMg3LiBJoV0wPOi04bkedQJzv4ZwPmoF9AqGnYBDbkiqtb2-tpSwBn26oKmtNxQNgn2jwyMRA9KHSS88RKt5aLiGlvVXen5ko_V_rCgaRpur_3hbQUlPgKHOMolsvm1-VbwkgXvdSb1GZdVxPvb5X4CkBMuFUL_igPf46VnTrKaNxJJ-JrwuTCrqz7cSL1kODHMKsSMoVrcC_zc8dw"/>
+<div>
+<p class="font-bold text-on-surface leading-tight">Lê Minh Tuấn</p>
+<p class="text-[11px] text-on-surface-variant">Mã: RM-10294</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex gap-0.5 text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xs text-on-surface line-clamp-1 max-w-[200px]">Phòng rất sạch sẽ, view hồ bơi tuyệt đẹp...</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-xs font-medium">14:20</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Hôm nay</p>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold">HIỂN THỊ</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-lg hover:bg-primary-container/20 text-primary transition-colors" title="Ghim">
+<span class="material-symbols-outlined text-[20px]">push_pin</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-stone-200 text-on-surface-variant transition-colors" title="Ẩn">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-error-container/20 text-error transition-colors" title="Xóa">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors bg-surface-container-low/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="close up profile of a cheerful woman with natural sunlight, outdoor garden background, cinematic soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfBfOlQmPOaNl869mbwIooqn5ZrFCn6VeTucQnkyRwNT7eLRhKMXslY1CWoZqyC-FsENN5Xnt6RdSxV-ldyJh5Nx6RD6Rywhbg1_lq2HAV5VRbVrpAANIJxCa6wPp-45NSfR_HkvQs8rqzpdAKnVnhXeSOEaaPGYenVqhDf0_bI8kJoFBm9OfjA--xHFuewfv5WVG_mFbE_O1WmhA_EsnNVPe4iiycLPDt5hYUjvecgFF369RWBg-w8KkUU-2HKcpcL8z3793paQ"/>
+<div>
+<p class="font-bold text-on-surface leading-tight">Phạm Tuyết Mai</p>
+<p class="text-[11px] text-on-surface-variant">Mã: RM-10295</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex gap-0.5 text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-xs text-on-surface line-clamp-1 max-w-[200px]">Thái độ nhân viên không tốt, chờ đợi quá lâu...</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-xs font-medium">11:05</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Hôm nay</p>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold">ẨN</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-lg hover:bg-primary-container/20 text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">push_pin</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-stone-200 text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-error-container/20 text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a man wearing glasses, urban office environment in background, natural professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Z2G5Uz0V_HyEJ8C6GmLPVrnmLhXnWTpdNqKUmwE3JywwES8nxw7zFMSrwGhvKx4eaLVtFyvwQ8PXQd5S2CTw0EkeEE6_-BgYPWWMimwea_TU2nUefWlk0LJ9YkO23bm8k87gb0suKQf-7bglBu4t09UbBxW4tFMFpz5xXY58vkgsWt5Ot-7ku-43CFVnXWiV3y2iHYUkjRVpWe2_glVpo9jFxMrbU1MMeF4ANcWwaDSYgX-dCqoV8sGjdvw50LANIcY9FZ4Ong"/>
+<div>
+<p class="font-bold text-on-surface leading-tight">Hoàng Anh Khoa</p>
+<p class="text-[11px] text-on-surface-variant">Mã: RM-10302</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex gap-0.5 text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-xs text-on-surface line-clamp-1 max-w-[200px]">Vị trí trung tâm, rất thuận tiện đi lại...</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-xs font-medium">09:45</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Hôm qua</p>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold">HIỂN THỊ</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-lg hover:bg-primary-container/20 text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">push_pin</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-stone-200 text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-error-container/20 text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container-low/30 border-t border-surface-container-low flex justify-between items-center">
+<span class="text-xs text-on-surface-variant">Hiển thị 3 trong số 1.284 đánh giá</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg hover:bg-white transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-white text-on-surface-variant text-xs font-bold transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-white text-on-surface-variant text-xs font-bold transition-colors">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded-lg hover:bg-white text-on-surface-variant text-xs font-bold transition-colors">128</button>
+<button class="p-1.5 rounded-lg hover:bg-white transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Preview Panel Section -->
+<aside class="col-span-4 sticky top-8 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-[0_12px_40px_rgba(0,109,67,0.06)]">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-xl font-bold tracking-tight">Chi tiết đánh giá</h3>
+<button class="text-primary-container p-1 rounded-full hover:bg-primary-container/10">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Selected Review Details -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<img class="w-16 h-16 rounded-2xl object-cover" data-alt="close up smiling professional man portrait, natural soft light, neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiXtZbYcf7Xa0eHgV9uESC_KxbFxeOT90IGEYILInrgw8IV8Vjq3pVfnF8j9qLi92qxzqE9K2c4QEU2vzdpdI3HPAs3ejvJkIIo8W8Uv5xnRnPoqHBydw6H6Ben4Gak4M9-qOOxsoU95QHFGSIqgppseXj_kfrPrRm2_6t8U6geIshtJJH--NznnaU54Snml4kbq-PIXGFfj5m3i0WaoNxaY7gx7AEr1iIujQ05Uepd7-PQU_SEbouClJWhiGfvZKZbNf6pnB-pQ"/>
+<div>
+<h4 class="font-black text-lg">Lê Minh Tuấn</h4>
+<p class="text-on-surface-variant text-sm">Khách hàng Kim cương • 42 chuyến đi</p>
+<div class="flex items-center gap-1 mt-1 text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-1 text-on-surface font-bold text-xs">5.0</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl relative">
+<span class="material-symbols-outlined absolute -top-3 -left-1 text-primary/20 text-4xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="text-sm leading-relaxed text-on-surface relative z-10">
+                                "Trải nghiệm tại resort thật sự tuyệt vời ngoài sức mong đợi. Phòng Deluxe view hồ bơi được dọn dẹp rất sạch sẽ hàng ngày. Nhân viên lễ tân cực kỳ nhiệt tình hỗ trợ gia đình mình trong suốt kỳ nghỉ. Chắc chắn sẽ quay lại vào lần tới!"
+                            </p>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<img class="w-full h-20 object-cover rounded-xl" data-alt="luxury hotel room interior with warm lighting, king size bed, and contemporary decor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlCp_uFyJ1K7BgyjCwLlzLlSv7sLw2YCxS-dUsEevoECIxG8hs9yWImz9SFYKyEGN553SQcpHVHiamvOyEj7PTn96fHC1fhFcuHMbwf_xG8XZW3_vcknhZ6k9f5XQKlLXbOCzTL8q8jnc7rPhMYAtGH9k5jSlNUIWZoPge7cb9QGTWRqOWH7-5VxPYeMhzFxTJye44g8shTQJk4IcnnasVclFU0i7L0Y7SO4AUpbTTGVr5fpHVa1DRX3sCwi2t78P1P6v5g8IYqg"/>
+<img class="w-full h-20 object-cover rounded-xl" data-alt="sparkling blue infinity pool at sunset with tropical palm trees in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKOHD-ilN4x7F3ur7zk9tcnpLzlwYW-f1qC0-Pz6nArYLb9-W2j3j5ClH-m0B1FWAOGkkLm3ONSdSfcvYwSn1VNM39bWi85W1kxh_t-YYHgjdN9vdRUY73yQzpGr9E-nPdeJvCR4FjaeYPvpvYwrk98UFSuuaG2AihhkmYv2emTdDgRPi5QlsSW6s6o8LFBSNSNw8plQStABqoVmraHfwL2QTnunzZWIgCpedxZeTVoS_jNMSqDhQCgIo_6Ye8XM3V9zG3VNmmsw"/>
+<div class="relative group cursor-pointer">
+<img class="w-full h-20 object-cover rounded-xl brightness-50" data-alt="resort balcony view overlooking lush green garden during daytime" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJptlhXewdWzjVmXmw53hq03VzdenWlbOXJg0iSU6rls_XpWgTaCVaXSWzX_HZMnDX88tqXGgTB-Y6TDFSGioMv1lGPMjNLuHnuYVEQTvdmCJCPZLBrDE3F9lnbyAfreEho6mtFvCrvCMiI5dOHYIOm6Y4nDSo99kjzXZhyId9HIDhlxy7SgUgjLmYshxl6644fpUET2E0oN2aTTmCKb5-cYQi3vOSuga4rl1mHi_CWuVMeygBfjUDRTagCU4yRQhWY11-nKSrvw"/>
+<div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs">+2</div>
+</div>
+</div>
+<div class="border-t border-surface-container-low pt-4 flex flex-col gap-3">
+<p class="text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Thao tác nhanh</p>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-secondary-container/20 text-secondary hover:bg-secondary-container/40 transition-all">
+<span class="material-symbols-outlined">push_pin</span>
+<span class="text-xs font-bold">Ghim đầu trang</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">visibility_off</span>
+<span class="text-xs font-bold">Ẩn đánh giá</span>
+</button>
+</div>
+<button class="w-full p-4 rounded-2xl bg-error-container/20 text-error flex items-center justify-center gap-2 hover:bg-error-container/40 transition-all">
+<span class="material-symbols-outlined">delete</span>
+<span class="text-xs font-bold">Gỡ bỏ đánh giá</span>
+</button>
+</div>
+</div>
+</div>
+<!-- System Stats Mini Card -->
+<div class="bg-primary rounded-3xl p-6 text-on-primary overflow-hidden relative">
+<div class="relative z-10">
+<p class="text-xs font-bold opacity-80 uppercase tracking-widest mb-1">Tổng quan hôm nay</p>
+<h4 class="text-2xl font-black mb-4">+156 Đánh giá mới</h4>
+<div class="flex items-center gap-2 text-xs font-bold bg-white/20 w-fit px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+<span>Tăng 12% so với hôm qua</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-white/10 text-9xl">reviews</span>
+</div>
+</aside>
+</div>
+</main>
+<!-- Reason Dropdown Modal (Floating Overlays Concept) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-3xl p-8 shadow-2xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold tracking-tight">Lý do ẩn đánh giá</h3>
+<button class="text-on-surface-variant hover:bg-surface-container-high p-1 rounded-full">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="text-sm text-on-surface-variant mb-6">Vui lòng chọn lý do để thông báo cho khách hàng và đối tác quản lý.</p>
+<div class="space-y-3 mb-8">
+<label class="flex items-center gap-3 p-4 rounded-2xl border-2 border-primary bg-primary-container/5 cursor-pointer">
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="reason" type="radio"/>
+<div class="flex-1">
+<p class="font-bold text-sm">Nội dung không phù hợp</p>
+<p class="text-[10px] text-on-surface-variant italic">Ngôn từ gây hấn, thô tục, vi phạm quy tắc</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-4 rounded-2xl border-2 border-transparent hover:bg-surface-container-low cursor-pointer transition-all">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="reason" type="radio"/>
+<div class="flex-1">
+<p class="font-bold text-sm">Spam / Quảng cáo</p>
+<p class="text-[10px] text-on-surface-variant italic">Chứa liên kết ngoài hoặc nội dung rác</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-4 rounded-2xl border-2 border-transparent hover:bg-surface-container-low cursor-pointer transition-all">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="reason" type="radio"/>
+<div class="flex-1">
+<p class="font-bold text-sm">Thông tin sai sự thật</p>
+<p class="text-[10px] text-on-surface-variant italic">Khiếu nại từ đối tác về tính xác thực</p>
+</div>
+</label>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 px-6 rounded-2xl bg-surface-container-low font-bold text-on-surface-variant hover:bg-surface-container-high transition-all">Hủy</button>
+<button class="flex-1 py-3 px-6 rounded-2xl bg-primary font-bold text-on-primary hover:opacity-90 transition-all shadow-[0_4px_12px_rgba(0,109,67,0.2)]">Xác nhận Ẩn</button>
+</div>
+</div>
+</div>
+</body></html>

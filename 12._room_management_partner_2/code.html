@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#bacac3",
+                    "surface-container": "#efeded",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#87968f",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#59de9b",
+                    "inverse-primary": "#59de9b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-container": "#9df5c4",
+                    "primary": "#006d43",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "tertiary": "#53625c",
+                    "on-primary-container": "#00331d",
+                    "on-secondary-container": "#12734c",
+                    "outline": "#6d7a70",
+                    "secondary": "#036c46",
+                    "primary-container": "#00a86b",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006d43",
+                    "outline-variant": "#bccabe",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#111e1a",
+                    "surface-variant": "#e4e2e2",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#78fbb6",
+                    "secondary-fixed": "#9df5c4",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-fixed": "#002112",
+                    "on-tertiary-container": "#212e29",
+                    "background": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "on-secondary-fixed-variant": "#005234",
+                    "on-surface-variant": "#3d4a41"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-stone-50 dark:bg-stone-950 flex flex-col py-6 z-40">
+<!-- Header -->
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center overflow-hidden">
+<img alt="Partner Logo" data-alt="Minimalist abstract leaf logo in white on a dark forest green background, modern travel tech brand style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1pjQLrG3_HPuGTbWmD8bAOOWB9uOZJ7m1J0mSVp9khpGCeayWzjfI3Mk1wpaRXMRPTZB60bbxWG30SpUrkNisQJ6BDJEsSntpWwXp8zyd0MxDkgBoFDjIDq2XTYmpmY_-cbj7CSNE0qnxKReJO2KH93KJMOhEtjr2JAIIDkWOrwZsyeY9F7kZieiVCLo9C8cyYSgKkskk3zz1m9w7FYsUfigYDrCM-ljmEnjAJZ5k1JgEDdaidENSolE_g9AsCV_JxKHR1I5_aQ"/>
+</div>
+<div>
+<h1 class="text-xl font-bold text-[#006d43]">Quản lý Đối tác</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold">TravelMate Partner</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex-1 space-y-1">
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="{{DATA:SCREEN:SCREEN_13}}">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Bảng điều khiển</span>
+</a>
+<!-- Room Management (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-[#00A86B]/10 text-[#006d43] dark:text-[#00A86B] rounded-lg mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="bed" style="font-variation-settings: 'FILL' 1;">bed</span>
+<span class="font-medium text-sm">Quản lý phòng</span>
+</a>
+<!-- Booking (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="{{DATA:SCREEN:SCREEN_14}}">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-medium text-sm">Quản lý đặt phòng</span>
+</a>
+<!-- Payments (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium text-sm">Báo cáo doanh thu</span>
+</a>
+</nav>
+<!-- Footer Tabs -->
+<div class="mt-auto border-t border-stone-200/50 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Cài đặt</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium text-sm">Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-8">
+<!-- Top Bar / Header -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<nav class="flex items-center gap-2 text-sm text-on-surface-variant mb-2">
+<span>Trang chủ</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-medium">Quản lý phòng</span>
+</nav>
+<h2 class="text-3xl font-black text-on-surface tracking-tight">Danh sách phòng</h2>
+<p class="text-on-surface-variant mt-1">Lâm Phượng Luxury Resort &amp; Spa</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2.5 rounded-xl">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Tìm tên phòng..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-2.5 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-[0_8px_20px_rgba(0,109,67,0.15)] active:scale-95">
+<span class="material-symbols-outlined">add_circle</span>
+                    Thêm phòng mới
+                </button>
+</div>
+</header>
+<!-- Room Statistics (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Tổng số phòng</p>
+<h3 class="text-2xl font-bold mt-1">24</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="w-12 h-12 bg-secondary-container/30 rounded-xl flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Đang mở bán</p>
+<h3 class="text-2xl font-bold mt-1">18</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="w-12 h-12 bg-error-container/30 rounded-xl flex items-center justify-center text-error mb-4">
+<span class="material-symbols-outlined">block</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Tạm đóng</p>
+<h3 class="text-2xl font-bold mt-1">06</h3>
+</div>
+<div class="bg-primary text-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
+<div>
+<p class="text-primary-fixed text-sm font-medium">Tỷ lệ lấp đầy</p>
+<h3 class="text-2xl font-bold mt-1">82%</h3>
+</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full mt-4">
+<div class="bg-white h-full rounded-full" style="width: 82%"></div>
+</div>
+</div>
+</section>
+<!-- Room Table Section -->
+<section class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-5 text-sm font-bold text-on-surface-variant">Phòng &amp; Loại</th>
+<th class="px-6 py-5 text-sm font-bold text-on-surface-variant">Giá / Đêm</th>
+<th class="px-6 py-5 text-sm font-bold text-on-surface-variant text-center">Sức chứa</th>
+<th class="px-6 py-5 text-sm font-bold text-on-surface-variant">Tiện ích chính</th>
+<th class="px-6 py-5 text-sm font-bold text-on-surface-variant text-center">Trạng thái</th>
+<th class="px-6 py-5 text-sm font-bold text-on-surface-variant text-right">Hành động</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Room Thumbnail" class="w-full h-full object-cover" data-alt="Luxury hotel suite with high-end furniture, ocean view balcony, and soft morning light, editorial photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF0lUABq1oCQS_W3i2DGP6cNaHiQELkjlcT8qKtJpUwytTMoUWcVfrjyWrNt2d6cC32_CZAxECOW46-92K6QrNIIFRj1VJUDI9xkEy0L9TA_njvpnOf7m8ls9ng95OH40TIxyBYFFYOlTjhuIPZlzQIp_GQ36jbRSOfItI09Aa5q4mjY_hjB9sZdT-phXf5xRHx-mVhmG2jNrjNgdCojsMjKJeXJp4Z_ki9tFPlDuriJ3eUSR9O8_KPtXIqdj9q3LmjNdKrYOB2g"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Deluxe Ocean View</p>
+<p class="text-xs text-on-surface-variant">Phòng đơn · 45m²</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="font-bold text-primary">2.450.000₫</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Đã bao gồm thuế</p>
+</td>
+<td class="px-6 py-6 text-center">
+<div class="flex items-center justify-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">person</span>
+<span class="font-medium text-sm">2 + 1</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex gap-2">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant" title="Wifi"><span class="material-symbols-outlined text-sm">wifi</span></span>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant" title="Pool"><span class="material-symbols-outlined text-sm">pool</span></span>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant" title="AC"><span class="material-symbols-outlined text-sm">ac_unit</span></span>
+</div>
+</td>
+<td class="px-6 py-6 text-center">
+<label class="inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="relative w-11 h-6 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-2 text-xs font-semibold text-primary uppercase">Mở</span>
+</label>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Room Thumbnail" class="w-full h-full object-cover" data-alt="Spacious luxury suite with king-size bed, warm ambient lighting, and wooden interior details, high-end travel photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVF2ZSaScRbq7yQiGhJy8nMRS7ryB_x1kkkU5gfmdRgCfLE2HupKbFvJTaF19U-qi-4PTu9Mfz2n5IUbUfHHKFkvITdeQEK367mcg8EDnpmC8M8SoK8mZKYZ3AVsAbYmShsKHFBmEO6kT4vE7_Nvx_hukPOt4jgL7GR_BewDPRRysEjvVUHeOYfQ8XAdd_vvZ2P2UCm_MmURB6nWBmKmc9a7e2fwIKCJmDePxrtr95j4JjooDlw4czhX8F4f3SsJkMyoQHC2GxTQ"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Presidential Suite</p>
+<p class="text-xs text-on-surface-variant">Căn hộ · 120m²</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="font-bold text-primary">8.900.000₫</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Đã bao gồm thuế</p>
+</td>
+<td class="px-6 py-6 text-center">
+<div class="flex items-center justify-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">person</span>
+<span class="font-medium text-sm">4 + 2</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex gap-2">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant"><span class="material-symbols-outlined text-sm">wifi</span></span>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant"><span class="material-symbols-outlined text-sm">bathtub</span></span>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant"><span class="material-symbols-outlined text-sm">local_bar</span></span>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant"><span class="material-symbols-outlined text-sm">kitchen</span></span>
+</div>
+</td>
+<td class="px-6 py-6 text-center">
+<label class="inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="relative w-11 h-6 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-2 text-xs font-semibold text-on-surface-variant uppercase">Đóng</span>
+</label>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container-low/20 flex justify-between items-center text-sm">
+<p class="text-on-surface-variant font-medium">Hiển thị 2 trong số 24 phòng</p>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-primary text-white font-bold">1</button>
+<button class="px-4 py-2 rounded-lg hover:bg-surface-container text-on-surface-variant font-medium">2</button>
+<button class="px-4 py-2 rounded-lg hover:bg-surface-container text-on-surface-variant font-medium">3</button>
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Room Modal (Simulated Overlay) -->
+<!-- Removed display:none logic to show UI for the prompt requirement -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+<div class="bg-surface rounded-[2rem] w-full max-w-4xl max-h-[921px] overflow-y-auto shadow-2xl flex flex-col hide-scrollbar">
+<!-- Modal Header -->
+<div class="p-8 pb-4 flex justify-between items-start sticky top-0 bg-surface z-10">
+<div>
+<h3 class="text-2xl font-black text-on-surface tracking-tight">Thêm phòng mới</h3>
+<p class="text-on-surface-variant">Cung cấp thông tin chi tiết để bắt đầu kinh doanh.</p>
+</div>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Content -->
+<div class="p-8 pt-0 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-6">
+<!-- General Info -->
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Tên phòng *</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" placeholder="VD: Deluxe Double Ocean" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Loại phòng</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface appearance-none">
+<option>Phòng đơn</option>
+<option>Phòng đôi</option>
+<option>Căn hộ (Suite)</option>
+<option>Villa</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Sức chứa (người)</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" type="number" value="2"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Giá niêm yết / đêm (VNĐ) *</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 font-bold text-primary text-xl focus:ring-2 focus:ring-primary/20 transition-all" placeholder="2.500.000" type="text"/>
+</div>
+<!-- Amenities -->
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-4">Tiện ích đi kèm</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-none bg-white" type="checkbox"/>
+<span class="text-sm font-medium">Wi-Fi miễn phí</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary border-none bg-white" type="checkbox"/>
+<span class="text-sm font-medium">Bữa sáng</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-none bg-white" type="checkbox"/>
+<span class="text-sm font-medium">Điều hòa</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary border-none bg-white" type="checkbox"/>
+<span class="text-sm font-medium">Mini Bar</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Image Upload Side -->
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-4">Hình ảnh phòng</label>
+<div class="w-full aspect-[4/3] bg-surface-container-low rounded-3xl border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-8 text-center hover:border-primary/50 transition-colors group cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">cloud_upload</span>
+</div>
+<p class="font-bold text-on-surface">Kéo thả ảnh vào đây</p>
+<p class="text-xs text-on-surface-variant mt-1">Hỗ trợ JPG, PNG (Tối đa 10MB)</p>
+<button class="mt-4 px-4 py-2 bg-white text-primary rounded-lg text-sm font-bold shadow-sm">Chọn từ máy tính</button>
+</div>
+</div>
+<!-- Image Previews -->
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square rounded-xl overflow-hidden relative group">
+<img alt="Room preview" class="w-full h-full object-cover" data-alt="Close-up of fluffy white hotel bed pillows and crisp linen in a brightly lit modern bedroom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCourTvEkG6eaMWfY1471k-t56u6Ds8QadobIz2oHHI5INF-1Y5RBkR94dT2pbUZi2aXvA4fIFPlDHrZWTXUr9BYYJso0I6uH78FqQYecXqFov0uIo0wsvN1wDpI_EO2595On43KhA-yQjBt_62OFvDFecCuav-DCz3r253NXBaMlGCTSzyTn3AoCDMWyzEZ36SgeyPuha-cuGanX-d3ZaMs5RwEZoHv7cXVqm26bcPU21mpl_Vh2GZ_-V6Xidqdp1tqPzSQuF51A"/>
+<button class="absolute top-1 right-1 w-6 h-6 bg-error text-white rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden relative group">
+<img alt="Room preview" class="w-full h-full object-cover" data-alt="Modern hotel bathroom with marble tiling, large mirror, and high-end toiletries in soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxly8fkGrMtizgX5_e6GJ5LPTf7wVishP_FnGFor7tRCY-pZQ5yeTxfxdPZVuJChf19FY-HCqlECfZROZp2u7OltTgMSRILKsp63pH-rfr8oGFcWp7iRj5xx-pEMBd__0UWQZ4UQCRM6oLRa0ZdXZNjSeWtIxoY8vflYNINuOlxLveXaRBULQSc6ApTWRZHNmEasLLslIKJYiXE5EX1XwoZ-IkdKfJvjVKbhAa40GbLgz_HgyyADYkgD8mBNuSKPe4-3_DdZeygg"/>
+<button class="absolute top-1 right-1 w-6 h-6 bg-error text-white rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+<div class="aspect-square rounded-xl bg-surface-container-low border border-dashed border-outline-variant flex items-center justify-center text-outline cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-8 border-t border-surface-container-high flex justify-end gap-4 bg-surface-container-low/10 sticky bottom-0 backdrop-blur-md">
+<button class="px-8 py-3 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container transition-colors">Hủy bỏ</button>
+<button class="px-10 py-3 rounded-xl bg-primary hover:bg-primary-container text-white font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all">Lưu thông tin</button>
+</div>
+</div>
+</div>
+</body></html>

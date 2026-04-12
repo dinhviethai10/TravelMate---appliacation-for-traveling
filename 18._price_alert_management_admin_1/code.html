@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelMate Admin - Quản lý cảnh báo giá</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#bacac3",
+                    "surface-container": "#efeded",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#87968f",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#59de9b",
+                    "inverse-primary": "#59de9b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d6e6de",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-container": "#9df5c4",
+                    "primary": "#006d43",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "tertiary": "#53625c",
+                    "on-primary-container": "#00331d",
+                    "on-secondary-container": "#12734c",
+                    "outline": "#6d7a70",
+                    "secondary": "#036c46",
+                    "primary-container": "#00a86b",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006d43",
+                    "outline-variant": "#bccabe",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#3c4a44",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#111e1a",
+                    "surface-variant": "#e4e2e2",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#78fbb6",
+                    "secondary-fixed": "#9df5c4",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-fixed": "#002112",
+                    "on-tertiary-container": "#212e29",
+                    "background": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed-dim": "#82d8a9",
+                    "on-secondary-fixed-variant": "#005234",
+                    "on-surface-variant": "#3d4a41"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Be Vietnam Pro"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #bccabe; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<!-- SideNavBar (Admin) -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-stone-50 dark:bg-stone-950 flex flex-col h-full py-6 z-50">
+<div class="px-6 mb-10 flex items-center gap-3 cursor-pointer" onclick="window.location.href='../15._dashboard_admin_1/code.html'">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">travel_explore</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-[#006d43] leading-tight">Quản trị viên</h1>
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant/60 font-bold">Hệ thống TravelMate</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 group" href="../15._dashboard_admin_1/code.html">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium">Thống kê hệ thống</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 group" href="../16._user_partner_management_admin_1/code.html">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium">Quản lý người dùng</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 group" href="../17._content_review_management_admin_1/code.html">
+<span class="material-symbols-outlined" data-icon="contract">contract</span>
+<span class="font-medium">Quản lý nội dung</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-3 py-3 px-4 bg-[#00A86B] text-white rounded-lg mx-2 shadow-[0_8px_20px_rgba(0,168,107,0.2)]" href="#">
+<span class="material-symbols-outlined" data-icon="notifications_active" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+<span class="font-semibold">Cảnh báo giá</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 group" href="../permission_management/code.html">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-medium">Phân quyền</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:text-stone-900 mx-2 hover:bg-stone-200 transition-colors duration-200 group" href="../cs_ticket_management_dashboard/code.html">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="font-medium">Yêu cầu hỗ trợ</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-1 border-t border-stone-200 pt-6">
+<div class="flex items-center gap-3 px-4 py-3">
+<img alt="Admin" class="w-8 h-8 rounded-full border-2 border-primary/20" data-alt="professional portrait of a system administrator in a minimal flat style avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANJXUounsdAGCi1BfnVWVIKmaiUsJQQVeCSaklAKxXZuSPzqPDGfe5ZdpbSxfwNGBW_s_UyDP6VdcpsXaFhk_gzJW2r4lTdI1uuI802fiTkH869britrK2f9eErUKiizoLYwKoHlc2DAjFFnbZjcPtK2wAg1NYNYeCa7JSP5hRXzOUmJRaawRWCgkm39j3sX-KyxBhURo_TWsNFrzyXzt4AMGpmWib2aZXnf7pKOS_pfRYZs5OM7hT_toZ3vR9EDXDAgGmWmksQA"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-on-surface truncate">Admin Nguyễn</p>
+<p class="text-[10px] text-on-surface-variant truncate">admin@travelmate.vn</p>
+</div>
+</div>
+<a class="flex items-center gap-3 py-3 px-4 text-error hover:bg-error-container/20 rounded-lg transition-colors" href="../2._login_register_customer_1/code.html">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium">Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 p-8">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center gap-2 text-sm text-on-surface-variant mb-2">
+<span>Hệ thống</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="font-medium text-primary">Cảnh báo giá</span>
+</nav>
+<h2 class="text-3xl font-black tracking-tight text-on-surface">Quản lý cảnh báo giá</h2>
+<p class="text-on-surface-variant mt-1">Giám sát sự thay đổi giá bất thường từ các đối tác lưu trú.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Tìm đối tác, tài sản..." type="text"/>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">priority_high</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Mới nhất</p>
+<p class="text-2xl font-black text-on-surface">12</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">pending</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Đang xử lý</p>
+<p class="text-2xl font-black text-on-surface">45</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">trending_up</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Chênh lệch TB</p>
+<p class="text-2xl font-black text-on-surface">+24%</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">check_circle</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Đã giải quyết</p>
+<p class="text-2xl font-black text-on-surface">1.2k</p>
+</div>
+</div>
+</div>
+<!-- Alerts Table Section -->
+<section class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_12px_40px_rgba(0,109,67,0.04)]">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-none">
+<th class="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Đối tác &amp; Tài sản</th>
+<th class="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Giá cũ</th>
+<th class="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Giá mới</th>
+<th class="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-center">Chênh lệch</th>
+<th class="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Trạng thái</th>
+<th class="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Thời gian</th>
+<th class="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Alert Item 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Resort" class="w-full h-full object-cover" data-alt="luxurious coastal resort villa with private pool and palm trees under bright sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRVx_vboF0X7OpFtUXESJzWGBnM8_mzDfdxLEXtmA2lzfujAX7gubAsw-DcLiovwVLHy2Pg2zIY-XX_8mfeyQiEk4n-ysfCCO8CwNBCNbWKyhIr8Dd9AKPHnbUCPJWB3KrXVfq6uEgImAfkWdz4XtgiHXjvENcG-BgGtbuO11Hox5u9H_xXYsAReWnWndMhbPk2vw5qchi0gWAiN24OkASGO1I_sEka1iAtp_esNTwjDIEuthcf1v3wL4xl5eF2uMgcFYQFPGUwA"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-tight">La Siesta Premium</p>
+<p class="text-xs text-on-surface-variant">Deluxe City View</p>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 font-medium text-on-surface-variant">2.100.000đ</td>
+<td class="py-5 px-6 font-bold text-primary">3.500.000đ</td>
+<td class="py-5 px-6 text-center">
+<span class="bg-error-container text-on-error-container text-xs font-bold px-2 py-1 rounded-full">+66.7%</span>
+</td>
+<td class="py-5 px-6">
+<span class="flex items-center gap-1.5 text-xs font-bold text-error uppercase tracking-tight">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span> Mới
+                                </span>
+</td>
+<td class="py-5 px-6 text-sm text-on-surface-variant">10:45, 24/05</td>
+<td class="py-5 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-8 h-8 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-center" title="Chấp nhận" onclick="alert('Đã chấp nhận mức giá mới. Đối tác sẽ được thông báo.')">
+<span class="material-symbols-outlined text-sm">check</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-on-surface hover:text-surface transition-all flex items-center justify-center" title="Giữ giá cũ" onclick="alert('Đã yêu cầu giữ giá cũ. Hệ thống sẽ hoàn nguyên về mức giá trước.')">
+<span class="material-symbols-outlined text-sm">history</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-error-container/30 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center" title="Đình chỉ" onclick="if(confirm('Xác nhận đình chỉ hoạt động của đối tác này?')) alert('Đối tác đã bị đình chỉ. Danh sách của họ sẽ bị ẩn tạm thời.')">
+<span class="material-symbols-outlined text-sm">block</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-600 hover:text-white transition-all flex items-center justify-center" title="Liên hệ đối tác" onclick="window.location.href='../11._dashboard_partner_1/code.html'">
+<span class="material-symbols-outlined text-sm">storefront</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Alert Item 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Boutique" class="w-full h-full object-cover" data-alt="boutique hotel bedroom with elegant emerald green bedding and gold accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFbL8zyCanUNxhlKJqddarhfZv_pDcLP-MEV5n-qdDSyqhiYfI5aRT7CwJULIhSXxwOb47wl3wTYPRb4cchYUX_Ql8k7gMF2l9GnXwDysP66ZY2VAoUzIkElnmB9S7xUi82uoRAS2cP5a87o48Z_HDj9o-NyLp3JF8Ypwz-gN_uJVZERhQFMNl2Cgq-Pr95h-bz9ybNwj79xIxH5nRTL817r7wqoS-AGqINwjXAh_0epRKpZA6tg9zJ4AeJx74Wyot2EIGOh1szw"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-tight">Emerald Homestay</p>
+<p class="text-xs text-on-surface-variant">Phòng Đôi Ban Công</p>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 font-medium text-on-surface-variant">850.000đ</td>
+<td class="py-5 px-6 font-bold text-primary">1.200.000đ</td>
+<td class="py-5 px-6 text-center">
+<span class="bg-secondary-container text-on-secondary-container text-xs font-bold px-2 py-1 rounded-full">+41.2%</span>
+</td>
+<td class="py-5 px-6">
+<span class="flex items-center gap-1.5 text-xs font-bold text-[#006d43] uppercase tracking-tight">
+                                    Đang xử lý
+                                </span>
+</td>
+<td class="py-5 px-6 text-sm text-on-surface-variant">09:12, 24/05</td>
+<td class="py-5 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-8 h-8 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-center" title="Chấp nhận" onclick="alert('Đã chấp nhận mức giá mới. Đối tác sẽ được thông báo.')">
+<span class="material-symbols-outlined text-sm">check</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-on-surface hover:text-surface transition-all flex items-center justify-center" title="Giữ giá cũ" onclick="alert('Đã yêu cầu giữ giá cũ. Hệ thống sẽ hoàn nguyên về mức giá trước.')">
+<span class="material-symbols-outlined text-sm">history</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-error-container/30 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center" title="Đình chỉ" onclick="if(confirm('Xác nhận đình chỉ hoạt động của đối tác này?')) alert('Đối tác đã bị đình chỉ. Danh sách của họ sẽ bị ẩn tạm thời.')">
+<span class="material-symbols-outlined text-sm">block</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-600 hover:text-white transition-all flex items-center justify-center" title="Liên hệ đối tác" onclick="window.location.href='../11._dashboard_partner_1/code.html'">
+<span class="material-symbols-outlined text-sm">storefront</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Alert Item 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Resort" class="w-full h-full object-cover" data-alt="scenic mountain eco-lodge with wooden architecture and morning mist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTNrVL2LjkumLjIjZ_cwSIFS_r88syW9aVQ6N0lwOT9UDghg8HgfTeoWCVnWoqvE8-Zchr0LwpaI8OO7uSsr-0mnmP4UwiPgX9-P1oZ7xI1gTvSAMQAyoGcxN92kbvF80PChXWwHKVPMFVA3h_KbzOV1D4B-Cw1AE2B3AWckLVrt7yQ7aSdOVQ1NNOHTibwR8zWmHmrEHY04Pxi0hp_UXxdEY0RZ-Hvf6cnjsD_wH_84NvUcnPDDroleHWoP6vwb-87pGiNvXc_w"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-tight">Sapa Valley View</p>
+<p class="text-xs text-on-surface-variant">Bungalow Gỗ</p>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 font-medium text-on-surface-variant">1.500.000đ</td>
+<td class="py-5 px-6 font-bold text-primary">1.950.000đ</td>
+<td class="py-5 px-6 text-center">
+<span class="bg-secondary-container text-on-secondary-container text-xs font-bold px-2 py-1 rounded-full">+30%</span>
+</td>
+<td class="py-5 px-6">
+<span class="flex items-center gap-1.5 text-xs font-bold text-on-surface-variant uppercase tracking-tight">
+                                    Đã giải quyết
+                                </span>
+</td>
+<td class="py-5 px-6 text-sm text-on-surface-variant">Hôm qua</td>
+<td class="py-5 px-6 text-right">
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Duyệt giá mới</span>
+</td>
+</tr>
+<!-- Alert Item 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Hotel" class="w-full h-full object-cover" data-alt="modern glass front hotel in a bustling city center at night with warm interior lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiLHd-vw_On9CqasQJBWNBMOJf3IkEXpxM5fn0Bf9lF0r8i6QuIpBGQs3Fm2Yo-VN6N4ynp0rIKM0UMVgn6vcRnfMyneuUm4TUrW4R0SIph214xJG3aaO1LnzU93_gxFtUCTa7g-GXpemB3OX4H42ZuZDh76YDDYLg4zsEftgZjMIEOWPb1mNLgF5nO_sjdV-YorbCUPck0zfoJ1UwvZeMHzliFsHPwYk5DoRSMosaF_qk8Xsea-xuTz3uSlAicIHM_28xbgDjVQ"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-tight">Grand Plaza Saigon</p>
+<p class="text-xs text-on-surface-variant">Suite Tổng thống</p>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 font-medium text-on-surface-variant">12.000.000đ</td>
+<td class="py-5 px-6 font-bold text-primary">25.000.000đ</td>
+<td class="py-5 px-6 text-center">
+<span class="bg-error-container text-on-error-container text-xs font-bold px-2 py-1 rounded-full">+108%</span>
+</td>
+<td class="py-5 px-6">
+<span class="flex items-center gap-1.5 text-xs font-bold text-error uppercase tracking-tight">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span> Mới
+                                </span>
+</td>
+<td class="py-5 px-6 text-sm text-on-surface-variant">07:30, 24/05</td>
+<td class="py-5 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-8 h-8 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-center" title="Chấp nhận" onclick="alert('Đã chấp nhận mức giá mới. Đối tác sẽ được thông báo.')">
+<span class="material-symbols-outlined text-sm">check</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-on-surface hover:text-surface transition-all flex items-center justify-center" title="Giữ giá cũ" onclick="alert('Đã yêu cầu giữ giá cũ. Hệ thống sẽ hoàn nguyên về mức giá trước.')">
+<span class="material-symbols-outlined text-sm">history</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-error-container/30 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center" title="Đình chỉ" onclick="if(confirm('Xác nhận đình chỉ hoạt động của đối tác này?')) alert('Đối tác đã bị đình chỉ. Danh sách của họ sẽ bị ẩn tạm thời.')">
+<span class="material-symbols-outlined text-sm">block</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-600 hover:text-white transition-all flex items-center justify-center" title="Liên hệ đối tác" onclick="window.location.href='../11._dashboard_partner_1/code.html'">
+<span class="material-symbols-outlined text-sm">storefront</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between bg-surface-container-low/30">
+<p class="text-xs font-medium text-on-surface-variant">Hiển thị 4 trên 57 cảnh báo</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high font-medium text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high font-medium text-xs">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Legend and Quick Actions -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-low/50 p-6 rounded-3xl">
+<h3 class="font-bold text-on-surface mb-4">Ghi chú trạng thái</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container/30 flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-error text-sm">warning</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Cảnh báo Mới (Đỏ)</p>
+<p class="text-xs text-on-surface-variant">Biến động giá &gt; 50% trong vòng 24h. Cần xử lý ngay lập tức.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-secondary text-sm">hourglass_empty</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Đang xử lý (Xanh lá nhạt)</p>
+<p class="text-xs text-on-surface-variant">Đã liên hệ đối tác để xác minh lý do tăng giá.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 p-6 rounded-3xl border border-primary/10">
+<h3 class="font-bold text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">auto_awesome</span> 
+                    Gợi ý hệ thống
+                </h3>
+<div class="bg-white/60 backdrop-blur-md p-4 rounded-2xl mb-4">
+<p class="text-sm font-medium text-on-surface-variant">Phát hiện xu hướng tăng giá mùa du lịch (Tháng 6-8). Hệ thống đề xuất tăng ngưỡng cảnh báo lên <span class="font-bold text-primary">60%</span> cho khu vực ven biển.</p>
+</div>
+<button class="w-full py-3 bg-primary text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(0,109,67,0.15)] hover:scale-[1.02] active:scale-[0.98] transition-all">
+                    Áp dụng cài đặt tự động
+                </button>
+</div>
+</section>
+</main>
+</body></html>
