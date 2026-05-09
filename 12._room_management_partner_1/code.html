@@ -122,11 +122,15 @@
 </nav>
 <!-- Footer Tabs -->
 <div class="mt-auto border-t border-stone-200/50 pt-4">
-<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="#">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-medium text-sm">Cài đặt</span>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98 rounded-lg" href="../availability_calendar/code.html">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<span class="font-medium text-sm text-primary">Lịch trống phòng</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98" href="../2._login_register_customer_1/code.html">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98 rounded-lg" href="../property_management/code.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Cài đặt cơ sở</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 hover:scale-[1.02] transition-transform cursor-pointer active:scale-98 rounded-lg" href="../2._login_register_customer_1/code.html">
 <span class="material-symbols-outlined" data-icon="logout">logout</span>
 <span class="font-medium text-sm">Đăng xuất</span>
 </a>
@@ -145,12 +149,16 @@
 <h2 class="text-3xl font-black text-on-surface tracking-tight">Danh sách phòng</h2>
 <p class="text-on-surface-variant mt-1">Lâm Phượng Luxury Resort &amp; Spa</p>
 </div>
-<div class="flex gap-4">
+<div class="flex gap-3 flex-wrap">
 <div class="flex items-center gap-2 bg-surface-container-low px-4 py-2.5 rounded-xl">
 <span class="material-symbols-outlined text-primary" data-icon="search">search</span>
 <input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Tìm tên phòng..." type="text"/>
 </div>
-<button class="bg-primary hover:bg-primary-container text-white px-6 py-2.5 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-[0_8px_20px_rgba(0,109,67,0.15)] active:scale-95" onclick="document.getElementById('addRoomModal').style.display='flex'">
+<button onclick="window.location.href='../availability_calendar/code.html'" class="flex items-center gap-2 px-5 py-2.5 border-2 border-primary/30 text-primary font-semibold rounded-xl hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined">calendar_month</span>
+                    Lịch trống
+                </button>
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-2.5 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-[0_8px_20px_rgba(0,109,67,0.15)] active:scale-95" onclick="openAddRoomModal()">
 <span class="material-symbols-outlined">add_circle</span>
                     Thêm phòng mới
                 </button>
@@ -196,7 +204,7 @@
 <tr class="bg-surface-container-low/50">
 <th class="px-6 py-5 text-sm font-bold text-on-surface-variant">Phòng &amp; Loại</th>
 <th class="px-6 py-5 text-sm font-bold text-on-surface-variant">Giá / Đêm</th>
-<th class="px-6 py-5 text-sm font-bold text-on-surface-variant text-center">Sức chứa</th>
+<th class="px-6 py-5 text-sm font-bold text-on-surface-variant text-center">Sức chứa & Phụ thu</th>
 <th class="px-6 py-5 text-sm font-bold text-on-surface-variant">Tiện ích chính</th>
 <th class="px-6 py-5 text-sm font-bold text-on-surface-variant text-center">Trạng thái</th>
 <th class="px-6 py-5 text-sm font-bold text-on-surface-variant text-right">Hành động</th>
@@ -221,9 +229,10 @@
 <p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Đã bao gồm thuế</p>
 </td>
 <td class="px-6 py-6 text-center">
-<div class="flex items-center justify-center gap-1 text-on-surface-variant">
-<span class="material-symbols-outlined text-lg">person</span>
-<span class="font-medium text-sm">2 + 1</span>
+<div class="space-y-1">
+<div class="flex items-center justify-center gap-1 text-on-surface-variant text-xs"><span class="material-symbols-outlined text-sm">person</span><span class="font-semibold">2 người lớn</span></div>
+<div class="flex items-center justify-center gap-1 text-orange-500 text-xs"><span class="material-symbols-outlined text-sm">child_care</span><span class="font-semibold">1 trẻ em</span></div>
+<p class="text-[10px] text-on-surface-variant mt-1">Phụ thu: 100.000₫/trẻ/đêm</p>
 </div>
 </td>
 <td class="px-6 py-6">
@@ -242,8 +251,8 @@
 </td>
 <td class="px-6 py-6 text-right">
 <div class="flex items-center justify-end gap-1">
-<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
-<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors" onclick="if(confirm('Bạn có chắc muốn xóa phòng này không?')) alert('Phòng đã được xóa thành công.')"><span class="material-symbols-outlined">delete</span></button>
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors" onclick="openEditRoomModal('Deluxe Ocean View', 'Phòng đơn', 2, 1, '2.450.000', '100.000', 45)"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors" onclick="deleteRoom(this)"><span class="material-symbols-outlined">delete</span></button>
 </div>
 </td>
 </tr>
@@ -265,9 +274,10 @@
 <p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Đã bao gồm thuế</p>
 </td>
 <td class="px-6 py-6 text-center">
-<div class="flex items-center justify-center gap-1 text-on-surface-variant">
-<span class="material-symbols-outlined text-lg">person</span>
-<span class="font-medium text-sm">4 + 2</span>
+<div class="space-y-1">
+<div class="flex items-center justify-center gap-1 text-on-surface-variant text-xs"><span class="material-symbols-outlined text-sm">person</span><span class="font-semibold">4 người lớn</span></div>
+<div class="flex items-center justify-center gap-1 text-orange-500 text-xs"><span class="material-symbols-outlined text-sm">child_care</span><span class="font-semibold">2 trẻ em</span></div>
+<p class="text-[10px] text-on-surface-variant mt-1">Phụ thu: 200.000₫/trẻ/đêm</p>
 </div>
 </td>
 <td class="px-6 py-6">
@@ -287,8 +297,8 @@
 </td>
 <td class="px-6 py-6 text-right">
 <div class="flex items-center justify-end gap-1">
-<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
-<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors" onclick="if(confirm('Bạn có chắc muốn xóa phòng này không?')) alert('Phòng đã được xóa thành công.')"><span class="material-symbols-outlined">delete</span></button>
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors" onclick="openEditRoomModal('Presidential Suite', 'Căn hộ (Suite)', 4, 2, '8.900.000', '200.000', 120)"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors" onclick="deleteRoom(this)"><span class="material-symbols-outlined">delete</span></button>
 </div>
 </td>
 </tr>
@@ -316,8 +326,8 @@
 <!-- Modal Header -->
 <div class="p-8 pb-4 flex justify-between items-start sticky top-0 bg-surface z-10">
 <div>
-<h3 class="text-2xl font-black text-on-surface tracking-tight">Thêm phòng mới</h3>
-<p class="text-on-surface-variant">Cung cấp thông tin chi tiết để bắt đầu kinh doanh.</p>
+<h3 id="modalTitle" class="text-2xl font-black text-on-surface tracking-tight">Thêm phòng mới</h3>
+<p id="modalSubtitle" class="text-on-surface-variant">Cung cấp thông tin chi tiết để bắt đầu kinh doanh.</p>
 </div>
 <button class="w-10 h-10 rounded-full hover:bg-surface-container-high flex items-center justify-center transition-colors" onclick="document.getElementById('addRoomModal').style.display='none'">
 <span class="material-symbols-outlined">close</span>
@@ -329,12 +339,12 @@
 <!-- General Info -->
 <div>
 <label class="block text-sm font-bold text-on-surface-variant mb-2">Tên phòng *</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" placeholder="VD: Deluxe Double Ocean" type="text"/>
+<input id="modalRoomName" class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" placeholder="VD: Deluxe Double Ocean" type="text"/>
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div>
 <label class="block text-sm font-bold text-on-surface-variant mb-2">Loại phòng</label>
-<select class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface appearance-none">
+<select id="modalRoomType" class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface appearance-none">
 <option>Phòng đơn</option>
 <option>Phòng đôi</option>
 <option>Căn hộ (Suite)</option>
@@ -342,13 +352,43 @@
 </select>
 </div>
 <div>
-<label class="block text-sm font-bold text-on-surface-variant mb-2">Sức chứa (người)</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" type="number" value="2"/>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Diện tích (m²)</label>
+<input id="modalArea" class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" type="number" value="35" placeholder="35"/>
+</div>
+</div>
+<!-- Capacity: Adults + Children -->
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Sức chứa</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant">Người lớn tối đa</p>
+<input id="modalAdults" class="w-full bg-transparent border-none p-0 font-bold text-on-surface focus:ring-0 text-lg" type="number" value="2" min="1" max="10"/>
+</div>
+</div>
+<div class="bg-orange-50 rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-500">child_care</span>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant">Trẻ em tối đa</p>
+<input id="modalChildren" class="w-full bg-transparent border-none p-0 font-bold text-orange-600 focus:ring-0 text-lg" type="number" value="1" min="0" max="6"/>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Giá niêm yết / đêm (VNĐ) *</label>
+<input id="modalPrice" class="w-full bg-surface-container-low border-none rounded-xl p-4 font-bold text-primary text-lg focus:ring-2 focus:ring-primary/20 transition-all" placeholder="2.500.000" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Phụ thu trẻ em / đêm</label>
+<input id="modalChildFee" class="w-full bg-surface-container-low border-none rounded-xl p-4 font-bold text-orange-600 text-lg focus:ring-2 focus:ring-primary/20 transition-all" placeholder="100.000" type="text"/>
 </div>
 </div>
 <div>
-<label class="block text-sm font-bold text-on-surface-variant mb-2">Giá niêm yết / đêm (VNĐ) *</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl p-4 font-bold text-primary text-xl focus:ring-2 focus:ring-primary/20 transition-all" placeholder="2.500.000" type="text"/>
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Phụ thu khách thêm / đêm <span class="text-on-surface-variant font-normal text-xs">(vượt sức chứa người lớn)</span></label>
+<input id="modalExtraFee" class="w-full bg-surface-container-low border-none rounded-xl p-4 font-semibold text-on-surface focus:ring-2 focus:ring-primary/20 transition-all" placeholder="0 (miễn phí)" type="text"/>
 </div>
 <!-- Amenities -->
 <div>
@@ -405,8 +445,70 @@
 <!-- Modal Footer -->
 <div class="p-8 border-t border-surface-container-high flex justify-end gap-4 bg-surface-container-low/10 sticky bottom-0 backdrop-blur-md">
 <button class="px-8 py-3 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container transition-colors" onclick="document.getElementById('addRoomModal').style.display='none'">Hủy bỏ</button>
-<button class="px-10 py-3 rounded-xl bg-primary hover:bg-primary-container text-white font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all" onclick="document.getElementById('addRoomModal').style.display='none'; alert('Phòng mới đã được thêm thành công!')">Lưu thông tin</button>
+<button class="px-10 py-3 rounded-xl bg-primary hover:bg-primary-container text-white font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all" onclick="saveRoom()">Lưu thông tin</button>
 </div>
 </div>
 </div>
+<script>
+  function openAddRoomModal() {
+    window._editMode = false;
+    document.getElementById('modalTitle').textContent = 'Thêm phòng mới';
+    document.getElementById('modalSubtitle').textContent = 'Cung cấp thông tin chi tiết để bắt đầu kinh doanh.';
+    document.getElementById('modalRoomName').value = '';
+    document.getElementById('modalPrice').value = '';
+    document.getElementById('modalAdults').value = '2';
+    document.getElementById('modalChildren').value = '1';
+    document.getElementById('modalChildFee').value = '';
+    document.getElementById('modalExtraFee').value = '';
+    document.getElementById('modalArea').value = '35';
+    document.getElementById('modalRoomType').selectedIndex = 0;
+    document.getElementById('addRoomModal').style.display = 'flex';
+  }
+
+  function openEditRoomModal(name, roomType, adults, children, price, childFee, area) {
+    window._editMode = true;
+    document.getElementById('modalTitle').textContent = 'Chỉnh sửa phòng';
+    document.getElementById('modalSubtitle').textContent = 'Cập nhật thông tin phòng: ' + name;
+    document.getElementById('modalRoomName').value = name;
+    document.getElementById('modalPrice').value = price || '';
+    document.getElementById('modalAdults').value = adults || 2;
+    document.getElementById('modalChildren').value = children || 0;
+    document.getElementById('modalChildFee').value = childFee || '';
+    document.getElementById('modalExtraFee').value = '';
+    document.getElementById('modalArea').value = area || 35;
+    var sel = document.getElementById('modalRoomType');
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text === roomType) { sel.selectedIndex = i; break; }
+    }
+    document.getElementById('addRoomModal').style.display = 'flex';
+  }
+
+  function saveRoom() {
+    var name = document.getElementById('modalRoomName').value.trim();
+    var price = document.getElementById('modalPrice').value.trim();
+    if (!name) { alert('Vui lòng nhập tên phòng.'); return; }
+    if (!price) { alert('Vui lòng nhập giá phòng.'); return; }
+    var adults = document.getElementById('modalAdults').value;
+    var children = document.getElementById('modalChildren').value;
+    var childFee = document.getElementById('modalChildFee').value;
+    document.getElementById('addRoomModal').style.display = 'none';
+    if (window._editMode) {
+      alert('✅ Phòng "' + name + '" đã được cập nhật!\n\nChi tiết:\n• Người lớn tối đa: ' + adults + '\n• Trẻ em tối đa: ' + children + '\n• Phụ thu trẻ em: ' + (childFee || '0') + '₫/đêm');
+    } else {
+      alert('✅ Phòng mới "' + name + '" đã được thêm!\n\nChi tiết:\n• Người lớn tối đa: ' + adults + '\n• Trẻ em tối đa: ' + children + '\n• Phụ thu trẻ em: ' + (childFee || '0') + '₫/đêm');
+    }
+  }
+
+  function deleteRoom(btn) {
+    var row = btn.closest('tr');
+    var roomName = row.querySelector('.font-bold.text-on-surface') ? row.querySelector('.font-bold.text-on-surface').textContent : 'phòng này';
+    if (confirm('Bạn có chắc muốn xóa "' + roomName.trim() + '" không? Hành động này không thể hoàn tác.')) {
+      row.style.transition = 'opacity 0.3s, transform 0.3s';
+      row.style.opacity = '0';
+      row.style.transform = 'translateX(20px)';
+      setTimeout(function() { row.remove(); }, 300);
+      setTimeout(function() { alert('Phòng "' + roomName.trim() + '" đã được xóa thành công.'); }, 350);
+    }
+  }
+</script>
 </body></html>

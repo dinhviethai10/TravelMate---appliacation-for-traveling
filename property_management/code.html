@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelMate - Quản lý Cơ sở</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode:"class",
+    theme:{ extend:{ colors:{
+      "surface-container":"#efeded","error-container":"#ffdad6","error":"#ba1a1a",
+      "surface-container-lowest":"#ffffff","surface-container-low":"#f5f3f3",
+      "secondary-container":"#9df5c4","primary":"#006d43","surface-container-high":"#eae8e7",
+      "surface":"#fbf9f8","on-primary-container":"#00331d","on-secondary-container":"#12734c",
+      "outline":"#6d7a70","secondary":"#036c46","primary-container":"#00a86b",
+      "surface-container-highest":"#e4e2e2","outline-variant":"#bccabe","on-surface":"#1b1c1c",
+      "on-primary":"#ffffff","surface-variant":"#e4e2e2","on-error-container":"#93000a",
+      "primary-fixed":"#78fbb6","on-error":"#ffffff","background":"#fbf9f8","on-surface-variant":"#3d4a41"
+    }, borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+    fontFamily:{"headline":["Be Vietnam Pro"],"body":["Be Vietnam Pro"],"label":["Be Vietnam Pro"]} }}
+  }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #bccabe; border-radius: 10px; }
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+
+<!-- Partner Sidebar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-stone-50 flex flex-col py-6 z-40">
+  <div class="px-6 mb-8 flex items-center gap-3 cursor-pointer" onclick="window.location.href='../11._dashboard_partner_1/code.html'">
+    <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+      <span class="material-symbols-outlined text-white" style="font-variation-settings:'FILL' 1;">travel_explore</span>
+    </div>
+    <div>
+      <h1 class="text-lg font-bold text-[#006d43]">Quản lý Đối tác</h1>
+      <p class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold">TravelMate Partner</p>
+    </div>
+  </div>
+  <nav class="flex-1 space-y-1">
+    <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-all" href="../11._dashboard_partner_1/code.html">
+      <span class="material-symbols-outlined">dashboard</span><span class="font-medium text-sm">Bảng điều khiển</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-all" href="../12._room_management_partner_1/code.html">
+      <span class="material-symbols-outlined">bed</span><span class="font-medium text-sm">Quản lý phòng</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-all" href="../availability_calendar/code.html">
+      <span class="material-symbols-outlined">calendar_month</span><span class="font-medium text-sm">Lịch trống phòng</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-all" href="../13._booking_management_partner_1/code.html">
+      <span class="material-symbols-outlined">book_online</span><span class="font-medium text-sm">Quản lý đặt phòng</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-all" href="../14._revenue_report_partner_1/code.html">
+      <span class="material-symbols-outlined">payments</span><span class="font-medium text-sm">Báo cáo doanh thu</span>
+    </a>
+  </nav>
+  <div class="mt-auto border-t border-stone-200/50 pt-4">
+    <a class="flex items-center gap-3 px-4 py-3 bg-[#00A86B]/10 text-[#006d43] rounded-lg mx-2 font-semibold" href="#">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">storefront</span><span class="text-sm">Thông tin cơ sở</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error/5 rounded-lg mx-2 transition-all" href="../2._login_register_customer_1/code.html">
+      <span class="material-symbols-outlined">logout</span><span class="text-sm font-medium">Đăng xuất</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="ml-64 flex-1 p-8 custom-scrollbar overflow-y-auto">
+  <header class="flex justify-between items-end mb-8">
+    <div>
+      <nav class="flex items-center gap-2 text-sm text-on-surface-variant mb-2">
+        <span>Đối tác</span>
+        <span class="material-symbols-outlined text-xs">chevron_right</span>
+        <span class="font-medium text-primary">Thông tin cơ sở</span>
+      </nav>
+      <h2 class="text-3xl font-black text-on-surface tracking-tight">Quản lý Cơ sở lưu trú</h2>
+      <p class="text-on-surface-variant mt-1">Cập nhật thông tin, hình ảnh và chính sách của cơ sở</p>
+    </div>
+    <button onclick="alert('Đã lưu thông tin cơ sở thành công!')" class="flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(0,109,67,0.2)] hover:scale-[1.02] active:scale-95 transition-all">
+      <span class="material-symbols-outlined text-sm">save</span> Lưu thay đổi
+    </button>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Left: Main Info -->
+    <div class="lg:col-span-2 space-y-6">
+
+      <!-- Basic Info -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm">
+        <h3 class="font-bold text-on-surface mb-5 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-xl">info</span> Thông tin cơ bản
+        </h3>
+        <div class="space-y-4">
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Tên cơ sở lưu trú</label>
+            <input type="text" value="Lâm Phượng Luxury Resort & Spa" class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none font-medium"/>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-on-surface-variant">Loại hình</label>
+              <select class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none">
+                <option>Khách sạn</option><option selected>Resort</option><option>Villa</option><option>Homestay</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-on-surface-variant">Hạng sao</label>
+              <select class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none">
+                <option>3 sao</option><option>4 sao</option><option selected>5 sao</option>
+              </select>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Địa chỉ</label>
+            <input type="text" value="123 Trần Phú, Nha Trang, Khánh Hòa" class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Mô tả cơ sở</label>
+            <textarea rows="4" class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none resize-none">Resort 5 sao ven biển tại Nha Trang, sở hữu 24 phòng hướng biển, hồ bơi vô cực, nhà hàng fine-dining phục vụ ẩm thực Việt Nam và quốc tế, cùng spa cao cấp với liệu trình truyền thống.</textarea>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-on-surface-variant">Email liên hệ</label>
+              <input type="email" value="info@lamphong-resort.com" class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none"/>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-on-surface-variant">Số điện thoại</label>
+              <input type="tel" value="0258 391 2345" class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Amenities -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm">
+        <h3 class="font-bold text-on-surface mb-5 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-xl">star</span> Tiện ích chính
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" checked class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">pool</span><span class="text-sm font-medium">Hồ bơi</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" checked class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">wifi</span><span class="text-sm font-medium">Free Wifi</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" checked class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">spa</span><span class="text-sm font-medium">Spa & Massage</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" checked class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">restaurant</span><span class="text-sm font-medium">Nhà hàng</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">fitness_center</span><span class="text-sm font-medium">Phòng Gym</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" checked class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">local_parking</span><span class="text-sm font-medium">Bãi đỗ xe</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">beach_access</span><span class="text-sm font-medium">Bãi biển riêng</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" checked class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">room_service</span><span class="text-sm font-medium">Room Service</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+            <input type="checkbox" class="text-primary rounded"><span class="material-symbols-outlined text-lg text-on-surface-variant">business_center</span><span class="text-sm font-medium">Phòng họp</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Policies -->
+      <section class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm">
+        <h3 class="font-bold text-on-surface mb-5 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-xl">policy</span> Chính sách lưu trú
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Giờ Check-in</label>
+            <input type="time" value="14:00" class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Giờ Check-out</label>
+            <input type="time" value="12:00" class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Hủy miễn phí trước (giờ)</label>
+            <select class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none">
+              <option>24 giờ</option><option selected>48 giờ</option><option>72 giờ</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Phí hủy muộn</label>
+            <select class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 outline-none">
+              <option>50% tiền phòng</option><option selected>1 đêm đầu</option><option>Toàn bộ</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right: Photos & Status -->
+    <div class="space-y-6">
+
+      <!-- Status Card -->
+      <div class="bg-primary text-white rounded-3xl p-6 shadow-lg">
+        <p class="text-primary-fixed text-xs font-bold uppercase tracking-widest mb-2">Trạng thái</p>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-3 h-3 bg-green-300 rounded-full animate-pulse"></div>
+          <p class="font-bold text-lg">Đang hoạt động</p>
+        </div>
+        <div class="space-y-2 text-sm text-primary-fixed">
+          <div class="flex justify-between"><span>Hạng thành viên</span><span class="font-bold text-white">Gold Partner</span></div>
+          <div class="flex justify-between"><span>Tỷ lệ chấp nhận</span><span class="font-bold text-white">96%</span></div>
+          <div class="flex justify-between"><span>Điểm đánh giá</span><span class="font-bold text-white">4.8 ⭐</span></div>
+        </div>
+      </div>
+
+      <!-- Photo Manager -->
+      <div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm">
+        <h3 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-xl">photo_library</span> Hình ảnh cơ sở
+        </h3>
+        <div class="grid grid-cols-2 gap-2 mb-4">
+          <div class="relative rounded-xl overflow-hidden h-24">
+            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCrNQQIgKQkjn8poXgnQ-0D-f2uBuOo7r-XfW-klZkN4-6pX2TH628tSl4lNvgwOnkT27lRCTg9cng6m4O8ZN3LtCPepqBmFOVoCU0acXZsYWybD9yu7rLUOIsfVqcSK7kcCR5ty60tc96i3QxyhcC85TkrvStvPIx6zQQP6R9BQwqY44T71hDVriobiq2vt73itJDnXJQyKz8yOAOC3Y4I6pk0T84-CqaAHILg2bVWovjXSL8R-3gsBvEVwwF4CYo9x1y-YOY9w" alt="Photo 1"/>
+            <div class="absolute top-1 left-1 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Ảnh bìa</div>
+            <button class="absolute top-1 right-1 w-6 h-6 bg-error/80 text-white rounded-full flex items-center justify-center text-xs hover:bg-error transition-all">✕</button>
+          </div>
+          <div class="relative rounded-xl overflow-hidden h-24">
+            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdvhOV5m8x2KJ7O_w6TqaSaV6FMjVnhSbOhVMO3YOzD027Lmq-cX96L5-VXVVTr4YZgoF8j7PeKgWImrJ62n10brF3ZAFR_kAN751ski4xs6tuTpHQKyv7uifn4VFtOiqeIYQa5e9qxr6cW-csXsx5EfZUgXEE4125N4Q6ZUljsvCV3QYPHRGHlY2F04qhrTwlDm-7zp3Ch9JQxyzGrBbNexmMdXHhCj4swvuUXph8ZRMAIYRLrKyRx-r6Su5Bl2lEN0HVyBCYrA" alt="Photo 2"/>
+            <button class="absolute top-1 right-1 w-6 h-6 bg-error/80 text-white rounded-full flex items-center justify-center text-xs hover:bg-error transition-all">✕</button>
+          </div>
+          <div class="relative rounded-xl overflow-hidden h-24">
+            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5loF6YomFOXAXFtf4zujkRP3AYlpmz67_7bXro2OL-W2HyCH30f1YILnEDcH42C7KDzEMR9T_h03JxdV7iT0uS_lV_BvQMuGy-vpwKRE60fuOPj4oV2FE8EN4YGpBtS6CNz06_M-ECtVa3QpTNz2mFM18xtnw03TGT6PVL4KEpJGFFj2NX6Zxb1YMmZqAhDW9_Q49uY77yzA0rK5NTieGAuDdTqN8G-tg9vdcLqSt6c5gsmiYBlxSEAVOTkONMzjT4uFo1PfWDQ" alt="Photo 3"/>
+            <button class="absolute top-1 right-1 w-6 h-6 bg-error/80 text-white rounded-full flex items-center justify-center text-xs hover:bg-error transition-all">✕</button>
+          </div>
+          <div class="border-2 border-dashed border-primary/30 rounded-xl h-24 flex flex-col items-center justify-center cursor-pointer hover:bg-primary/5 transition-all" onclick="alert('Chức năng tải ảnh lên')">
+            <span class="material-symbols-outlined text-primary/50 text-2xl">add_photo_alternate</span>
+            <span class="text-xs text-on-surface-variant mt-1">Thêm ảnh</span>
+          </div>
+        </div>
+        <p class="text-xs text-on-surface-variant">3/20 ảnh · Tối đa 20 ảnh</p>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm space-y-3">
+        <h3 class="font-bold text-on-surface mb-2">Thao tác nhanh</h3>
+        <button onclick="window.location.href='../availability_calendar/code.html'" class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container transition-all text-left">
+          <span class="material-symbols-outlined text-primary">calendar_month</span>
+          <span class="text-sm font-medium">Quản lý lịch trống</span>
+          <span class="material-symbols-outlined text-on-surface-variant ml-auto text-base">chevron_right</span>
+        </button>
+        <button onclick="window.location.href='../12._room_management_partner_1/code.html'" class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container transition-all text-left">
+          <span class="material-symbols-outlined text-primary">bed</span>
+          <span class="text-sm font-medium">Quản lý phòng</span>
+          <span class="material-symbols-outlined text-on-surface-variant ml-auto text-base">chevron_right</span>
+        </button>
+        <button onclick="window.location.href='../14._revenue_report_partner_1/code.html'" class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container transition-all text-left">
+          <span class="material-symbols-outlined text-primary">bar_chart</span>
+          <span class="text-sm font-medium">Xem báo cáo</span>
+          <span class="material-symbols-outlined text-on-surface-variant ml-auto text-base">chevron_right</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</main>
+</body>
+</html>

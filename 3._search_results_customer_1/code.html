@@ -98,8 +98,9 @@
 </div>
 </div>
 <div class="flex items-center gap-4">
-<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-300 scale-95 active:opacity-80">
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-300 scale-95 active:opacity-80 relative" onclick="window.location.href='../notification_center/code.html'">
 <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
 </button>
 <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container cursor-pointer" onclick="window.location.href='../10._profile_customer/code.html'">
 <img alt="Ảnh đại diện người dùng" data-alt="Portrait of a friendly male user smiling, outdoor park background, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAwVRYG6urwiDMlX8EKJwlYbLJ3mzlcyDLxSagwXSmwOxvIQH5sTR2PyYj1BBrdyPt5eInwwLJO91JxdivoynJp-h-_oFybOvYViPapl4y1IZyBzTKvNK4KLsfURASMvbJD0qbLDsGDLEBklYbWKE9-K-WYJTSm17ZuiJrEG5L-kDUdjSC-faV-oRWHS8Kp0ehd7N0J_bqNd7NTicfIMefsl--qKjZ3jWOLHJGpJROJm20x50LduYbCqU6TgWswSoschLwQJXU7A"/>
@@ -220,8 +221,8 @@
 <article class="bg-surface-container-lowest rounded-[24px] overflow-hidden flex flex-col lg:flex-row hover:shadow-xl transition-all duration-300 group">
 <div class="lg:w-80 h-64 lg:h-auto overflow-hidden relative">
 <img alt="Khách sạn Mường Thanh" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Luxury colonial style hotel with white facade and green shutters, tropical palm trees, clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCrNQQIgKQkjn8poXgnQ-0D-f2uBuOo7r-XfW-klZkN4-6pX2TH628tSl4lNvgwOnkT27lRCTg9cng6m4O8ZN3LtCPepqBmFOVoCU0acXZsYWybD9yu7rLUOIsfVqcSK7kcCR5ty60tc96i3QxyhcC85TkrvStvPIx6zQQP6R9BQwqY44T71hDVriobiq2vt73itJDnXJQyKz8yOAOC3Y4I6pk0T84-CqaAHILg2bVWovjXSL8R-3gsBvEVwwF4CYo9x1y-YOY9w"/>
-<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-<span class="material-symbols-outlined text-xl">favorite</span>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white hover:text-primary transition-all" onclick="toggleFavorite(this)">
+<span class="material-symbols-outlined text-xl">favorite_border</span>
 </button>
 </div>
 <div class="flex-1 p-8 flex flex-col justify-between">
@@ -267,8 +268,8 @@
 <article class="bg-surface-container-lowest rounded-[24px] overflow-hidden flex flex-col lg:flex-row hover:shadow-xl transition-all duration-300 group">
 <div class="lg:w-80 h-64 lg:h-auto overflow-hidden relative">
 <img alt="Hoi An Silk Marina" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Traditional Vietnamese resort architecture with wooden beams, silk lanterns, lush garden, infinity pool view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdvhOV5m8x2KJ7O_w6TqaSaV6FMjVnhSbOhVMO3YOzD027Lmq-cX96L5-VXVVTr4YZgoF8j7PeKgWImrJ62n10brF3ZAFR_kAN751ski4xs6tuTpHQKyv7uifn4VFtOiqeIYQa5e9qxr6cW-csXsx5EfZUgXEE4125N4Q6ZUljsvCV3QYPHRGHlY2F04qhrTwlDm-7zp3Ch9JQxyzGrBbNexmMdXHhCj4swvuUXph8ZRMAIYRLrKyRx-r6Su5Bl2lEN0HVyBCYrA"/>
-<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-<span class="material-symbols-outlined text-xl">favorite</span>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white hover:text-primary transition-all" onclick="toggleFavorite(this)">
+<span class="material-symbols-outlined text-xl">favorite_border</span>
 </button>
 </div>
 <div class="flex-1 p-8 flex flex-col justify-between">
@@ -314,8 +315,8 @@
 <article class="bg-surface-container-lowest rounded-[24px] overflow-hidden flex flex-col lg:flex-row hover:shadow-xl transition-all duration-300 group">
 <div class="lg:w-80 h-64 lg:h-auto overflow-hidden relative">
 <img alt="Liberty Central Saigon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Modern high-rise hotel balcony view overlooking urban city lights at dusk, sleek glass railings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCybOjPz3pFs85sjjYAeE99sTQEQwkqfQU0t7zB8ojTSzOn8duPs4tWeQ1j08hT6Rn3B-0PYFgOZqbEoVszPbaZZoMns2y09j7H8Ib6roM4VWr1pAt4m-MH0D-0FhTyI_RvCFYBhFGvH_vwikYeZabIB1b2FU1bbABM92mHWNFSAb9aiQ8AgNf9NzCGTRQx4OAqGq8s526GObmJRIHklR0AQNrY5nrg6SPIq22CyOx6WXOHyu8lJGtTy05P-kIbguIyvIQ7AbI5FQ"/>
-<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-<span class="material-symbols-outlined text-xl">favorite</span>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white hover:text-primary transition-all" onclick="toggleFavorite(this)">
+<span class="material-symbols-outlined text-xl">favorite_border</span>
 </button>
 </div>
 <div class="flex-1 p-8 flex flex-col justify-between">
@@ -392,4 +393,26 @@
             © 2024 TravelMate. Tất cả quyền được bảo lưu.
         </div>
 </footer>
+<script>
+function toggleFavorite(btn) {
+  const icon = btn.querySelector('.material-symbols-outlined');
+  if(icon.textContent === 'favorite_border') {
+    icon.textContent = 'favorite';
+    icon.style.color = '#ef4444';
+    btn.classList.add('bg-white');
+    btn.classList.remove('bg-white/20');
+    // Show toast
+    const toast = document.createElement('div');
+    toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-on-surface text-white px-5 py-3 rounded-2xl text-sm font-semibold shadow-lg z-50 flex items-center gap-2';
+    toast.innerHTML = '<span class="material-symbols-outlined text-red-400 text-base" style="font-variation-settings:\'FILL\' 1;">favorite</span> Đã thêm vào yêu thích &nbsp;<a href="../wishlist/code.html" style="color:#78fbb6;text-decoration:underline;">Xem ngay</a>';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  } else {
+    icon.textContent = 'favorite_border';
+    icon.style.color = 'white';
+    btn.classList.remove('bg-white');
+    btn.classList.add('bg-white/20');
+  }
+}
+</script>
 </body></html>

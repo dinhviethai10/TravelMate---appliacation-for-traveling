@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelMate - Thông báo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode:"class",
+    theme: { extend: { colors: {
+      "surface-container":"#efeded","error-container":"#ffdad6","error":"#ba1a1a",
+      "surface-container-lowest":"#ffffff","primary-fixed-dim":"#59de9b","surface-container-low":"#f5f3f3",
+      "secondary-container":"#9df5c4","primary":"#006d43","surface-container-high":"#eae8e7",
+      "surface":"#fbf9f8","on-primary-container":"#00331d","on-secondary-container":"#12734c",
+      "outline":"#6d7a70","secondary":"#036c46","primary-container":"#00a86b",
+      "surface-container-highest":"#e4e2e2","outline-variant":"#bccabe","on-surface":"#1b1c1c",
+      "on-primary":"#ffffff","surface-variant":"#e4e2e2","on-error-container":"#93000a",
+      "primary-fixed":"#78fbb6","secondary-fixed":"#9df5c4","on-error":"#ffffff",
+      "background":"#fbf9f8","on-surface-variant":"#3d4a41"
+    }, borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+    fontFamily:{"headline":["Be Vietnam Pro"],"body":["Be Vietnam Pro"],"label":["Be Vietnam Pro"]} } }
+  }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)] h-20">
+  <div class="flex justify-between items-center px-8 h-full w-full max-w-screen-2xl mx-auto">
+    <div class="flex items-center gap-8">
+      <span class="text-2xl font-black text-[#006d43] cursor-pointer" onclick="window.location.href='../1._homepage_customer_1/code.html'">TravelMate</span>
+      <div class="hidden md:flex gap-6">
+        <a class="text-stone-500 hover:text-[#006d43] transition-all" href="#">Giới thiệu</a>
+        <a class="text-stone-500 hover:text-[#006d43] transition-all" href="#">Trợ giúp</a>
+        <a class="text-stone-500 hover:text-[#006d43] transition-all" href="#">Đối tác</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <button class="p-2 rounded-full bg-primary/10 text-primary relative">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">notifications</span>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+      </button>
+      <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container cursor-pointer" onclick="window.location.href='../10._profile_customer/code.html'">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBghyBCiJh0_Rw_J04e6KOqA0jNZ0grZPLoXnucP8RJEz2GJzzU_BzIdUtrBCFPNFc026fFKluYNlsaj1ROKXtONr0eueiQKCo19stYWstvBbqKzNEnpczYVskaBl9JhiwDcmco-_Rcg85QlZ_P117i_r-FEwP-bi3-qgBKm1p8dVgsejruLrD4J-NfQWxHdSz9fwaGb4wF5mB5gTqpH8iDGtmVs8jzQaOe7-_i0aQihch1b4fandUC2UgHxFhm_c1GClGGjAyslA" alt="Avatar"/>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-28 pb-20 px-4 md:px-8 max-w-screen-md mx-auto">
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-8">
+    <div>
+      <h1 class="text-3xl font-bold text-on-surface">Thông báo</h1>
+      <p class="text-on-surface-variant text-sm mt-1">5 thông báo chưa đọc</p>
+    </div>
+    <button onclick="markAllRead()" class="text-sm font-semibold text-primary hover:underline flex items-center gap-1">
+      <span class="material-symbols-outlined text-base">done_all</span> Đánh dấu tất cả đã đọc
+    </button>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="flex gap-2 mb-6">
+    <button class="px-4 py-2 rounded-xl text-sm font-bold bg-primary text-white">Tất cả</button>
+    <button class="px-4 py-2 rounded-xl text-sm font-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container">Đặt phòng</button>
+    <button class="px-4 py-2 rounded-xl text-sm font-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container">Khuyến mãi</button>
+    <button class="px-4 py-2 rounded-xl text-sm font-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container">Hệ thống</button>
+  </div>
+
+  <!-- Notification List -->
+  <div class="space-y-3" id="notifList">
+
+    <!-- Unread: Booking Confirmed -->
+    <div class="notif-item unread bg-primary/5 border border-primary/15 rounded-2xl p-5 flex gap-4 cursor-pointer hover:bg-primary/8 transition-all" onclick="markRead(this); window.location.href='../8._my_bookings_customer_1/code.html'">
+      <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">check_circle</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex justify-between items-start">
+          <p class="font-bold text-on-surface text-sm">Đặt phòng được xác nhận!</p>
+          <div class="flex items-center gap-2 shrink-0 ml-2">
+            <span class="w-2.5 h-2.5 bg-primary rounded-full"></span>
+            <span class="text-xs text-on-surface-variant">2 phút trước</span>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mt-1">Đặt phòng <span class="font-semibold text-on-surface">#TM-82910</span> tại An Lam Retreats Ninh Van Bay đã được xác nhận thành công.</p>
+        <p class="text-xs text-primary font-medium mt-2">Xem chi tiết đặt phòng →</p>
+      </div>
+    </div>
+
+    <!-- Unread: Payment Success -->
+    <div class="notif-item unread bg-primary/5 border border-primary/15 rounded-2xl p-5 flex gap-4 cursor-pointer hover:bg-primary/8 transition-all" onclick="markRead(this)">
+      <div class="w-12 h-12 rounded-2xl bg-secondary-container/40 flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings:'FILL' 1;">payments</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex justify-between items-start">
+          <p class="font-bold text-on-surface text-sm">Thanh toán thành công</p>
+          <div class="flex items-center gap-2 shrink-0 ml-2">
+            <span class="w-2.5 h-2.5 bg-primary rounded-full"></span>
+            <span class="text-xs text-on-surface-variant">15 phút trước</span>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mt-1">Bạn đã thanh toán thành công <span class="font-semibold text-on-surface">12.500.000đ</span> bằng thẻ Visa kết thúc ***4242.</p>
+      </div>
+    </div>
+
+    <!-- Unread: Check-in reminder -->
+    <div class="notif-item unread bg-primary/5 border border-primary/15 rounded-2xl p-5 flex gap-4 cursor-pointer hover:bg-primary/8 transition-all" onclick="markRead(this)">
+      <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-amber-600" style="font-variation-settings:'FILL' 1;">calendar_clock</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex justify-between items-start">
+          <p class="font-bold text-on-surface text-sm">Nhắc nhở: Check-in ngày mai</p>
+          <div class="flex items-center gap-2 shrink-0 ml-2">
+            <span class="w-2.5 h-2.5 bg-primary rounded-full"></span>
+            <span class="text-xs text-on-surface-variant">1 giờ trước</span>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mt-1">Bạn có lịch check-in tại <span class="font-semibold text-on-surface">InterContinental Danang</span> vào ngày mai lúc 14:00.</p>
+      </div>
+    </div>
+
+    <!-- Unread: Promo -->
+    <div class="notif-item unread bg-primary/5 border border-primary/15 rounded-2xl p-5 flex gap-4 cursor-pointer hover:bg-primary/8 transition-all" onclick="markRead(this)">
+      <div class="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-red-500" style="font-variation-settings:'FILL' 1;">local_offer</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex justify-between items-start">
+          <p class="font-bold text-on-surface text-sm">Ưu đãi đặc biệt chỉ hôm nay!</p>
+          <div class="flex items-center gap-2 shrink-0 ml-2">
+            <span class="w-2.5 h-2.5 bg-primary rounded-full"></span>
+            <span class="text-xs text-on-surface-variant">3 giờ trước</span>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mt-1">Giảm đến <span class="font-semibold text-error">30%</span> cho các khách sạn tại Đà Lạt. Dùng mã <span class="font-bold text-primary">DALAT30</span>. Hết hạn 23:59 hôm nay.</p>
+        <button class="mt-2 px-3 py-1 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90 transition-all" onclick="event.stopPropagation(); window.location.href='../3._search_results_customer_1/code.html'">Tìm ngay</button>
+      </div>
+    </div>
+
+    <!-- Unread: Review response -->
+    <div class="notif-item unread bg-primary/5 border border-primary/15 rounded-2xl p-5 flex gap-4 cursor-pointer hover:bg-primary/8 transition-all" onclick="markRead(this)">
+      <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">rate_review</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex justify-between items-start">
+          <p class="font-bold text-on-surface text-sm">Khách sạn phản hồi đánh giá của bạn</p>
+          <div class="flex items-center gap-2 shrink-0 ml-2">
+            <span class="w-2.5 h-2.5 bg-primary rounded-full"></span>
+            <span class="text-xs text-on-surface-variant">5 giờ trước</span>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mt-1"><span class="font-semibold text-on-surface">InterContinental Danang</span> đã phản hồi đánh giá của bạn: "Cảm ơn quý khách đã lưu trú..."</p>
+      </div>
+    </div>
+
+    <!-- Read: System update -->
+    <div class="notif-item read bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-5 flex gap-4 cursor-pointer hover:bg-surface-container-low transition-all" onclick="markRead(this)">
+      <div class="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-on-surface-variant">info</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex justify-between items-start">
+          <p class="font-semibold text-on-surface text-sm">Cập nhật chính sách bảo mật</p>
+          <span class="text-xs text-on-surface-variant shrink-0 ml-2">2 ngày trước</span>
+        </div>
+        <p class="text-sm text-on-surface-variant mt-1">TravelMate đã cập nhật điều khoản sử dụng. Vui lòng đọc và đồng ý với các thay đổi mới.</p>
+      </div>
+    </div>
+
+    <!-- Read: Booking cancelled -->
+    <div class="notif-item read bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-5 flex gap-4 opacity-70 cursor-pointer hover:bg-surface-container-low transition-all">
+      <div class="w-12 h-12 rounded-2xl bg-error-container/30 flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-error">cancel</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex justify-between items-start">
+          <p class="font-semibold text-on-surface text-sm">Đặt phòng đã bị hủy</p>
+          <span class="text-xs text-on-surface-variant shrink-0 ml-2">1 tuần trước</span>
+        </div>
+        <p class="text-sm text-on-surface-variant mt-1">Đặt phòng <span class="font-semibold text-on-surface">#TM-81002</span> tại Sofitel Legend Metropole đã bị hủy. Hoàn tiền trong 3-5 ngày làm việc.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back to home -->
+  <div class="text-center mt-10">
+    <button onclick="window.location.href='../1._homepage_customer_1/code.html'" class="text-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 mx-auto">
+      <span class="material-symbols-outlined text-base">home</span> Về trang chủ
+    </button>
+  </div>
+</main>
+
+<script>
+function markRead(el) {
+  el.classList.remove('unread','bg-primary/5','border-primary/15');
+  el.classList.add('read','bg-surface-container-lowest','border-outline-variant/20','opacity-70');
+  const dot = el.querySelector('.w-2\\.5');
+  if (dot) dot.remove();
+  updateCount();
+}
+function markAllRead() {
+  document.querySelectorAll('.notif-item.unread').forEach(el => markRead(el));
+}
+function updateCount() {
+  const unread = document.querySelectorAll('.notif-item.unread').length;
+  document.querySelector('p.text-on-surface-variant').textContent = unread + ' thông báo chưa đọc';
+}
+</script>
+</body>
+</html>

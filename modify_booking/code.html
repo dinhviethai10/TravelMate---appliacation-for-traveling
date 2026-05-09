@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelMate - Chỉnh sửa đặt phòng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode:"class",
+    theme:{ extend:{ colors:{
+      "surface-container":"#efeded","error-container":"#ffdad6","error":"#ba1a1a",
+      "surface-container-lowest":"#ffffff","surface-container-low":"#f5f3f3",
+      "secondary-container":"#9df5c4","primary":"#006d43","surface-container-high":"#eae8e7",
+      "surface":"#fbf9f8","on-primary-container":"#00331d","on-secondary-container":"#12734c",
+      "outline":"#6d7a70","secondary":"#036c46","primary-container":"#00a86b",
+      "surface-container-highest":"#e4e2e2","outline-variant":"#bccabe","on-surface":"#1b1c1c",
+      "on-primary":"#ffffff","surface-variant":"#e4e2e2","on-error-container":"#93000a",
+      "primary-fixed":"#78fbb6","on-error":"#ffffff","background":"#fbf9f8","on-surface-variant":"#3d4a41"
+    }, borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+    fontFamily:{"headline":["Be Vietnam Pro"],"body":["Be Vietnam Pro"],"label":["Be Vietnam Pro"]} }}
+  }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,109,67,0.04)] h-20">
+  <div class="flex justify-between items-center px-8 h-full w-full max-w-screen-2xl mx-auto">
+    <span class="text-2xl font-black text-[#006d43] cursor-pointer" onclick="window.location.href='../1._homepage_customer_1/code.html'">TravelMate</span>
+    <div class="flex items-center gap-4">
+      <button class="p-2 rounded-full hover:bg-stone-100 relative" onclick="window.location.href='../notification_center/code.html'">
+        <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+      </button>
+      <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container cursor-pointer" onclick="window.location.href='../10._profile_customer/code.html'">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBghyBCiJh0_Rw_J04e6KOqA0jNZ0grZPLoXnucP8RJEz2GJzzU_BzIdUtrBCFPNFc026fFKluYNlsaj1ROKXtONr0eueiQKCo19stYWstvBbqKzNEnpczYVskaBl9JhiwDcmco-_Rcg85QlZ_P117i_r-FEwP-bi3-qgBKm1p8dVgsejruLrD4J-NfQWxHdSz9fwaGb4wF5mB5gTqpH8iDGtmVs8jzQaOe7-_i0aQihch1b4fandUC2UgHxFhm_c1GClGGjAyslA" alt="Avatar"/>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-28 pb-20 px-4 md:px-8 max-w-screen-xl mx-auto">
+  <!-- Back -->
+  <button onclick="window.location.href='../8._my_bookings_customer_1/code.html'" class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-6 font-medium">
+    <span class="material-symbols-outlined">arrow_back</span> Quay lại đặt phòng của tôi
+  </button>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+    <!-- Left: Form -->
+    <div class="lg:col-span-2 space-y-6">
+      <div>
+        <h1 class="text-3xl font-bold text-on-surface mb-1">Chỉnh sửa đặt phòng</h1>
+        <p class="text-on-surface-variant">Mã đặt phòng: <span class="font-bold text-on-surface">#TM-82910</span></p>
+      </div>
+
+      <!-- Hotel Info -->
+      <div class="bg-surface-container-lowest rounded-2xl p-6 flex gap-4 items-center shadow-sm">
+        <img class="w-24 h-24 rounded-xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5loF6YomFOXAXFtf4zujkRP3AYlpmz67_7bXro2OL-W2HyCH30f1YILnEDcH42C7KDzEMR9T_h03JxdV7iT0uS_lV_BvQMuGy-vpwKRE60fuOPj4oV2FE8EN4YGpBtS6CNz06_M-ECtVa3QpTNz2mFM18xtnw03TGT6PVL4KEpJGFFj2NX6Zxb1YMmZqAhDW9_Q49uY77yzA0rK5NTieGAuDdTqN8G-tg9vdcLqSt6c5gsmiYBlxSEAVOTkONMzjT4uFo1PfWDQ" alt="Hotel"/>
+        <div>
+          <h3 class="font-bold text-on-surface text-lg">An Lam Retreats Ninh Van Bay</h3>
+          <div class="flex items-center gap-1 text-on-surface-variant text-sm mt-1">
+            <span class="material-symbols-outlined text-base">location_on</span>
+            <span>Nha Trang, Khánh Hòa</span>
+          </div>
+          <div class="flex items-center gap-1 mt-2">
+            <span class="material-symbols-outlined text-amber-500 text-base" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="text-sm font-semibold text-on-surface">4.7</span>
+            <span class="text-xs text-on-surface-variant">(218 đánh giá)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notice -->
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex gap-3">
+        <span class="material-symbols-outlined text-amber-600 shrink-0">info</span>
+        <div>
+          <p class="font-semibold text-amber-800 text-sm">Chính sách chỉnh sửa</p>
+          <p class="text-amber-700 text-xs mt-1">Bạn có thể thay đổi miễn phí trước <strong>48 giờ</strong> check-in. Phí thay đổi 200.000đ áp dụng nếu dưới 48 giờ.</p>
+        </div>
+      </div>
+
+      <!-- Date Selection -->
+      <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+        <h3 class="font-bold text-on-surface mb-5 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">calendar_today</span> Thay đổi ngày lưu trú
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Ngày nhận phòng</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-xl">calendar_today</span>
+              <input type="date" value="2024-04-12" class="w-full pl-11 pr-4 py-3.5 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary/20 outline-none font-medium" onchange="updateSummary()"/>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-on-surface-variant">Ngày trả phòng</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-xl">event</span>
+              <input type="date" value="2024-04-15" class="w-full pl-11 pr-4 py-3.5 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary/20 outline-none font-medium" onchange="updateSummary()"/>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 p-3 bg-primary/5 rounded-xl flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-base">info</span>
+          <span class="text-sm text-on-surface-variant">Hiện tại: <strong class="text-on-surface">12 Th04 - 15 Th04 (3 đêm)</strong></span>
+        </div>
+      </div>
+
+      <!-- Room Type -->
+      <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+        <h3 class="font-bold text-on-surface mb-5 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">bed</span> Loại phòng
+        </h3>
+        <div class="space-y-3">
+          <label class="flex items-center gap-4 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer">
+            <input type="radio" name="roomType" checked class="text-primary"/>
+            <div class="flex-1">
+              <p class="font-bold text-on-surface">Deluxe Garden View</p>
+              <p class="text-xs text-on-surface-variant mt-0.5">45m² · 2 người · Hướng vườn</p>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-primary">4.200.000đ</p>
+              <p class="text-xs text-on-surface-variant">/đêm</p>
+            </div>
+          </label>
+          <label class="flex items-center gap-4 p-4 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all">
+            <input type="radio" name="roomType" class="text-primary"/>
+            <div class="flex-1">
+              <p class="font-bold text-on-surface">Ocean View Villa</p>
+              <p class="text-xs text-on-surface-variant mt-0.5">85m² · 4 người · Hướng biển · Hồ bơi riêng</p>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-primary">7.500.000đ</p>
+              <p class="text-xs text-on-surface-variant">/đêm</p>
+            </div>
+          </label>
+          <label class="flex items-center gap-4 p-4 rounded-xl border border-outline-variant/30 cursor-pointer hover:border-primary/30 transition-all">
+            <input type="radio" name="roomType" class="text-primary"/>
+            <div class="flex-1">
+              <p class="font-bold text-on-surface">Hillside Hideaway Suite</p>
+              <p class="text-xs text-on-surface-variant mt-0.5">65m² · 2 người · Hướng núi · Bồn tắm ngoài trời</p>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-primary">5.800.000đ</p>
+              <p class="text-xs text-on-surface-variant">/đêm</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Special Requests -->
+      <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+        <h3 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">comment</span> Yêu cầu đặc biệt (tùy chọn)
+        </h3>
+        <textarea class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 outline-none resize-none" rows="3" placeholder="Ví dụ: phòng cao tầng, gối mềm, giường đôi...">Phòng yên tĩnh, tầng cao.</textarea>
+      </div>
+    </div>
+
+    <!-- Right: Summary -->
+    <aside class="lg:sticky lg:top-28">
+      <div class="bg-surface-container-low p-6 rounded-2xl space-y-5 shadow-sm">
+        <h2 class="text-lg font-bold text-on-surface">Tóm tắt thay đổi</h2>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between">
+            <span class="text-on-surface-variant">Đặt phòng gốc</span>
+            <span class="font-semibold text-on-surface">12.500.000đ</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-on-surface-variant">Loại phòng mới</span>
+            <span class="font-semibold text-on-surface">Deluxe Garden</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-on-surface-variant">Số đêm</span>
+            <span class="font-semibold text-on-surface" id="nightCount">3 đêm</span>
+          </div>
+          <div class="flex justify-between text-primary font-medium">
+            <span>Chênh lệch giá</span>
+            <span>- 0đ</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-on-surface-variant">Phí thay đổi</span>
+            <span class="font-semibold text-green-600">Miễn phí</span>
+          </div>
+        </div>
+        <div class="border-t border-outline-variant/30 pt-4 flex justify-between items-center">
+          <span class="font-bold text-on-surface">Tổng mới</span>
+          <span class="text-2xl font-black text-primary">12.600.000đ</span>
+        </div>
+        <button onclick="confirmModify()" class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white font-bold rounded-2xl shadow-[0_8px_20px_rgba(0,109,67,0.2)] hover:scale-[1.02] active:scale-95 transition-all">
+          Xác nhận thay đổi
+        </button>
+        <button onclick="window.location.href='../8._my_bookings_customer_1/code.html'" class="w-full py-3 border border-outline-variant/40 text-on-surface-variant font-medium rounded-2xl hover:bg-surface-container transition-all text-sm">
+          Hủy bỏ
+        </button>
+        <p class="text-xs text-center text-on-surface-variant">Thay đổi sẽ được áp dụng ngay sau khi xác nhận</p>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<script>
+function confirmModify() {
+  if(confirm('Xác nhận thay đổi đặt phòng #TM-82910?')) {
+    alert('Đặt phòng đã được cập nhật thành công!');
+    window.location.href = '../8._my_bookings_customer_1/code.html';
+  }
+}
+function updateSummary() {
+  // Simple demo update
+}
+</script>
+</body>
+</html>

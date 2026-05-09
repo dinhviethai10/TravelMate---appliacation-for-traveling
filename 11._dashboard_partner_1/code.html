@@ -117,9 +117,13 @@
 </nav>
 <!-- Footer Tabs -->
 <div class="mt-auto border-t border-stone-200/50 pt-4 space-y-1">
-<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg font-medium transition-transform hover:scale-[1.02] cursor-pointer" href="#">
+<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg font-medium transition-transform hover:scale-[1.02] cursor-pointer" href="../availability_calendar/code.html">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<span class="text-primary">Lịch trống phòng</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg font-medium transition-transform hover:scale-[1.02] cursor-pointer" href="../property_management/code.html">
 <span class="material-symbols-outlined">settings</span>
-<span>Cài đặt</span>
+<span>Cài đặt cơ sở</span>
 </a>
 <a class="flex items-center gap-3 py-3 px-4 text-error hover:bg-error-container/20 mx-2 rounded-lg font-medium transition-transform hover:scale-[1.02] cursor-pointer" href="../2._login_register_customer_1/code.html">
 <span class="material-symbols-outlined">logout</span>
@@ -257,7 +261,7 @@
 <div>
 <p class="text-sm font-bold text-on-surface">Yêu cầu hủy phòng #4829</p>
 <p class="text-xs text-on-surface-variant mt-1">Lý do: Thay đổi kế hoạch cá nhân</p>
-<button class="mt-2 text-xs font-bold text-error uppercase tracking-wider">Xử lý ngay</button>
+<button class="mt-2 text-xs font-bold text-error uppercase tracking-wider" onclick="window.location.href='../13._booking_management_partner_1/code.html'">Xử lý ngay</button>
 </div>
 </div>
 <div class="flex items-start gap-4 bg-surface-container-lowest p-4 rounded-2xl shadow-sm border-l-4 border-primary">
@@ -265,7 +269,7 @@
 <div>
 <p class="text-sm font-bold text-on-surface">Hết phòng Deluxe Ocean View</p>
 <p class="text-xs text-on-surface-variant mt-1">Giai đoạn: 12/04 - 15/04</p>
-<button class="mt-2 text-xs font-bold text-primary uppercase tracking-wider">Cập nhật lịch</button>
+<button class="mt-2 text-xs font-bold text-primary uppercase tracking-wider" onclick="window.location.href='../availability_calendar/code.html'">Cập nhật lịch</button>
 </div>
 </div>
 </div>
@@ -283,7 +287,7 @@
 <section class="mt-8 bg-surface-container-lowest rounded-3xl shadow-[0_12px_40px_rgba(0,109,67,0.04)] overflow-hidden">
 <div class="p-8 flex justify-between items-center">
 <h4 class="text-xl font-bold text-on-surface">Đặt phòng gần đây</h4>
-<button class="text-sm font-bold text-primary flex items-center gap-1">
+<button class="text-sm font-bold text-primary flex items-center gap-1" onclick="window.location.href='../13._booking_management_partner_1/code.html'">
                     Xem tất cả <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </button>
 </div>
@@ -352,7 +356,7 @@
 </main>
 <!-- Contextual FAB for quick room update (only on dashboard as requested) -->
 <div class="fixed bottom-8 right-8 z-50">
-<button class="flex items-center gap-2 bg-primary hover:bg-primary-container text-white px-6 py-4 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 group">
+<button onclick="window.location.href='../12._room_management_partner_1/code.html'" class="flex items-center gap-2 bg-primary hover:bg-primary-container text-white px-6 py-4 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 group">
 <span class="material-symbols-outlined group-hover:rotate-90 transition-transform">add</span>
 <span class="font-bold tracking-tight">Thêm phòng mới</span>
 </button>

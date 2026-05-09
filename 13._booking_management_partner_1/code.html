@@ -117,9 +117,13 @@
 </a>
 </nav>
 <div class="mt-auto space-y-1 pt-6 border-t border-stone-200/50">
-<a class="flex items-center px-6 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-transform hover:scale-[1.02] cursor-pointer active:scale-98" href="#">
+<a class="flex items-center px-6 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-transform hover:scale-[1.02] cursor-pointer active:scale-98" href="../availability_calendar/code.html">
+<span class="material-symbols-outlined mr-3 text-primary">calendar_month</span>
+<span class="text-sm font-medium text-primary">Lịch trống phòng</span>
+</a>
+<a class="flex items-center px-6 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-transform hover:scale-[1.02] cursor-pointer active:scale-98" href="../property_management/code.html">
 <span class="material-symbols-outlined mr-3">settings</span>
-<span class="text-sm font-medium">Cài đặt</span>
+<span class="text-sm font-medium">Cài đặt cơ sở</span>
 </a>
 <a class="flex items-center px-6 py-3 text-stone-500 hover:bg-stone-200/50 mx-2 rounded-lg transition-transform hover:scale-[1.02] cursor-pointer active:scale-98" href="../2._login_register_customer_1/code.html">
 <span class="material-symbols-outlined mr-3">logout</span>
@@ -176,138 +180,188 @@
 <h3 class="text-2xl font-bold text-on-surface">03</h3>
 </div>
 </div>
+<!-- Status Filter Tabs -->
+<div class="flex flex-wrap gap-2 mb-6" id="statusTabs">
+<button onclick="filterStatus('all', this)" class="tab-btn active-tab px-4 py-2 rounded-full text-sm font-bold bg-primary text-white transition-all">Tất cả <span class="ml-1 bg-white/20 text-white px-1.5 rounded-full text-xs">65</span></button>
+<button onclick="filterStatus('pending', this)" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-orange-100 hover:text-orange-700 transition-all">Chờ xác nhận <span class="ml-1 bg-orange-100 text-orange-700 px-1.5 rounded-full text-xs">12</span></button>
+<button onclick="filterStatus('confirmed', this)" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-green-100 hover:text-green-700 transition-all">Đã xác nhận <span class="ml-1 bg-green-100 text-green-700 px-1.5 rounded-full text-xs">45</span></button>
+<button onclick="filterStatus('staying', this)" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-blue-100 hover:text-blue-700 transition-all">Đang ở <span class="ml-1 bg-blue-100 text-blue-700 px-1.5 rounded-full text-xs">8</span></button>
+<button onclick="filterStatus('done', this)" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-stone-200 transition-all">Hoàn tất</button>
+<button onclick="filterStatus('cancelled', this)" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-red-100 hover:text-error transition-all">Đã hủy <span class="ml-1 bg-red-100 text-error px-1.5 rounded-full text-xs">3</span></button>
+</div>
 <!-- Bookings Table Section -->
 <div class="bg-surface-container-lowest rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.03)] overflow-hidden">
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse">
 <thead>
 <tr class="bg-surface-container-low/50">
-<th class="px-8 py-6 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Mã đặt phòng</th>
-<th class="px-6 py-6 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tên khách</th>
-<th class="px-6 py-6 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Phòng</th>
-<th class="px-6 py-6 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Ngày</th>
-<th class="px-6 py-6 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Số tiền</th>
-<th class="px-6 py-6 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Trạng thái</th>
-<th class="px-8 py-6 text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Thao tác</th>
+<th class="px-6 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Mã đặt phòng</th>
+<th class="px-5 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Khách hàng</th>
+<th class="px-5 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Phòng & Ngày</th>
+<th class="px-5 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Số khách</th>
+<th class="px-5 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Chi phí</th>
+<th class="px-5 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Trạng thái</th>
+<th class="px-6 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Thao tác</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-surface-container">
-<!-- Row 1 -->
-<tr class="hover:bg-surface-bright transition-colors group">
-<td class="px-8 py-6">
-<span class="font-mono font-bold text-primary">#TM-8821</span>
+<tbody id="bookingTableBody" class="divide-y divide-surface-container">
+<!-- Row 1 - Pending -->
+<tr class="hover:bg-surface-bright transition-colors booking-row" data-status="pending">
+<td class="px-6 py-5">
+<span class="font-mono font-bold text-primary text-sm">#TM-8821</span>
+<p class="text-[10px] text-on-surface-variant mt-0.5">12/10/2024 · 09:14</p>
 </td>
-<td class="px-6 py-6">
+<td class="px-5 py-5">
 <div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-stone-200 overflow-hidden">
-<img alt="Avatar" data-alt="Portrait of a young male traveler with a friendly smile, clean minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtdXEOVyn9Ok-LdrX3T2DixQCYTOKuikn4hEkXUhlZIpV-QaIOme1zO7u17qy82qCfVnSUjs1sWfRsVqhhs1IePYuf_92f7OZ6-9i8UNKPDLZTiznbMZ0QHwjkrlyDK_LTXcI40X7HaCH__p7sBPWHicPofaeHKqYnz2bOYtN1RiB0up3xJ_jsUboXc-fb0itVlObuJvkckLVNRpX6OpPEFKlqjCMIfg8etUJGO9Knse1aJyzbkLYbxbeHofJcuEBtOb8Q0hAi3A"/>
+<div class="w-9 h-9 rounded-full bg-stone-200 overflow-hidden flex-shrink-0">
+<img alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtdXEOVyn9Ok-LdrX3T2DixQCYTOKuikn4hEkXUhlZIpV-QaIOme1zO7u17qy82qCfVnSUjs1sWfRsVqhhs1IePYuf_92f7OZ6-9i8UNKPDLZTiznbMZ0QHwjkrlyDK_LTXcI40X7HaCH__p7sBPWHicPofaeHKqYnz2bOYtN1RiB0up3xJ_jsUboXc-fb0itVlObuJvkckLVNRpX6OpPEFKlqjCMIfg8etUJGO9Knse1aJyzbkLYbxbeHofJcuEBtOb8Q0hAi3A" class="w-full h-full object-cover"/>
 </div>
-<span class="font-semibold text-on-surface">Nguyễn Văn An</span>
-</div>
-</td>
-<td class="px-6 py-6 text-on-surface-variant text-sm">Phòng Deluxe View Biển</td>
-<td class="px-6 py-6">
-<div class="text-xs text-on-surface-variant">
-<div class="flex items-center gap-1 mb-1">
-<span class="material-symbols-outlined text-[14px]">login</span>
-<span>12/10/2024</span>
-</div>
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">logout</span>
-<span>15/10/2024</span>
+<div>
+<span class="font-semibold text-on-surface text-sm">Nguyễn Văn An</span>
+<p class="text-[11px] text-on-surface-variant">0912 345 678</p>
 </div>
 </div>
 </td>
-<td class="px-6 py-6 font-bold text-on-surface">3.450.000₫</td>
-<td class="px-6 py-6">
-<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-secondary-container text-on-secondary-container">Đang chờ</span>
+<td class="px-5 py-5">
+<p class="text-sm font-semibold text-on-surface">Deluxe View Biển</p>
+<div class="text-xs text-on-surface-variant mt-1 space-y-0.5">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">login</span><span>12/10/2024</span></div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">logout</span><span>15/10/2024</span></div>
+<span class="inline-block mt-1 px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">3 đêm</span>
+</div>
 </td>
-<td class="px-8 py-6 text-right">
-<div class="flex justify-end gap-2">
-<button class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center hover:shadow-lg hover:shadow-primary/20 transition-all" onclick="alert('Đặt phòng #TM-8821 đã được xác nhận thành công!')">
-<span class="material-symbols-outlined">check</span>
+<td class="px-5 py-5">
+<div class="text-xs space-y-1">
+<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-on-surface-variant">person</span><span class="font-semibold">2 người lớn</span></div>
+<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-orange-500">child_care</span><span class="font-semibold text-orange-600">1 trẻ em</span></div>
+<p class="text-on-surface-variant mt-1">Yêu cầu thêm: giường phụ</p>
+</div>
+</td>
+<td class="px-5 py-5">
+<p class="font-bold text-on-surface text-sm">3.450.000₫</p>
+<div class="text-[10px] text-on-surface-variant mt-1 space-y-0.5">
+<p>Phòng: 3.000.000₫</p>
+<p>Phụ thu trẻ em: 300.000₫</p>
+<p>Dịch vụ: 150.000₫</p>
+</div>
+</td>
+<td class="px-5 py-5">
+<span class="status-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-orange-100 text-orange-700">Chờ xác nhận</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1.5">
+<button title="Xác nhận" class="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center hover:shadow-lg hover:shadow-primary/20 transition-all" onclick="confirmBooking('TM-8821', this)">
+<span class="material-symbols-outlined text-[18px]">check</span>
 </button>
-<button class="w-10 h-10 rounded-xl bg-surface-container-high text-error flex items-center justify-center hover:bg-error-container transition-all" onclick="document.getElementById('rejectModal').style.display='flex'">
-<span class="material-symbols-outlined">close</span>
+<button title="Từ chối" class="w-9 h-9 rounded-xl bg-surface-container-high text-error flex items-center justify-center hover:bg-error-container transition-all" onclick="openRejectModal('TM-8821')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<button title="Chi tiết" class="w-9 h-9 rounded-xl bg-surface-container text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-all" onclick="openBookingDetail('TM-8821')">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
 </button>
 </div>
 </td>
 </tr>
-<!-- Row 2 -->
-<tr class="hover:bg-surface-bright transition-colors group">
-<td class="px-8 py-6">
-<span class="font-mono font-bold text-primary">#TM-8819</span>
+<!-- Row 2 - Confirmed -->
+<tr class="hover:bg-surface-bright transition-colors booking-row" data-status="confirmed">
+<td class="px-6 py-5">
+<span class="font-mono font-bold text-primary text-sm">#TM-8819</span>
+<p class="text-[10px] text-on-surface-variant mt-0.5">11/10/2024 · 14:30</p>
 </td>
-<td class="px-6 py-6">
+<td class="px-5 py-5">
 <div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-stone-200 overflow-hidden">
-<img alt="Avatar" data-alt="Portrait of a young female professional traveler, clean minimalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6tTQntdzfy9PLjhRtdI-IOOHNKXlhHhhR-o7sIFAfrwHPmGGh0Mmhq_V2itDeUYf2rytAz1tCEsooGrec2rfuyKD-zifF9M1UYSLZQQ0nOR7cVJ-szXj-Udi0Cm0ovvvt-LZekAarogAXlSKseKmX8qvfdJgEqGRXZjHFda41eXVUozmcGrp5_qY-ZEau7wxoJZHIWlK6bcw6t5GLVbcKVaTDS5NKwZLAIuZqgcRQRZ3yuh2bkOlkVUVGFdAD1lDnNHKr6LhXLA"/>
+<div class="w-9 h-9 rounded-full bg-stone-200 overflow-hidden flex-shrink-0">
+<img alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6tTQntdzfy9PLjhRtdI-IOOHNKXlhHhhR-o7sIFAfrwHPmGGh0Mmhq_V2itDeUYf2rytAz1tCEsooGrec2rfuyKD-zifF9M1UYSLZQQ0nOR7cVJ-szXj-Udi0Cm0ovvvt-LZekAarogAXlSKseKmX8qvfdJgEqGRXZjHFda41eXVUozmcGrp5_qY-ZEau7wxoJZHIWlK6bcw6t5GLVbcKVaTDS5NKwZLAIuZqgcRQRZ3yuh2bkOlkVUVGFdAD1lDnNHKr6LhXLA" class="w-full h-full object-cover"/>
 </div>
-<span class="font-semibold text-on-surface">Trần Thị Linh</span>
-</div>
-</td>
-<td class="px-6 py-6 text-on-surface-variant text-sm">Suite Hướng Núi</td>
-<td class="px-6 py-6">
-<div class="text-xs text-on-surface-variant">
-<div class="flex items-center gap-1 mb-1">
-<span class="material-symbols-outlined text-[14px]">login</span>
-<span>14/10/2024</span>
-</div>
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">logout</span>
-<span>16/10/2024</span>
+<div>
+<span class="font-semibold text-on-surface text-sm">Trần Thị Linh</span>
+<p class="text-[11px] text-on-surface-variant">0987 654 321</p>
 </div>
 </div>
 </td>
-<td class="px-6 py-6 font-bold text-on-surface">2.800.000₫</td>
-<td class="px-6 py-6">
-<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-surface-container-high text-on-surface-variant">Đã xác nhận</span>
+<td class="px-5 py-5">
+<p class="text-sm font-semibold text-on-surface">Suite Hướng Núi</p>
+<div class="text-xs text-on-surface-variant mt-1 space-y-0.5">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">login</span><span>14/10/2024</span></div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">logout</span><span>16/10/2024</span></div>
+<span class="inline-block mt-1 px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">2 đêm</span>
+</div>
 </td>
-<td class="px-8 py-6 text-right">
-<button class="px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-lg transition-all">Chi tiết</button>
+<td class="px-5 py-5">
+<div class="text-xs space-y-1">
+<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-on-surface-variant">person</span><span class="font-semibold">2 người lớn</span></div>
+<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-blue-400">child_care</span><span class="font-semibold text-blue-600">2 trẻ em</span></div>
+<p class="text-on-surface-variant mt-1">Yêu cầu: phòng tầng cao</p>
+</div>
+</td>
+<td class="px-5 py-5">
+<p class="font-bold text-on-surface text-sm">2.800.000₫</p>
+<div class="text-[10px] text-on-surface-variant mt-1 space-y-0.5">
+<p>Phòng: 2.200.000₫</p>
+<p>Phụ thu trẻ em: 400.000₫</p>
+<p>Dịch vụ: 200.000₫</p>
+</div>
+</td>
+<td class="px-5 py-5">
+<span class="status-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-green-100 text-green-700">Đã xác nhận</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button title="Chi tiết" class="px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-lg transition-all" onclick="openBookingDetail('TM-8819')">Chi tiết</button>
 </td>
 </tr>
-<!-- Row 3 -->
-<tr class="hover:bg-surface-bright transition-colors group">
-<td class="px-8 py-6">
-<span class="font-mono font-bold text-primary">#TM-8815</span>
+<!-- Row 3 - Done -->
+<tr class="hover:bg-surface-bright transition-colors booking-row" data-status="done">
+<td class="px-6 py-5">
+<span class="font-mono font-bold text-primary text-sm">#TM-8815</span>
+<p class="text-[10px] text-on-surface-variant mt-0.5">08/10/2024 · 10:05</p>
 </td>
-<td class="px-6 py-6">
+<td class="px-5 py-5">
 <div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-stone-200 overflow-hidden">
-<img alt="Avatar" data-alt="Portrait of a cheerful male tourist, sunny lighting, vibrant background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzIBwFNC1R3iL2tM9YzH5_5_GORRMSS5Dh9HUGZimXMtkBoi7tLx-xGfR_PbhLp3N9tPy_qSAWbgwQmlWYFjNHtU7UN1FY7S4wp_MN9lVUi5LvtMgXJC_J3VwnXdQmzjJNGd845fVC0H4i8s-01L2ABLpKRPnVtWiytx0bIrxDOTSL6eGJbTmr7KTQkzDvYp4VBhvoPjOuUU-oP6QtQyX3mYtiZ8rHlkRVrIaCQQ7y1QAWjnK3M7oiyISRHWgQRktFEUxxN_n89A"/>
+<div class="w-9 h-9 rounded-full bg-stone-200 overflow-hidden flex-shrink-0">
+<img alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzIBwFNC1R3iL2tM9YzH5_5_GORRMSS5Dh9HUGZimXMtkBoi7tLx-xGfR_PbhLp3N9tPy_qSAWbgwQmlWYFjNHtU7UN1FY7S4wp_MN9lVUi5LvtMgXJC_J3VwnXdQmzjJNGd845fVC0H4i8s-01L2ABLpKRPnVtWiytx0bIrxDOTSL6eGJbTmr7KTQkzDvYp4VBhvoPjOuUU-oP6QtQyX3mYtiZ8rHlkRVrIaCQQ7y1QAWjnK3M7oiyISRHWgQRktFEUxxN_n89A" class="w-full h-full object-cover"/>
 </div>
-<span class="font-semibold text-on-surface">Lê Hoàng Cường</span>
-</div>
-</td>
-<td class="px-6 py-6 text-on-surface-variant text-sm">Phòng Standard Twin</td>
-<td class="px-6 py-6">
-<div class="text-xs text-on-surface-variant">
-<div class="flex items-center gap-1 mb-1">
-<span class="material-symbols-outlined text-[14px]">login</span>
-<span>10/10/2024</span>
-</div>
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">logout</span>
-<span>12/10/2024</span>
+<div>
+<span class="font-semibold text-on-surface text-sm">Lê Hoàng Cường</span>
+<p class="text-[11px] text-on-surface-variant">0905 111 222</p>
 </div>
 </div>
 </td>
-<td class="px-6 py-6 font-bold text-on-surface">1.200.000₫</td>
-<td class="px-6 py-6">
-<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-secondary text-white">Hoàn tất</span>
+<td class="px-5 py-5">
+<p class="text-sm font-semibold text-on-surface">Phòng Standard Twin</p>
+<div class="text-xs text-on-surface-variant mt-1 space-y-0.5">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">login</span><span>10/10/2024</span></div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">logout</span><span>12/10/2024</span></div>
+<span class="inline-block mt-1 px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">2 đêm</span>
+</div>
 </td>
-<td class="px-8 py-6 text-right">
-<button class="px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-lg transition-all">Chi tiết</button>
+<td class="px-5 py-5">
+<div class="text-xs space-y-1">
+<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-on-surface-variant">person</span><span class="font-semibold">2 người lớn</span></div>
+<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-on-surface-variant">child_care</span><span class="text-on-surface-variant">Không có trẻ em</span></div>
+<p class="text-on-surface-variant mt-1">Không có yêu cầu</p>
+</div>
+</td>
+<td class="px-5 py-5">
+<p class="font-bold text-on-surface text-sm">1.200.000₫</p>
+<div class="text-[10px] text-on-surface-variant mt-1 space-y-0.5">
+<p>Phòng: 1.100.000₫</p>
+<p>Dịch vụ: 100.000₫</p>
+</div>
+</td>
+<td class="px-5 py-5">
+<span class="status-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-stone-100 text-stone-600">Hoàn tất</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button title="Chi tiết" class="px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-lg transition-all" onclick="openBookingDetail('TM-8815')">Chi tiết</button>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="px-8 py-6 border-t border-surface-container flex items-center justify-between">
-<p class="text-sm text-on-surface-variant">Hiển thị 1 - 3 trong số 65 lượt đặt phòng</p>
+<p class="text-sm text-on-surface-variant" id="tableCountText">Hiển thị 3 trong số 65 lượt đặt phòng</p>
 <div class="flex gap-2">
-<button class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-outline hover:text-primary transition-all">
+<button class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-outline hover:text-primary transition-all disabled:opacity-30" disabled>
 <span class="material-symbols-outlined">chevron_left</span>
 </button>
 <button class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold">1</button>
@@ -319,37 +373,254 @@
 </div>
 </div>
 </main>
+
 <!-- Reject Reason Modal -->
 <div id="rejectModal" style="display:none" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-on-surface/20 backdrop-blur-sm">
-<div class="bg-surface-container-lowest w-full max-w-md rounded-[32px] shadow-2xl p-8 transform scale-100 transition-transform">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-[32px] shadow-2xl p-8">
 <div class="flex justify-between items-start mb-6">
 <div>
 <h3 class="text-2xl font-black text-on-surface tracking-tight mb-1">Từ chối đặt phòng</h3>
-<p class="text-sm text-on-surface-variant">Vui lòng chọn lý do để thông báo cho khách hàng.</p>
+<p class="text-sm text-on-surface-variant">Mã: <span id="rejectBookingId" class="font-bold text-primary">#TM-8821</span></p>
 </div>
 <button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-error transition-all" onclick="document.getElementById('rejectModal').style.display='none'">
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
-<div class="space-y-4 mb-8">
+<div class="space-y-3 mb-6">
 <label class="flex items-center p-4 rounded-2xl bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors group">
-<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="reason" type="radio"/>
-<span class="ml-4 text-sm font-medium text-on-surface group-hover:text-primary">Hết phòng trống</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="reason" type="radio" value="full"/>
+<span class="ml-4 text-sm font-medium text-on-surface">Hết phòng trống</span>
 </label>
 <label class="flex items-center p-4 rounded-2xl bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors group">
-<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="reason" type="radio"/>
-<span class="ml-4 text-sm font-medium text-on-surface group-hover:text-primary">Phòng đang sửa chữa</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="reason" type="radio" value="maintenance"/>
+<span class="ml-4 text-sm font-medium text-on-surface">Phòng đang sửa chữa / bảo trì</span>
 </label>
 <label class="flex items-center p-4 rounded-2xl bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors group">
-<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="reason" type="radio"/>
-<span class="ml-4 text-sm font-medium text-on-surface group-hover:text-primary">Lý do khác</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="reason" type="radio" value="other"/>
+<span class="ml-4 text-sm font-medium text-on-surface">Lý do khác</span>
 </label>
-<textarea class="w-full bg-surface-container-low border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-primary h-32 resize-none" placeholder="Nhập lý do chi tiết..."></textarea>
+<textarea id="rejectNote" class="w-full bg-surface-container-low border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-primary h-24 resize-none" placeholder="Ghi chú thêm cho khách hàng..."></textarea>
 </div>
 <div class="grid grid-cols-2 gap-4">
-<button class="py-4 rounded-full font-bold text-on-surface-variant bg-surface-container-high hover:bg-surface-container-highest transition-all" onclick="document.getElementById('rejectModal').style.display='none'">Hủy bỏ</button>
-<button class="py-4 rounded-full font-bold text-white bg-error hover:opacity-90 transition-all shadow-lg shadow-error/20" onclick="document.getElementById('rejectModal').setAttribute('hidden',''); alert('Đặt phòng đã bị từ chối. Khách hàng sẽ được thông báo.')">Xác nhận từ chối</button>
+<button class="py-3 rounded-full font-bold text-on-surface-variant bg-surface-container-high hover:bg-surface-container-highest transition-all" onclick="document.getElementById('rejectModal').style.display='none'">Hủy bỏ</button>
+<button class="py-3 rounded-full font-bold text-white bg-error hover:opacity-90 transition-all shadow-lg shadow-error/20" onclick="confirmReject()">Xác nhận từ chối</button>
 </div>
 </div>
 </div>
+
+<!-- Booking Detail Modal -->
+<div id="bookingDetailModal" style="display:none" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-on-surface/30 backdrop-blur-sm">
+<div class="bg-surface w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+<!-- Modal Header -->
+<div class="bg-primary px-8 py-6 flex justify-between items-center flex-shrink-0">
+<div>
+<h3 class="text-xl font-black text-white">Chi tiết đặt phòng</h3>
+<p id="detailBookingId" class="text-white/70 text-sm font-mono mt-0.5">#TM-8821</p>
+</div>
+<button onclick="document.getElementById('bookingDetailModal').style.display='none'" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="overflow-y-auto flex-1 p-8 space-y-6">
+<!-- Guest Info -->
+<div class="bg-surface-container-low rounded-2xl p-5">
+<h4 class="text-xs font-black uppercase tracking-wider text-on-surface-variant mb-4">Thông tin khách hàng</h4>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-xs text-on-surface-variant">Họ tên</p>
+<p id="detailGuestName" class="font-bold text-on-surface mt-0.5">Nguyễn Văn An</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Số điện thoại</p>
+<p id="detailPhone" class="font-bold text-on-surface mt-0.5">0912 345 678</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Email</p>
+<p id="detailEmail" class="font-semibold text-primary mt-0.5">nguyenvanan@email.com</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Trạng thái thanh toán</p>
+<p id="detailPayment" class="font-bold text-green-600 mt-0.5">✓ Đã thanh toán</p>
+</div>
+</div>
+</div>
+<!-- Stay Details -->
+<div class="bg-surface-container-low rounded-2xl p-5">
+<h4 class="text-xs font-black uppercase tracking-wider text-on-surface-variant mb-4">Chi tiết lưu trú</h4>
+<div class="grid grid-cols-3 gap-4 mb-4">
+<div class="bg-surface-container-lowest rounded-xl p-4 text-center">
+<span class="material-symbols-outlined text-primary text-2xl">login</span>
+<p class="text-xs text-on-surface-variant mt-1">Nhận phòng</p>
+<p id="detailCheckin" class="font-bold text-on-surface text-sm mt-0.5">12/10/2024</p>
+<p class="text-[10px] text-on-surface-variant">14:00</p>
+</div>
+<div class="bg-primary/10 rounded-xl p-4 text-center">
+<span class="material-symbols-outlined text-primary text-2xl">nights_stay</span>
+<p class="text-xs text-on-surface-variant mt-1">Số đêm</p>
+<p id="detailNights" class="font-bold text-primary text-xl mt-0.5">3</p>
+<p class="text-[10px] text-on-surface-variant">đêm</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 text-center">
+<span class="material-symbols-outlined text-primary text-2xl">logout</span>
+<p class="text-xs text-on-surface-variant mt-1">Trả phòng</p>
+<p id="detailCheckout" class="font-bold text-on-surface text-sm mt-0.5">15/10/2024</p>
+<p class="text-[10px] text-on-surface-variant">12:00</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-3 bg-surface-container-lowest rounded-xl p-3 flex-1">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">person</span>
+<div>
+<p class="text-xs text-on-surface-variant">Người lớn</p>
+<p id="detailAdults" class="font-bold text-on-surface">2 người</p>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-orange-50 rounded-xl p-3 flex-1">
+<span class="material-symbols-outlined text-orange-500 text-xl">child_care</span>
+<div>
+<p class="text-xs text-on-surface-variant">Trẻ em</p>
+<p id="detailChildren" class="font-bold text-orange-600">1 trẻ (dưới 12t)</p>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-lowest rounded-xl p-3 flex-1">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">bed</span>
+<div>
+<p class="text-xs text-on-surface-variant">Loại phòng</p>
+<p id="detailRoom" class="font-bold text-on-surface text-sm">Deluxe View Biển</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Special Requests -->
+<div class="bg-amber-50 border border-amber-200/50 rounded-2xl p-4">
+<h4 class="text-xs font-black uppercase tracking-wider text-amber-700 mb-2 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">note</span> Yêu cầu đặc biệt
+</h4>
+<p id="detailRequests" class="text-sm text-amber-800">Cần thêm giường phụ cho trẻ em. Phòng tầng cao, view biển. Nhận phòng sớm trước 12h nếu có thể.</p>
+</div>
+<!-- Pricing Breakdown -->
+<div class="bg-surface-container-low rounded-2xl p-5">
+<h4 class="text-xs font-black uppercase tracking-wider text-on-surface-variant mb-4">Chi phí chi tiết</h4>
+<div id="detailPricing" class="space-y-2">
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Giá phòng (1.000.000₫ × 3 đêm)</span><span class="font-semibold">3.000.000₫</span></div>
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Phụ thu trẻ em (1 trẻ × 3 đêm)</span><span class="font-semibold text-orange-600">300.000₫</span></div>
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Giường phụ</span><span class="font-semibold">150.000₫</span></div>
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Phí dịch vụ (3%)</span><span class="font-semibold">0₫</span></div>
+<div class="border-t border-outline-variant/30 pt-2 mt-2 flex justify-between">
+<span class="font-bold text-on-surface">Tổng cộng</span>
+<span id="detailTotal" class="font-black text-primary text-lg">3.450.000₫</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-8 py-5 border-t border-surface-container flex gap-3 flex-shrink-0">
+<button onclick="document.getElementById('bookingDetailModal').style.display='none'" class="flex-1 py-3 rounded-xl font-bold bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all">Đóng</button>
+<button onclick="document.getElementById('bookingDetailModal').style.display='none'; alert('Đã gửi xác nhận cho khách hàng.')" class="flex-1 py-3 rounded-xl font-bold bg-primary text-white hover:opacity-90 transition-all shadow-lg shadow-primary/20">Gửi xác nhận</button>
+</div>
+</div>
+</div>
+
+<script>
+const bookings = {
+  'TM-8821': {
+    id: '#TM-8821', name: 'Nguyễn Văn An', phone: '0912 345 678',
+    email: 'nguyenvanan@email.com', payment: '✓ Đã thanh toán (VNPay)',
+    checkin: '12/10/2024', checkout: '15/10/2024', nights: 3,
+    room: 'Deluxe View Biển', adults: 2, children: '1 trẻ (dưới 12 tuổi)',
+    requests: 'Cần thêm giường phụ cho trẻ em. Phòng tầng cao, view biển. Nhận phòng sớm trước 12h nếu có thể.',
+    pricingHtml: `<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Giá phòng (1.000.000₫ × 3 đêm)</span><span class="font-semibold">3.000.000₫</span></div>
+      <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Phụ thu trẻ em (1 trẻ × 3 đêm)</span><span class="font-semibold text-orange-600">300.000₫</span></div>
+      <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Giường phụ</span><span class="font-semibold">150.000₫</span></div>
+      <div class="border-t border-outline-variant/30 pt-2 mt-2 flex justify-between"><span class="font-bold">Tổng cộng</span><span class="font-black text-primary text-lg">3.450.000₫</span></div>`,
+    total: '3.450.000₫'
+  },
+  'TM-8819': {
+    id: '#TM-8819', name: 'Trần Thị Linh', phone: '0987 654 321',
+    email: 'tranthilinh@email.com', payment: '✓ Đã thanh toán (MoMo)',
+    checkin: '14/10/2024', checkout: '16/10/2024', nights: 2,
+    room: 'Suite Hướng Núi', adults: 2, children: '2 trẻ (dưới 12 tuổi)',
+    requests: 'Phòng tầng cao, cần 2 giường đơn cho trẻ. Muốn view núi.',
+    pricingHtml: `<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Giá phòng (1.100.000₫ × 2 đêm)</span><span class="font-semibold">2.200.000₫</span></div>
+      <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Phụ thu trẻ em (2 trẻ × 2 đêm)</span><span class="font-semibold text-orange-600">400.000₫</span></div>
+      <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Phí dịch vụ</span><span class="font-semibold">200.000₫</span></div>
+      <div class="border-t border-outline-variant/30 pt-2 mt-2 flex justify-between"><span class="font-bold">Tổng cộng</span><span class="font-black text-primary text-lg">2.800.000₫</span></div>`,
+    total: '2.800.000₫'
+  },
+  'TM-8815': {
+    id: '#TM-8815', name: 'Lê Hoàng Cường', phone: '0905 111 222',
+    email: 'lehoangcuong@email.com', payment: '✓ Đã thanh toán (QR)',
+    checkin: '10/10/2024', checkout: '12/10/2024', nights: 2,
+    room: 'Phòng Standard Twin', adults: 2, children: 'Không có trẻ em',
+    requests: 'Không có yêu cầu đặc biệt.',
+    pricingHtml: `<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Giá phòng (550.000₫ × 2 đêm)</span><span class="font-semibold">1.100.000₫</span></div>
+      <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Phí dịch vụ</span><span class="font-semibold">100.000₫</span></div>
+      <div class="border-t border-outline-variant/30 pt-2 mt-2 flex justify-between"><span class="font-bold">Tổng cộng</span><span class="font-black text-primary text-lg">1.200.000₫</span></div>`,
+    total: '1.200.000₫'
+  }
+};
+
+function openBookingDetail(id) {
+  const b = bookings[id];
+  if (!b) return;
+  document.getElementById('detailBookingId').textContent = b.id;
+  document.getElementById('detailGuestName').textContent = b.name;
+  document.getElementById('detailPhone').textContent = b.phone;
+  document.getElementById('detailEmail').textContent = b.email;
+  document.getElementById('detailPayment').textContent = b.payment;
+  document.getElementById('detailCheckin').textContent = b.checkin;
+  document.getElementById('detailCheckout').textContent = b.checkout;
+  document.getElementById('detailNights').textContent = b.nights;
+  document.getElementById('detailRoom').textContent = b.room;
+  document.getElementById('detailAdults').textContent = b.adults + ' người';
+  document.getElementById('detailChildren').textContent = b.children;
+  document.getElementById('detailRequests').textContent = b.requests;
+  document.getElementById('detailPricing').innerHTML = b.pricingHtml;
+  document.getElementById('detailTotal').textContent = b.total;
+  document.getElementById('bookingDetailModal').style.display = 'flex';
+}
+
+window._rejectId = null;
+function openRejectModal(id) {
+  window._rejectId = id;
+  document.getElementById('rejectBookingId').textContent = '#' + id;
+  document.getElementById('rejectModal').style.display = 'flex';
+}
+
+function confirmReject() {
+  document.getElementById('rejectModal').style.display = 'none';
+  alert('Đặt phòng #' + window._rejectId + ' đã bị từ chối. Khách hàng sẽ được thông báo qua email.');
+}
+
+function confirmBooking(id, btn) {
+  var row = btn.closest('tr');
+  var badge = row.querySelector('.status-badge');
+  badge.className = 'status-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-green-100 text-green-700';
+  badge.textContent = 'Đã xác nhận';
+  var actionCell = btn.closest('td');
+  actionCell.innerHTML = '<button class="px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-lg transition-all" onclick="openBookingDetail(\'' + id + '\')">Chi tiết</button>';
+  alert('✅ Đặt phòng #' + id + ' đã được xác nhận. Khách hàng sẽ nhận thông báo.');
+}
+
+function filterStatus(status, btn) {
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('bg-primary','text-white','active-tab');
+    b.classList.add('bg-surface-container','text-on-surface-variant');
+  });
+  btn.classList.add('bg-primary','text-white','active-tab');
+  btn.classList.remove('bg-surface-container','text-on-surface-variant');
+  var rows = document.querySelectorAll('.booking-row');
+  var shown = 0;
+  rows.forEach(function(row) {
+    if (status === 'all' || row.dataset.status === status) {
+      row.style.display = '';
+      shown++;
+    } else {
+      row.style.display = 'none';
+    }
+  });
+  document.getElementById('tableCountText').textContent = 'Hiển thị ' + shown + ' lượt đặt phòng';
+}
+</script>
 </body></html>
