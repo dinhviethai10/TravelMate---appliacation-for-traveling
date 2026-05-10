@@ -109,6 +109,29 @@
 </div>
 </nav>
 <main class="pt-28 pb-16 px-8 max-w-screen-2xl mx-auto">
+<!-- Search Edit Bar -->
+<div class="mb-6 bg-surface-container-lowest rounded-2xl p-4 flex flex-wrap items-center gap-3 shadow-sm border border-outline-variant/20">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full cursor-pointer hover:bg-stone-200/60 transition-colors" onclick="openResultDateModal()">
+<span class="material-symbols-outlined text-primary text-lg">calendar_month</span>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase leading-none">Thời gian</p>
+<p class="text-sm font-semibold" id="resDateDisplay">12/10 - 15/10</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">edit</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full cursor-pointer hover:bg-stone-200/60 transition-colors" onclick="openResultGuestModal()">
+<span class="material-symbols-outlined text-primary text-lg">group</span>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase leading-none">Khách</p>
+<p class="text-sm font-semibold" id="resGuestDisplay">2 người lớn, 1 trẻ em</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">edit</span>
+</div>
+<div class="ml-auto flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-primary">info</span>
+<span id="resNightsInfo">3 đêm</span>
+</div>
+</div>
 <!-- Search Results Header -->
 <header class="mb-8">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -393,7 +416,74 @@
             © 2024 TravelMate. Tất cả quyền được bảo lưu.
         </div>
 </footer>
+<!-- Date Modal -->
+<div id="resDM" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+<div class="bg-white rounded-3xl p-8 w-full max-w-md mx-4 shadow-2xl">
+<h3 class="text-lg font-bold mb-6">Chỉnh ngày lưu trú</h3>
+<div class="space-y-4">
+<div class="space-y-1"><label class="text-xs font-bold text-primary">Nhận phòng</label>
+<input type="date" id="rDateIn" class="w-full bg-surface-container-low border-none rounded-lg p-3 focus:ring-2 focus:ring-primary" onchange="updateResNights()"/></div>
+<div class="space-y-1"><label class="text-xs font-bold text-primary">Trả phòng</label>
+<input type="date" id="rDateOut" class="w-full bg-surface-container-low border-none rounded-lg p-3 focus:ring-2 focus:ring-primary" onchange="updateResNights()"/></div>
+<p class="text-sm text-center text-on-surface-variant">Số đêm: <strong id="rNightsDisp">3</strong></p>
+</div>
+<div class="flex gap-3 mt-6">
+<button onclick="document.getElementById('resDM').classList.add('hidden')" class="flex-1 py-3 border border-outline-variant rounded-xl font-bold">Hủy</button>
+<button onclick="applyResDates()" class="flex-1 py-3 bg-primary text-white rounded-xl font-bold">Áp dụng</button>
+</div>
+</div>
+</div>
+<!-- Guest Modal -->
+<div id="resGM" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+<div class="bg-white rounded-3xl p-8 w-full max-w-sm mx-4 shadow-2xl">
+<h3 class="text-lg font-bold mb-6">Số lượng khách</h3>
+<div class="space-y-5">
+<div class="flex justify-between items-center">
+<div><p class="font-medium">Người lớn</p><p class="text-xs text-on-surface-variant">Từ 12 tuổi</p></div>
+<div class="flex items-center gap-4">
+<button onclick="chRG('adults',-1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">−</button>
+<span id="rAdults" class="w-6 text-center font-bold text-lg">2</span>
+<button onclick="chRG('adults',1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">+</button>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div><p class="font-medium">Trẻ em</p><p class="text-xs text-on-surface-variant">Dưới 12 tuổi</p></div>
+<div class="flex items-center gap-4">
+<button onclick="chRG('children',-1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">−</button>
+<span id="rChildren" class="w-6 text-center font-bold text-lg">1</span>
+<button onclick="chRG('children',1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">+</button>
+</div>
+</div>
+</div>
+<div class="flex gap-3 mt-8">
+<button onclick="document.getElementById('resGM').classList.add('hidden')" class="flex-1 py-3 border border-outline-variant rounded-xl font-bold">Hủy</button>
+<button onclick="applyResGuests()" class="flex-1 py-3 bg-primary text-white rounded-xl font-bold">Áp dụng</button>
+</div>
+</div>
+</div>
+
 <script>
+var _rs = { checkin:'2026-10-12', checkout:'2026-10-15', adults:2, children:1 };
+(function(){ var sv=sessionStorage.getItem('tmSearch'); if(sv) try{_rs=JSON.parse(sv);}catch(e){} })();
+function calcRN(ci,co){ var a=new Date(ci+'T00:00:00'),b=new Date(co+'T00:00:00'); return Math.max(1,Math.round((b-a)/86400000)); }
+function fmtR(d){ return new Date(d+'T00:00:00').getDate()+'/'+(new Date(d+'T00:00:00').getMonth()+1); }
+function refreshResBar(){
+  document.getElementById('resDateDisplay').textContent = fmtR(_rs.checkin)+' - '+fmtR(_rs.checkout);
+  document.getElementById('resGuestDisplay').textContent = _rs.adults+' người lớn'+(_rs.children>0?', '+_rs.children+' trẻ em':'');
+  document.getElementById('resNightsInfo').textContent = calcRN(_rs.checkin,_rs.checkout)+' đêm';
+  var bk = JSON.parse(sessionStorage.getItem('tmBooking')||'{}');
+  bk.adults=_rs.adults; bk.children=_rs.children; bk.checkin=_rs.checkin; bk.checkout=_rs.checkout; bk.nights=calcRN(_rs.checkin,_rs.checkout);
+  sessionStorage.setItem('tmBooking',JSON.stringify(bk));
+  sessionStorage.setItem('tmSearch',JSON.stringify(_rs));
+}
+function openResultDateModal(){ document.getElementById('rDateIn').value=_rs.checkin; document.getElementById('rDateOut').value=_rs.checkout; document.getElementById('rNightsDisp').textContent=calcRN(_rs.checkin,_rs.checkout); document.getElementById('resDM').classList.remove('hidden'); }
+function updateResNights(){ var ci=document.getElementById('rDateIn').value,co=document.getElementById('rDateOut').value; if(ci&&co) document.getElementById('rNightsDisp').textContent=calcRN(ci,co); }
+function applyResDates(){ var ci=document.getElementById('rDateIn').value,co=document.getElementById('rDateOut').value; if(!ci||!co||new Date(co)<=new Date(ci)){alert('Ngày không hợp lệ.');return;} _rs.checkin=ci;_rs.checkout=co; document.getElementById('resDM').classList.add('hidden'); refreshResBar(); }
+function openResultGuestModal(){ document.getElementById('rAdults').textContent=_rs.adults; document.getElementById('rChildren').textContent=_rs.children; document.getElementById('resGM').classList.remove('hidden'); }
+function chRG(t,d){ if(t==='adults'){_rs.adults=Math.max(1,_rs.adults+d);document.getElementById('rAdults').textContent=_rs.adults;}else{_rs.children=Math.max(0,_rs.children+d);document.getElementById('rChildren').textContent=_rs.children;} }
+function applyResGuests(){ document.getElementById('resGM').classList.add('hidden'); refreshResBar(); }
+window.addEventListener('load', refreshResBar);
+
 function toggleFavorite(btn) {
   const icon = btn.querySelector('.material-symbols-outlined');
   if(icon.textContent === 'favorite_border') {

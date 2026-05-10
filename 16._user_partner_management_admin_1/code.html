@@ -167,12 +167,12 @@
 <span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
                             Phê duyệt Đối tác
                         </h3>
-<span class="bg-primary-container text-white text-[10px] font-black px-2 py-0.5 rounded-full">03 MỚI</span>
+<span class="bg-primary-container text-white text-[10px] font-black px-2 py-0.5 rounded-full" id="pendingBadge">03 MỚI</span>
 </div>
 <!-- Queue List -->
-<div class="space-y-4">
-<!-- Request Card -->
-<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-transparent hover:border-primary/20 transition-all group">
+<div class="space-y-4" id="approvalQueue">
+<!-- Request Card 1 -->
+<div id="req-1" class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-transparent hover:border-primary/20 transition-all group">
 <div class="flex items-start gap-4">
 <div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
 <img alt="Partner Avatar" class="w-full h-full object-cover" data-alt="logo for a luxury resort called 'The Palm' featuring a stylized golden palm leaf against a cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC7U5pGYZiYpP8qasKQm4BRWJnw1q1UN8FoAXsic0EpD01W9Opdo6gAuhpDpWaCiAaQVEFL8g2VZ8Ny0vZE-sHuaYgk23_bg43OKZEvZ9zxpBJaXuFn_65qgDoUCNrnvR0HTMZOMVKVsOggMkLgaeZXxXZb9XJ7kBHzOSrNzDGCiXFRezHc2iGIR2nUJ2fxrlyQ_t5MIMUFjEgWtdNeDUMGSG0p8pGbA92oAY2dvQDa2HBL48_wg9y3z8EI-m7nnINEsFoX9pu2w"/>
@@ -181,14 +181,14 @@
 <h4 class="font-bold text-on-surface leading-tight">The Palm Resort &amp; Spa</h4>
 <p class="text-xs text-on-surface-variant mb-3">Yêu cầu: 2 giờ trước</p>
 <div class="flex gap-2">
-<button class="flex-1 py-2 text-xs font-bold text-white bg-primary rounded-lg">Duyệt</button>
-<button class="px-3 py-2 text-xs font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5">Hồ sơ</button>
+<button class="flex-1 py-2 text-xs font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors" onclick="approvePartner('req-1','The Palm Resort &amp; Spa')">Duyệt</button>
+<button class="px-3 py-2 text-xs font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5" onclick="showToast('Đang mở hồ sơ The Palm Resort & Spa...','info')">Hồ sơ</button>
 </div>
 </div>
 </div>
 </div>
-<!-- Request Card -->
-<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-transparent hover:border-primary/20 transition-all group opacity-80 hover:opacity-100">
+<!-- Request Card 2 -->
+<div id="req-2" class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-transparent hover:border-primary/20 transition-all group opacity-80 hover:opacity-100">
 <div class="flex items-start gap-4">
 <div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
 <img alt="Partner Avatar" class="w-full h-full object-cover" data-alt="clean minimalist logo for an urban homestay service with a house outline and a green pine tree icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuhIxHvfrnpD42Xvt9zPMk92k0-yf7gwK-xknIGD0Y_Omq4EWc2Be22vOsRsVrRGjsEfWnefQY0UKUTpocx-vj7Q0ek85Gpmf30T-dyGPBoO0iqfWtdW12Zsr2BE0Br72IvjkvcTG2ajKi0-qGr4CjTJZcoLYCf7ji2e78icFkmCrYJHhKL1C7gtuZQp1QC1FlzJ0EFhh0EgIkp7Q84qN-C-m53WP_Hck-FCbwfZnieUBdQ23P6yXsKNueeKtNkWtJA3_hnlmOIQ"/>
@@ -197,8 +197,22 @@
 <h4 class="font-bold text-on-surface leading-tight">Pine Homestay Đà Lạt</h4>
 <p class="text-xs text-on-surface-variant mb-3">Yêu cầu: Hôm qua</p>
 <div class="flex gap-2">
-<button class="flex-1 py-2 text-xs font-bold text-white bg-primary rounded-lg">Duyệt</button>
-<button class="px-3 py-2 text-xs font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5">Hồ sơ</button>
+<button class="flex-1 py-2 text-xs font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors" onclick="approvePartner('req-2','Pine Homestay Đà Lạt')">Duyệt</button>
+<button class="px-3 py-2 text-xs font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5" onclick="showToast('Đang mở hồ sơ Pine Homestay...','info')">Hồ sơ</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 3 -->
+<div id="req-3" class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-transparent hover:border-primary/20 transition-all group opacity-80 hover:opacity-100">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0 flex items-center justify-center bg-amber-100 text-amber-700 font-bold text-lg">V</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface leading-tight">Villa Verde Nha Trang</h4>
+<p class="text-xs text-on-surface-variant mb-3">Yêu cầu: 3 ngày trước</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-xs font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors" onclick="approvePartner('req-3','Villa Verde Nha Trang')">Duyệt</button>
+<button class="px-3 py-2 text-xs font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5" onclick="showToast('Đang mở hồ sơ Villa Verde...','info')">Hồ sơ</button>
 </div>
 </div>
 </div>
@@ -257,9 +271,9 @@
 <th class="px-4 py-6 text-right">Thao tác</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-surface-container/30">
+<tbody class="divide-y divide-surface-container/30" id="usersTableBody">
 <!-- User Row 1 -->
-<tr class="group hover:bg-surface-bright transition-colors">
+<tr class="group hover:bg-surface-bright transition-colors" id="user-row-1">
 <td class="px-4 py-5">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
@@ -284,16 +298,16 @@
 <td class="px-4 py-5 text-right">
 <div class="flex justify-end gap-2">
 <button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+<span class="material-symbols-outlined text-xl">edit</span>
 </button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors">
-<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors" onclick="openLockModal('user-row-1')">
+<span class="material-symbols-outlined text-xl">lock</span>
 </button>
 </div>
 </td>
 </tr>
 <!-- User Row 2 -->
-<tr class="group hover:bg-surface-bright transition-colors">
+<tr class="group hover:bg-surface-bright transition-colors" id="user-row-2">
 <td class="px-4 py-5">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
@@ -318,16 +332,16 @@
 <td class="px-4 py-5 text-right">
 <div class="flex justify-end gap-2">
 <button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+<span class="material-symbols-outlined text-xl">edit</span>
 </button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors">
-<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors" onclick="openLockModal('user-row-2')">
+<span class="material-symbols-outlined text-xl">lock</span>
 </button>
 </div>
 </td>
 </tr>
 <!-- User Row 3 (Locked State) -->
-<tr class="group hover:bg-surface-bright transition-colors bg-stone-50/50">
+<tr class="group hover:bg-surface-bright transition-colors bg-stone-50/50" id="user-row-3">
 <td class="px-4 py-5">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden grayscale">
@@ -354,8 +368,8 @@
 <button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
 <span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
 </button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center text-primary bg-primary/10 hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-xl" data-icon="lock_open">lock_open</span>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-primary bg-primary/10 hover:bg-primary/20 transition-colors" onclick="unlockUser('user-row-3')">
+<span class="material-symbols-outlined text-xl">lock_open</span>
 </button>
 </div>
 </td>
@@ -382,12 +396,12 @@
 </section>
 </div>
 </main>
-<!-- Lock Reason Modal (Absolute/Overlay Concept) -->
-<div class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4">
-<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm"></div>
+<!-- Lock Reason Modal -->
+<div id="lockModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4">
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm" onclick="closeLockModal()"></div>
 <div class="bg-surface-container-lowest w-full max-w-md rounded-[2.5rem] p-8 relative shadow-2xl">
-<button class="absolute top-6 right-6 text-on-surface-variant hover:bg-surface-container rounded-full p-2">
-<span class="material-symbols-outlined" data-icon="close">close</span>
+<button class="absolute top-6 right-6 text-on-surface-variant hover:bg-surface-container rounded-full p-2" onclick="closeLockModal()">
+<span class="material-symbols-outlined">close</span>
 </button>
 <div class="mb-8">
 <h3 class="text-2xl font-extrabold text-on-surface tracking-tight mb-2">Khóa tài khoản</h3>
@@ -408,10 +422,130 @@
 <textarea class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-stone-400" placeholder="Nhập chi tiết vi phạm..." rows="4"></textarea>
 </div>
 <div class="flex gap-3 pt-2">
-<button class="flex-1 py-4 text-sm font-bold text-on-surface bg-surface-container-high rounded-2xl hover:bg-surface-dim transition-all">Hủy bỏ</button>
-<button class="flex-1 py-4 text-sm font-bold text-white bg-error rounded-2xl shadow-[0_8px_20px_rgba(186,26,26,0.2)] hover:scale-[1.02] active:scale-95 transition-all">Xác nhận khóa</button>
+<button class="flex-1 py-4 text-sm font-bold text-on-surface bg-surface-container-high rounded-2xl hover:bg-surface-dim transition-all" onclick="closeLockModal()">Hủy bỏ</button>
+<button class="flex-1 py-4 text-sm font-bold text-white bg-error rounded-2xl shadow-[0_8px_20px_rgba(186,26,26,0.2)] hover:scale-[1.02] active:scale-95 transition-all" onclick="confirmLock()">Xác nhận khóa</button>
 </div>
 </div>
 </div>
 </div>
+
+<script>
+var _pendingTotal = 3;
+var _pendingApproved = 0;
+var _lockTargetRow = null;
+
+function updatePendingBadge() {
+  var rem = _pendingTotal - _pendingApproved;
+  var badge = document.getElementById('pendingBadge');
+  badge.textContent = (rem <= 0 ? '0' : (rem < 10 ? '0'+rem : rem)) + ' MỚI';
+  if (rem <= 0) { badge.classList.remove('bg-primary-container'); badge.classList.add('bg-stone-300','text-stone-600'); }
+}
+
+function approvePartner(reqId, name) {
+  var card = document.getElementById(reqId);
+  if (!card) return;
+  card.style.transition = 'all 0.4s ease';
+  card.style.opacity = '0';
+  card.style.transform = 'translateX(-24px)';
+  setTimeout(function() {
+    card.remove();
+    _pendingApproved++;
+    updatePendingBadge();
+    addPartnerRow(name);
+    showToast('✓ ' + name + ' đã được phê duyệt thành công!', 'success');
+  }, 400);
+}
+
+function addPartnerRow(name) {
+  var tbody = document.getElementById('usersTableBody');
+  var today = new Date();
+  var d = today.getDate() + ' Th' + String(today.getMonth()+1).padStart(2,'0') + ', ' + today.getFullYear();
+  var rid = 'user-row-' + Date.now();
+  var tr = document.createElement('tr');
+  tr.id = rid;
+  tr.className = 'group hover:bg-surface-bright transition-colors';
+  tr.style.opacity = '0';
+  tr.style.backgroundColor = '#f0fdf4';
+  tr.innerHTML =
+    '<td class="px-4 py-5"><div class="flex items-center gap-3">'+
+    '<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold">'+name.charAt(0)+'</div>'+
+    '<div><div class="font-bold text-on-surface">'+name+'</div><div class="text-xs text-on-surface-variant">vừa được phê duyệt</div></div>'+
+    '</div></td>'+
+    '<td class="px-4 py-5"><span class="text-xs font-semibold px-3 py-1 bg-primary-container/10 text-primary rounded-full">Đối tác</span></td>'+
+    '<td class="px-4 py-5 text-sm text-on-surface-variant">'+d+'</td>'+
+    '<td class="px-4 py-5"><div class="row-status flex items-center gap-1.5 text-[#00a86b] text-xs font-bold"><span class="w-1.5 h-1.5 rounded-full bg-[#00a86b]"></span>Hoạt động</div></td>'+
+    '<td class="px-4 py-5 text-right"><div class="flex justify-end gap-2">'+
+    '<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>'+
+    '<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors lock-btn" onclick="openLockModal(\''+rid+'\')"><span class="material-symbols-outlined text-xl">lock</span></button>'+
+    '</div></td>';
+  tbody.insertBefore(tr, tbody.firstChild);
+  requestAnimationFrame(function() {
+    tr.style.transition = 'opacity 0.4s ease, background-color 2s ease';
+    tr.style.opacity = '1';
+    setTimeout(function(){ tr.style.backgroundColor = ''; }, 2500);
+  });
+}
+
+function openLockModal(rowId) {
+  _lockTargetRow = rowId;
+  document.getElementById('lockModal').classList.remove('hidden');
+}
+
+function closeLockModal() {
+  document.getElementById('lockModal').classList.add('hidden');
+  _lockTargetRow = null;
+}
+
+function confirmLock() {
+  if (!_lockTargetRow) return;
+  var row = document.getElementById(_lockTargetRow);
+  if (!row) { closeLockModal(); return; }
+  var statusDiv = row.querySelector('.row-status') || row.querySelector('td:nth-child(4) div');
+  if (statusDiv) {
+    statusDiv.className = 'row-status flex items-center gap-1.5 text-error text-xs font-bold';
+    statusDiv.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-error"></span>Đã khóa';
+  }
+  var avatar = row.querySelector('td:first-child .w-10.h-10, td:first-child .w-10.h-10.rounded-full');
+  if (avatar) avatar.classList.add('grayscale');
+  var lockBtn = row.querySelector('.lock-btn') || row.querySelector('button[onclick*="openLockModal"]');
+  if (lockBtn) {
+    var rid = _lockTargetRow;
+    lockBtn.className = 'w-8 h-8 rounded-lg flex items-center justify-center text-primary bg-primary/10 hover:bg-primary/20 transition-colors lock-btn';
+    lockBtn.setAttribute('onclick', "unlockUser('"+rid+"')");
+    lockBtn.querySelector('span').textContent = 'lock_open';
+  }
+  row.classList.add('bg-stone-50/50');
+  closeLockModal();
+  showToast('Tài khoản đã bị khóa.', 'error');
+}
+
+function unlockUser(rowId) {
+  var row = document.getElementById(rowId);
+  if (!row) return;
+  var statusDiv = row.querySelector('.row-status') || row.querySelector('td:nth-child(4) div');
+  if (statusDiv) {
+    statusDiv.className = 'row-status flex items-center gap-1.5 text-[#00a86b] text-xs font-bold';
+    statusDiv.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-[#00a86b]"></span>Hoạt động';
+  }
+  var avatar = row.querySelector('td:first-child .w-10.h-10, td:first-child .w-10.h-10.rounded-full');
+  if (avatar) avatar.classList.remove('grayscale');
+  var unlockBtn = row.querySelector('.lock-btn') || row.querySelector('button[onclick*="unlockUser"]');
+  if (unlockBtn) {
+    unlockBtn.className = 'w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors lock-btn';
+    unlockBtn.setAttribute('onclick', "openLockModal('"+rowId+"')");
+    unlockBtn.querySelector('span').textContent = 'lock';
+  }
+  row.classList.remove('bg-stone-50/50');
+  showToast('Tài khoản đã được mở khóa.', 'success');
+}
+
+function showToast(msg, type) {
+  var t = document.createElement('div');
+  var bg = type==='success'?'#006d43':type==='error'?'#ba1a1a':'#1b1c1c';
+  t.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;background:'+bg+';color:#fff;padding:12px 20px;border-radius:16px;font-size:13px;font-weight:600;font-family:Be Vietnam Pro,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.18);transition:opacity .3s';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){t.style.opacity='0';setTimeout(function(){t.remove();},300);},3000);
+}
+</script>
 </body></html>

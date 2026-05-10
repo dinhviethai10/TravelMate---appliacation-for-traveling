@@ -130,22 +130,22 @@
 <span class="material-symbols-outlined text-primary">location_on</span>
 <input class="bg-transparent border-none focus:ring-0 text-on-surface placeholder-on-surface-variant w-full font-medium" placeholder="Bạn muốn đi đâu?" type="text"/>
 </div>
-<div class="flex items-center gap-3 px-6 py-3 bg-surface-container-low rounded-full">
+<div class="flex items-center gap-3 px-6 py-3 bg-surface-container-low rounded-full cursor-pointer hover:bg-stone-200/60 transition-colors" onclick="openHomeDateModal()">
 <span class="material-symbols-outlined text-primary">calendar_month</span>
 <div class="text-left">
 <p class="text-[10px] uppercase font-bold text-on-surface-variant leading-none">Ngày đi - Ngày về</p>
-<input class="bg-transparent border-none focus:ring-0 text-on-surface font-medium p-0 text-sm w-full" type="text" value="12/10 - 15/10"/>
+<p class="text-on-surface font-medium text-sm" id="searchDateDisplay">12/10 - 15/10</p>
 </div>
 </div>
-<div class="flex items-center gap-3 px-6 py-3 bg-surface-container-low rounded-full">
+<div class="flex items-center gap-3 px-6 py-3 bg-surface-container-low rounded-full cursor-pointer hover:bg-stone-200/60 transition-colors" onclick="openHomeGuestModal()">
 <span class="material-symbols-outlined text-primary">group</span>
 <div class="text-left">
 <p class="text-[10px] uppercase font-bold text-on-surface-variant leading-none">Khách hàng</p>
-<input class="bg-transparent border-none focus:ring-0 text-on-surface font-medium p-0 text-sm w-full" type="text" value="2 người lớn, 1 trẻ em"/>
+<p class="text-on-surface font-medium text-sm" id="searchGuestDisplay">2 người lớn, 1 trẻ em</p>
 </div>
 </div>
 </div>
-<button class="w-full md:w-auto px-10 py-4 hero-gradient text-white font-bold rounded-full hover:shadow-[0_8px_25px_rgba(0,168,107,0.4)] transition-all active:scale-95" onclick="window.location.href='../3._search_results_customer_1/code.html'">
+<button class="w-full md:w-auto px-10 py-4 hero-gradient text-white font-bold rounded-full hover:shadow-[0_8px_25px_rgba(0,168,107,0.4)] transition-all active:scale-95" onclick="doSearch()">
                         Tìm kiếm
                     </button>
 </div>
@@ -164,7 +164,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[700px]">
 <!-- Đà Lạt (Large) -->
-<div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+<div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg" onclick="doSearch('Đà Lạt')">
 <img alt="Đà Lạt" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="scenic pine forests of Da Lat at dawn, rolling hills shrouded in mist, warm sunlight filtering through trees, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFUodZr_FQ9zyFQBd46gIgh5gyOU-egbWSCoMX9W6IFfeugRifxlA7dSpPZQNdVv7S3r_nwDLUpAw7wHBExeoF2dnmz-T0FBBi4AtU2z3xjkGZD3gZpF702MBYhm40DQLGGC7ItjpT6TJWO96Lta4ApY1sf-xUI7maAw8NYvn-hFEL5MY5pAp-K8h9201_ZY4CsmUb4qLFflcIoYqD7yDhiPHL2sLKMJm7DJC0B7_D3SxtrUpXOwIRHlbI0ISoCZTFLEz7mcUj4Q"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
 <div class="absolute bottom-8 left-8">
@@ -174,7 +174,7 @@
 </div>
 </div>
 <!-- Hội An -->
-<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg" onclick="doSearch('Hội An')">
 <img alt="Hội An" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Hoi An ancient town at night with colorful lanterns reflecting in the Thu Bon river, traditional wooden architecture, warm yellow glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG5m3dUNDMLZ3ISmGKcVCF3rWFNO_xOkHhOO7YIwd1vGtUjI5gsCt4Fj4gY7_OLWT0YJAglXo1XJimUNyFxpyyxiacjhJioCDHfTFyyxtUFODkfMDBWcAzzDZnypQpSH8w-Stkg187Ey8VJC4n991QBrnDEtnO9KRZFaptZIBKEDXhRlVtI-3N3uz2Si1MzmOZwJW8wlLKF7SJqd6cC1FZEOJqyLTLmai_J_ypVZuVw4AW3gFO79ULPfZwiljLsL6Y1d3rhBK8HQ"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 <div class="absolute bottom-6 left-6">
@@ -183,7 +183,7 @@
 </div>
 </div>
 <!-- Phú Quốc -->
-<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg" onclick="doSearch('Phú Quốc')">
 <img alt="Phú Quốc" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="turquoise water beach in Phu Quoc, white sand, palm trees swaying in the wind, bright tropical sunlight, paradise island vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzwaM0FMBYAW0lpYkiTgQWEJEWhWE-OaETH4vP5YW8cNYsSjdT2qUnJo0Tbi7WLMQB8o_bPAIhTnBHoI_59--YXJpZtC6PdXjMNqzLHyutLoskKVw7XBPEoyEiJuzYw59JXIBFASKcBe_Nbxp7ekpxEJF6oR56aDyPTRz6-_B4oyJ5rcbPCouW6zQfvgpeEdDirZprOeMp9VZSTvEzmF7ffT0QE-fwqA2gUvjOGgojfep9UFNuBgCc0MHPwMFbL-qTIt0yxvkkew"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 <div class="absolute bottom-6 left-6">
@@ -192,7 +192,7 @@
 </div>
 </div>
 <!-- Hạ Long (Wide) -->
-<div class="md:col-span-2 relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+<div class="md:col-span-2 relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg" onclick="doSearch('Hạ Long')">
 <img alt="Hạ Long" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="luxury cruise ship sailing between majestic limestone islands in Ha Long Bay, crystal clear water, vibrant blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPDQ29mdl0OrWviegg_AcOkdEFHgt8F1G29_GljAUu7vN6EiMnsjcvJua5wSrpfxelxk3Gw7ypjLPqSx_Fp_AOfOIDzvyHnii0GsEEs4j-q1n8RninDe0OM8cd6NWnt-l-feH03ZgE9ByhQsfwhJJ1op5FGQ6RpMWQ5AUYhoIX-XgYRz6tFgfm3Q4wt7YwZXqJ-F8d_UA2QnYJqB0TK9ubvKmhuigMnPQZvRO3NMfV2E6ceGncpsVHPmSc3XZznoM1faLwjQlf6g"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 <div class="absolute bottom-6 left-6">
@@ -216,7 +216,7 @@
 </div>
 <div class="flex gap-6 overflow-x-auto pb-8 snap-x">
 <!-- Card 1 -->
-<div class="min-w-[320px] md:min-w-[400px] bg-surface-container-lowest rounded-3xl p-4 snap-start group shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="min-w-[320px] md:min-w-[400px] bg-surface-container-lowest rounded-3xl p-4 snap-start group shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="window.location.href='../4._hotel_detail_customer_1/code.html'">
 <div class="relative h-64 rounded-2xl overflow-hidden mb-6">
 <img alt="Sa Pa" class="w-full h-full object-cover" data-alt="terraced rice fields in Sa Pa valley, lush green and golden colors, minority village houses, mountain backdrop, soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE4dl8oms0hKtw34Jll4PcDQnhkC79avFXhQ9dF5JJLqZ-h7_TC3MoHj6Cdq6YPDkdJ_1UUMHumA5MrUX8eD5nOpx8uOx1Jp8h8bFx7Gjqrm7gzcb3kwkSVmIq1KdPyH_ow0P0HQM4cWZtAxriI3zgbHwy6Mw5f3mA5y242NvIcJCERIHigr67Rl74_DUrrjO0gudH9E_psdRKKzzlMDUbb9H7xMrrXvE_LCF_dPqJWCsjS2ixPFcHkAKu4suvu2tidX1-FN-uQQ"/>
 <button class="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
@@ -241,7 +241,7 @@
 </div>
 </div>
 <!-- Card 2 -->
-<div class="min-w-[320px] md:min-w-[400px] bg-surface-container-lowest rounded-3xl p-4 snap-start group shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="min-w-[320px] md:min-w-[400px] bg-surface-container-lowest rounded-3xl p-4 snap-start group shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="window.location.href='../4._hotel_detail_customer_1/code.html'">
 <div class="relative h-64 rounded-2xl overflow-hidden mb-6">
 <img alt="Ninh Binh" class="w-full h-full object-cover" data-alt="Tam Coc river winding through karst mountains in Ninh Binh, local rowing boat, bright green rice paddies, serene atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqlULbD5gzYfBeXNmRPf8_VEsYs__CCXBkr7eY91ywUTqrkUMPqrwqH8zn8xnsSQrFKHbOHzs3-mbFH2wb3if4U8cwH_WQzm1EopZBaDhgvx2zpARFbj-A8RrafvLNGlhqKOxjFS1dfkjK94JVFqkaL5ETEAUyVuhzQ1ByCV6hVpNSMWAc1nVGc5fr_S6If3cjx2Nu8k5sqUSIE0A5SYEDa_ltmaHb2rQfpNJgkF5KaePbGG6Lhm01FgiR0jfs-X5sBUFWrrpncg"/>
 <button class="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
@@ -266,7 +266,7 @@
 </div>
 </div>
 <!-- Card 3 -->
-<div class="min-w-[320px] md:min-w-[400px] bg-surface-container-lowest rounded-3xl p-4 snap-start group shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="min-w-[320px] md:min-w-[400px] bg-surface-container-lowest rounded-3xl p-4 snap-start group shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="window.location.href='../4._hotel_detail_customer_1/code.html'">
 <div class="relative h-64 rounded-2xl overflow-hidden mb-6">
 <img alt="Hue" class="w-full h-full object-cover" data-alt="Imperial City of Hue, ornate traditional architecture, purple sunset sky, peaceful courtyard, historical grandeur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdxJyBqsfBlMbBufYIre_IPudvb5OfPinNN_kJ-WIHPbzwhkZ3S9BKnskzS4XIL5gw8x64agw5m2-Rw1RZI5CjNOUYrgPeS1E4UMs2hn_zrl6owj2iBPV1bcRs68PrhNOUuVlhW7cAPT2k3NHkNndGYoiuFMh9tTpzi0hT1Xh_48ocIXBbUIbRx_LosaqN70koJmlSBWKqT9qccTfRPqAcR-HY-eb6sKD8kQlLmPedsk5bBxKMSL6pFRdb15qgvyKqiINQZXUo1g"/>
 <button class="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
@@ -321,6 +321,116 @@
 </div>
 </section>
 </main>
+<!-- Date Modal -->
+<div id="homeDateModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+<div class="bg-white rounded-3xl p-8 w-full max-w-md mx-4 shadow-2xl">
+<h3 class="text-lg font-bold mb-6">Chọn ngày đi - ngày về</h3>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="text-xs font-bold text-primary">Ngày nhận phòng</label>
+<input type="date" id="hDateIn" class="w-full bg-surface-container-low border-none rounded-lg p-3 focus:ring-2 focus:ring-primary" onchange="updateHomeNights()"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold text-primary">Ngày trả phòng</label>
+<input type="date" id="hDateOut" class="w-full bg-surface-container-low border-none rounded-lg p-3 focus:ring-2 focus:ring-primary" onchange="updateHomeNights()"/>
+</div>
+<p class="text-sm text-center text-on-surface-variant">Số đêm: <strong id="hNightsDisplay">3</strong></p>
+</div>
+<div class="flex gap-3 mt-6">
+<button onclick="document.getElementById('homeDateModal').classList.add('hidden')" class="flex-1 py-3 border border-outline-variant rounded-xl font-bold">Hủy</button>
+<button onclick="applyHomeDates()" class="flex-1 py-3 bg-primary text-white rounded-xl font-bold">Xác nhận</button>
+</div>
+</div>
+</div>
+
+<!-- Guest Modal -->
+<div id="homeGuestModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+<div class="bg-white rounded-3xl p-8 w-full max-w-sm mx-4 shadow-2xl">
+<h3 class="text-lg font-bold mb-6">Số lượng khách</h3>
+<div class="space-y-5">
+<div class="flex justify-between items-center">
+<div><p class="font-medium">Người lớn</p><p class="text-xs text-on-surface-variant">Từ 12 tuổi trở lên</p></div>
+<div class="flex items-center gap-4">
+<button onclick="changeHomeGuest('adults',-1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">−</button>
+<span id="hAdults" class="w-6 text-center font-bold text-lg">2</span>
+<button onclick="changeHomeGuest('adults',1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">+</button>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div><p class="font-medium">Trẻ em</p><p class="text-xs text-on-surface-variant">Dưới 12 tuổi</p></div>
+<div class="flex items-center gap-4">
+<button onclick="changeHomeGuest('children',-1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">−</button>
+<span id="hChildren" class="w-6 text-center font-bold text-lg">1</span>
+<button onclick="changeHomeGuest('children',1)" class="w-9 h-9 rounded-full border-2 border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">+</button>
+</div>
+</div>
+</div>
+<div class="flex gap-3 mt-8">
+<button onclick="document.getElementById('homeGuestModal').classList.add('hidden')" class="flex-1 py-3 border border-outline-variant rounded-xl font-bold">Hủy</button>
+<button onclick="applyHomeGuests()" class="flex-1 py-3 bg-primary text-white rounded-xl font-bold">Xác nhận</button>
+</div>
+</div>
+</div>
+
+<script>
+var _s = { checkin:'2026-10-12', checkout:'2026-10-15', adults:2, children:1, location:'' };
+(function(){ var sv = sessionStorage.getItem('tmSearch'); if(sv) try{ _s=JSON.parse(sv); }catch(e){} })();
+
+function calcN(ci,co){ var a=new Date(ci+'T00:00:00'),b=new Date(co+'T00:00:00'); return Math.max(1,Math.round((b-a)/86400000)); }
+function fmt(d){ return new Date(d+'T00:00:00').getDate()+'/'+(new Date(d+'T00:00:00').getMonth()+1); }
+
+function updateHomeDisplay(){
+  document.getElementById('searchDateDisplay').textContent = fmt(_s.checkin)+' - '+fmt(_s.checkout);
+  document.getElementById('searchGuestDisplay').textContent = _s.adults+' người lớn'+(_s.children>0?', '+_s.children+' trẻ em':'');
+}
+
+function openHomeDateModal(){
+  document.getElementById('hDateIn').value = _s.checkin;
+  document.getElementById('hDateOut').value = _s.checkout;
+  document.getElementById('hNightsDisplay').textContent = calcN(_s.checkin,_s.checkout);
+  document.getElementById('homeDateModal').classList.remove('hidden');
+}
+function updateHomeNights(){
+  var ci=document.getElementById('hDateIn').value, co=document.getElementById('hDateOut').value;
+  if(ci&&co) document.getElementById('hNightsDisplay').textContent = calcN(ci,co);
+}
+function applyHomeDates(){
+  var ci=document.getElementById('hDateIn').value, co=document.getElementById('hDateOut').value;
+  if(!ci||!co||new Date(co)<=new Date(ci)){alert('Ngày trả phòng phải sau ngày nhận phòng.');return;}
+  _s.checkin=ci; _s.checkout=co;
+  document.getElementById('homeDateModal').classList.add('hidden');
+  updateHomeDisplay();
+}
+
+function openHomeGuestModal(){
+  document.getElementById('hAdults').textContent = _s.adults;
+  document.getElementById('hChildren').textContent = _s.children;
+  document.getElementById('homeGuestModal').classList.remove('hidden');
+}
+function changeHomeGuest(type,d){
+  if(type==='adults'){ _s.adults=Math.max(1,_s.adults+d); document.getElementById('hAdults').textContent=_s.adults; }
+  else{ _s.children=Math.max(0,_s.children+d); document.getElementById('hChildren').textContent=_s.children; }
+}
+function applyHomeGuests(){
+  document.getElementById('homeGuestModal').classList.add('hidden');
+  updateHomeDisplay();
+}
+
+function doSearch(loc){
+  if(loc) _s.location = loc;
+  var nights = calcN(_s.checkin,_s.checkout);
+  sessionStorage.setItem('tmSearch', JSON.stringify(_s));
+  sessionStorage.setItem('tmBooking', JSON.stringify({
+    hotel:'Emerald Bay Resort & Spa', location:'Bãi Dài, Phú Quốc, Kiên Giang',
+    room:'Phòng Deluxe Hướng Biển', price:1850000,
+    nights:nights, adults:_s.adults, children:_s.children,
+    checkin:_s.checkin, checkout:_s.checkout
+  }));
+  window.location.href='../3._search_results_customer_1/code.html';
+}
+
+window.addEventListener('load', updateHomeDisplay);
+</script>
 <!-- Footer -->
 <footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-8 border-t border-stone-200/50 dark:border-stone-800/50">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto font-['Be_Vietnam_Pro'] text-sm leading-relaxed">

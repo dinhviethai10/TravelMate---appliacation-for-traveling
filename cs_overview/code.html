@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-lowest": "#ffffff",
+          "secondary": "#036c46",
+          "on-primary-fixed-variant": "#005232",
+          "tertiary": "#53625c",
+          "surface-variant": "#e4e2e2",
+          "on-surface-variant": "#3d4a41",
+          "secondary-container": "#9df5c4",
+          "surface-bright": "#fbf9f8",
+          "inverse-primary": "#59de9b",
+          "error": "#ba1a1a",
+          "primary-container": "#00a86b",
+          "on-error-container": "#93000a",
+          "surface-container-highest": "#e4e2e2",
+          "surface-dim": "#dbd9d9",
+          "on-primary-fixed": "#002111",
+          "on-primary-container": "#00331d",
+          "on-surface": "#1b1c1c",
+          "on-primary": "#ffffff",
+          "error-container": "#ffdad6",
+          "on-secondary": "#ffffff",
+          "on-secondary-container": "#12734c",
+          "outline": "#6d7a70",
+          "primary": "#006d43",
+          "on-error": "#ffffff",
+          "background": "#fbf9f8",
+          "outline-variant": "#bccabe",
+          "on-tertiary": "#ffffff",
+          "surface-container-high": "#eae8e7",
+          "inverse-surface": "#303030",
+          "surface-container-low": "#f5f3f3",
+          "surface-container": "#efeded",
+          "surface": "#fbf9f8",
+          "on-background": "#1b1c1c",
+          "inverse-on-surface": "#f2f0f0"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "fontFamily": {
+          "headline": ["Be Vietnam Pro"],
+          "body": ["Be Vietnam Pro"],
+          "label": ["Be Vietnam Pro"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="bg-emerald-950 dark:bg-black h-screen w-64 fixed left-0 top-0 border-r-0 flex flex-col py-8 gap-2 font-['Be_Vietnam_Pro'] antialiased shadow-2xl shadow-black/20 z-40">
+  <div class="px-6 mb-8 cursor-pointer" onclick="window.location.href='../cs_overview/code.html'">
+    <h1 class="text-xl font-bold text-white">TravelMate CS</h1>
+    <div class="flex items-center gap-3 mt-6">
+      <div class="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center text-emerald-100 overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLKav6IN3APTbWWIbdNsRPoUkhjTsMm_VXcRkzt-JpQqhiffu8zroRoE6zjdcSYlcl-B2bfJCKTOE4InnXRao8h8zoO4EpbygJFLeHqr_WRb-G_AnqvXgFWUPaa8oeBgI6sIQMqJ9EapmQ7hJHRQtrWJjlIWiq6TxCpWzs38BLapv3XIlmSsTtBu-UgMV-489oIRmznl5N9RU7F1HdjbOnZaWeFwsNKwldhOfgp6TuKrzBZvk3T1x7qm6n2LSgPKz-S8MIMuvseg"/>
+      </div>
+      <div>
+        <p class="text-white text-sm font-semibold">CS Portal</p>
+        <p class="text-emerald-200/70 text-xs">Trưởng nhóm hỗ trợ</p>
+      </div>
+    </div>
+  </div>
+  <nav class="flex-1">
+    <a class="bg-emerald-800/50 text-emerald-50 rounded-lg mx-2 px-4 py-3 font-semibold flex items-center gap-3 hover:translate-x-1 transition-transform duration-200" href="#">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+      <span>Tổng quan</span>
+    </a>
+    <a class="text-emerald-200/70 hover:bg-emerald-900/50 mx-2 px-4 py-3 rounded-lg flex items-center gap-3 hover:translate-x-1 transition-transform duration-200" href="../cs_ticket_management_dashboard/code.html">
+      <span class="material-symbols-outlined">confirmation_number</span>
+      <span>Yêu cầu hỗ trợ</span>
+    </a>
+    <a class="text-emerald-200/70 hover:bg-emerald-900/50 mx-2 px-4 py-3 rounded-lg flex items-center gap-3 hover:translate-x-1 transition-transform duration-200" href="../cs_customers/code.html">
+      <span class="material-symbols-outlined">group</span>
+      <span>Khách hàng</span>
+    </a>
+  </nav>
+  <div class="px-2 mt-auto pt-4 border-t border-emerald-800/50">
+    <div class="flex items-center gap-3 px-4 py-3 mb-1">
+      <div class="w-8 h-8 rounded-full bg-emerald-800 overflow-hidden shrink-0">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLKav6IN3APTbWWIbdNsRPoUkhjTsMm_VXcRkzt-JpQqhiffu8zroRoE6zjdcSYlcl-B2bfJCKTOE4InnXRao8h8zoO4EpbygJFLeHqr_WRb-G_AnqvXgFWUPaa8oeBgI6sIQMqJ9EapmQ7hJHRQtrWJjlIWiq6TxCpWzs38BLapv3XIlmSsTtBu-UgMV-489oIRmznl5N9RU7F1HdjbOnZaWeFwsNKwldhOfgp6TuKrzBZvk3T1x7qm6n2LSgPKz-S8MIMuvseg"/>
+      </div>
+      <div class="overflow-hidden">
+        <p class="text-xs font-bold text-white truncate">Trưởng nhóm hỗ trợ</p>
+        <p class="text-[10px] text-emerald-400">Trực tuyến</p>
+      </div>
+    </div>
+    <a class="flex items-center gap-3 px-4 py-3 text-red-300 hover:bg-red-900/20 transition-colors duration-200 rounded-lg" href="../2._login_register_customer_1/code.html">
+      <span class="material-symbols-outlined">logout</span>
+      <span class="text-sm font-medium">Đăng xuất</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="ml-64 min-h-screen bg-surface p-8">
+  <header class="mb-8">
+    <h2 class="text-3xl font-black tracking-tighter text-on-surface mb-1">Tổng quan CS</h2>
+    <p class="text-on-surface-variant text-sm">Chào buổi sáng, hệ thống hỗ trợ TravelMate đang hoạt động bình thường.</p>
+  </header>
+
+  <!-- Stat Cards -->
+  <div class="grid grid-cols-4 gap-5 mb-8">
+    <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border-t-4 border-primary">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Tổng ticket hôm nay</span>
+        <span class="material-symbols-outlined text-primary">confirmation_number</span>
+      </div>
+      <p class="text-4xl font-black text-on-surface">24</p>
+      <p class="text-xs text-emerald-600 font-semibold mt-2">+3 so với hôm qua</p>
+    </div>
+    <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border-t-4 border-amber-400">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Ticket mới</span>
+        <span class="material-symbols-outlined text-amber-500">fiber_new</span>
+      </div>
+      <p class="text-4xl font-black text-on-surface">5</p>
+      <p class="text-xs text-amber-600 font-semibold mt-2">Chờ phân công</p>
+    </div>
+    <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border-t-4 border-blue-400">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Đang xử lý</span>
+        <span class="material-symbols-outlined text-blue-500">pending</span>
+      </div>
+      <p class="text-4xl font-black text-on-surface">8</p>
+      <p class="text-xs text-blue-600 font-semibold mt-2">3 agents đang xử lý</p>
+    </div>
+    <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border-t-4 border-emerald-400">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Đã giải quyết hôm nay</span>
+        <span class="material-symbols-outlined text-emerald-500">task_alt</span>
+      </div>
+      <p class="text-4xl font-black text-on-surface">11</p>
+      <p class="text-xs text-emerald-600 font-semibold mt-2">CSAT trung bình: 4.6/5</p>
+    </div>
+  </div>
+
+  <!-- Middle Row: Response Time + Ticket Type Breakdown -->
+  <div class="grid grid-cols-3 gap-5 mb-8">
+    <!-- Avg Response Time -->
+    <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm col-span-1">
+      <h3 class="text-sm font-bold text-on-surface mb-5">Thời gian phản hồi</h3>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+            <span>Phản hồi đầu tiên</span>
+            <span class="font-bold text-on-surface">8 phút</span>
+          </div>
+          <div class="h-2 bg-surface-container-high rounded-full overflow-hidden">
+            <div class="h-full bg-primary rounded-full" style="width:72%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+            <span>Thời gian giải quyết</span>
+            <span class="font-bold text-on-surface">2.4 giờ</span>
+          </div>
+          <div class="h-2 bg-surface-container-high rounded-full overflow-hidden">
+            <div class="h-full bg-emerald-400 rounded-full" style="width:58%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+            <span>Tỉ lệ giải quyết lần đầu</span>
+            <span class="font-bold text-on-surface">78%</span>
+          </div>
+          <div class="h-2 bg-surface-container-high rounded-full overflow-hidden">
+            <div class="h-full bg-blue-400 rounded-full" style="width:78%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+            <span>Tỉ lệ hài lòng (CSAT)</span>
+            <span class="font-bold text-on-surface">92%</span>
+          </div>
+          <div class="h-2 bg-surface-container-high rounded-full overflow-hidden">
+            <div class="h-full bg-amber-400 rounded-full" style="width:92%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticket Type Breakdown -->
+    <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm col-span-2">
+      <h3 class="text-sm font-bold text-on-surface mb-5">Phân loại yêu cầu hôm nay</h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-4">
+          <span class="text-xs text-on-surface-variant w-36 shrink-0">Hoàn tiền</span>
+          <div class="flex-1 h-7 bg-surface-container-high rounded-lg overflow-hidden relative">
+            <div class="h-full bg-primary/80 rounded-lg flex items-center px-3 transition-all duration-700" style="width:38%">
+              <span class="text-[10px] text-white font-bold">9 ticket</span>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-on-surface w-8 text-right">38%</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-xs text-on-surface-variant w-36 shrink-0">Thay đổi lịch</span>
+          <div class="flex-1 h-7 bg-surface-container-high rounded-lg overflow-hidden">
+            <div class="h-full bg-blue-400/80 rounded-lg flex items-center px-3 transition-all duration-700" style="width:29%">
+              <span class="text-[10px] text-white font-bold">7 ticket</span>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-on-surface w-8 text-right">29%</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-xs text-on-surface-variant w-36 shrink-0">Thắc mắc dịch vụ</span>
+          <div class="flex-1 h-7 bg-surface-container-high rounded-lg overflow-hidden">
+            <div class="h-full bg-amber-400/80 rounded-lg flex items-center px-3 transition-all duration-700" style="width:21%">
+              <span class="text-[10px] text-white font-bold">5 ticket</span>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-on-surface w-8 text-right">21%</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-xs text-on-surface-variant w-36 shrink-0">Khiếu nại</span>
+          <div class="flex-1 h-7 bg-surface-container-high rounded-lg overflow-hidden">
+            <div class="h-full bg-red-400/80 rounded-lg flex items-center px-3 transition-all duration-700" style="width:13%">
+              <span class="text-[10px] text-white font-bold">3 ticket</span>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-on-surface w-8 text-right">13%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Row: Team Performance + Recent Activity -->
+  <div class="grid grid-cols-2 gap-5">
+    <!-- Team Performance -->
+    <div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-surface-container flex items-center justify-between">
+        <h3 class="text-sm font-bold text-on-surface">Hiệu suất nhóm hôm nay</h3>
+        <a href="../cs_ticket_management_dashboard/code.html" class="text-xs text-primary font-semibold hover:underline">Xem ticket →</a>
+      </div>
+      <table class="w-full text-left">
+        <thead class="bg-surface-container-low text-on-surface-variant text-[10px] uppercase tracking-widest font-semibold">
+          <tr>
+            <th class="px-6 py-3">Agent</th>
+            <th class="px-6 py-3 text-center">Đang xử lý</th>
+            <th class="px-6 py-3 text-center">Đã đóng</th>
+            <th class="px-6 py-3 text-center">CSAT</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-surface-container">
+          <tr class="hover:bg-surface-bright transition-colors">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center text-[9px] font-bold text-emerald-800 overflow-hidden">
+                  <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9b68PHqCXAXGYNAg8Mhl7NCEHor5HOjNrhUmIcXJQiDJ9atPHKFnAFSi_wEbm4BnKdQantIrYfai3lpexWG1bfDmDueXzhINoDh-ws9mOvYWv99jdJTUuTba989O3VXT3m0vbV44fi2oPwQo9i5hFXxvN4z5kKVLpI-GHwm58NqjMQKx76FTLskrvbmf_X8J2wsiZ2E67nxE_wVvhOAikCNiYrBZvUckQV7jqUi1d8dWzBVumELYyUCu_lQzCeAHiRQRazbpfPQ"/>
+                </div>
+                <span class="text-sm">Linh Nguyễn</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center text-sm font-semibold text-blue-600">3</td>
+            <td class="px-6 py-4 text-center text-sm font-semibold text-emerald-600">5</td>
+            <td class="px-6 py-4 text-center">
+              <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-600">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>4.8
+              </span>
+            </td>
+          </tr>
+          <tr class="hover:bg-surface-bright transition-colors">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-[9px] font-bold text-stone-800 overflow-hidden">
+                  <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsoTw2FNbI940_b2i_q_oPfM-O0GSgYGLw3vkbNrZpHO2PtQjOPRORG2UZneQ8fDNfs4mGD5tTb8BAnoiNf4IYtmQNV54HVmTn6MzISgF0LgN59GKjOIY-PwP9E-bsg5jnNmpxqKaxEptpLQGsQS_jeEeIbyMmGEVKID4PbujkbXDvjxRNpEZ7xoLdYYZlAm9jaqVUJkFcfutfWeGssMU5-tblq3EFkr8rE7OsKo-jW3PrHE-fCUqiWjrCUD7Kh0IQ"/>
+                </div>
+                <span class="text-sm">Minh Trần</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center text-sm font-semibold text-blue-600">2</td>
+            <td class="px-6 py-4 text-center text-sm font-semibold text-emerald-600">4</td>
+            <td class="px-6 py-4 text-center">
+              <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-600">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>4.5
+              </span>
+            </td>
+          </tr>
+          <tr class="hover:bg-surface-bright transition-colors">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-[9px] font-bold text-blue-800">HT</div>
+                <span class="text-sm">Hoa Trần</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center text-sm font-semibold text-blue-600">3</td>
+            <td class="px-6 py-4 text-center text-sm font-semibold text-emerald-600">2</td>
+            <td class="px-6 py-4 text-center">
+              <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-600">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>4.3
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-surface-container">
+        <h3 class="text-sm font-bold text-on-surface">Hoạt động gần đây</h3>
+      </div>
+      <div class="divide-y divide-surface-container">
+        <div class="px-6 py-4 flex items-start gap-3 hover:bg-surface-bright transition-colors">
+          <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-emerald-600 text-sm" style="font-variation-settings:'FILL' 1">task_alt</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-on-surface">Ticket #TM-8491 đã được đóng</p>
+            <p class="text-xs text-on-surface-variant mt-0.5">Linh Nguyễn • CSAT: 5/5 sao</p>
+            <p class="text-[10px] text-on-surface-variant mt-1">5 phút trước</p>
+          </div>
+        </div>
+        <div class="px-6 py-4 flex items-start gap-3 hover:bg-surface-bright transition-colors">
+          <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-blue-600 text-sm" style="font-variation-settings:'FILL' 1">confirmation_number</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-on-surface">Ticket mới #TM-8492 từ Nguyễn Huy</p>
+            <p class="text-xs text-on-surface-variant mt-0.5">Loại: Hoàn tiền • BK-2024-001</p>
+            <p class="text-[10px] text-on-surface-variant mt-1">2 giờ trước</p>
+          </div>
+        </div>
+        <div class="px-6 py-4 flex items-start gap-3 hover:bg-surface-bright transition-colors">
+          <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-amber-600 text-sm" style="font-variation-settings:'FILL' 1">chat</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-on-surface">Phản hồi từ Lê Thu về ticket #TM-8490</p>
+            <p class="text-xs text-on-surface-variant mt-0.5">Minh Trần đang xử lý</p>
+            <p class="text-[10px] text-on-surface-variant mt-1">5 giờ trước</p>
+          </div>
+        </div>
+        <div class="px-6 py-4 flex items-start gap-3 hover:bg-surface-bright transition-colors">
+          <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-red-600 text-sm" style="font-variation-settings:'FILL' 1">priority_high</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-on-surface">Ticket #TM-8488 chờ phản hồi 18 giờ</p>
+            <p class="text-xs text-on-surface-variant mt-0.5">Trần Phong • Cần xử lý ngay</p>
+            <p class="text-[10px] text-on-surface-variant mt-1">Hôm qua</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body></html>
