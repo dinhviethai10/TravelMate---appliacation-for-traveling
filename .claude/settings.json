@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"c:\\\\Users\\\\ASUS\\\\Desktop\" | grep -i pdf)",
+      "Read(//c/Users/ASUS/Desktop/**)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(mkdir -p \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\\\\password_reset\" \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\\\\notification_center\" \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\\\\wishlist\" \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\\\\modify_booking\" \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\\\\partner_registration\" \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\\\\property_management\" \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\\\\availability_calendar\" 2>&1; echo \"done\")",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\ASUS\\\\Desktop\\\\TravelMate---appliacation-for-traveling\" -Recurse -Name)",
+      "Bash(Select-Object -First 100)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\ASUS\\Desktop\\TravelMate---appliacation-for-traveling"
+    ]
+  }
+}

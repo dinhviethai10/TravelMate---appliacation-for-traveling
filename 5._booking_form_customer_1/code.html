@@ -116,14 +116,14 @@
                             Thời gian lưu trú
                         </label>
 <div class="flex justify-between items-center bg-surface-container-lowest p-3 rounded-lg">
-<div class="flex flex-col">
+<div class="flex flex-col cursor-pointer" onclick="openDateModal()">
 <span class="text-xs text-on-surface-variant">Nhận phòng</span>
-<span class="font-bold">15 Thg 10</span>
+<span class="font-bold" id="displayCheckin">15 Thg 10</span>
 </div>
 <span class="material-symbols-outlined text-outline-variant">arrow_forward</span>
-<div class="flex flex-col text-right">
+<div class="flex flex-col text-right cursor-pointer" onclick="openDateModal()">
 <span class="text-xs text-on-surface-variant">Trả phòng</span>
-<span class="font-bold">18 Thg 10</span>
+<span class="font-bold" id="displayCheckout">18 Thg 10</span>
 </div>
 </div>
 </div>
@@ -133,8 +133,50 @@
                             Số lượng khách
                         </label>
 <div class="flex items-center justify-between bg-surface-container-lowest p-3 rounded-lg h-[52px]">
-<span class="font-bold">02 Người lớn, 01 Trẻ em</span>
-<button class="text-primary hover:bg-primary/5 p-1 rounded-md transition-colors">Thay đổi</button>
+<span class="font-bold" id="guestDisplay">02 Người lớn, 01 Trẻ em</span>
+<button class="text-primary hover:bg-primary/5 p-1 rounded-md transition-colors" onclick="toggleGuestPicker()">Thay đổi</button>
+</div>
+<!-- Guest Picker -->
+<div id="guestPicker" class="hidden bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-4 space-y-3 mt-2">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">Người lớn</span>
+<div class="flex items-center gap-3">
+<button onclick="changeGuest('adults',-1)" class="w-8 h-8 rounded-full border border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">−</button>
+<span id="adultsCount" class="w-6 text-center font-bold">2</span>
+<button onclick="changeGuest('adults',1)" class="w-8 h-8 rounded-full border border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">+</button>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">Trẻ em <span class="text-xs text-on-surface-variant">(dưới 12 tuổi)</span></span>
+<div class="flex items-center gap-3">
+<button onclick="changeGuest('children',-1)" class="w-8 h-8 rounded-full border border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">−</button>
+<span id="childrenCount" class="w-6 text-center font-bold">1</span>
+<button onclick="changeGuest('children',1)" class="w-8 h-8 rounded-full border border-primary text-primary font-bold flex items-center justify-center hover:bg-primary hover:text-white transition-colors">+</button>
+</div>
+</div>
+<button onclick="applyGuests()" class="w-full py-2 bg-primary text-white rounded-lg font-bold text-sm">Xác nhận</button>
+</div>
+</div>
+
+<!-- Date Modal -->
+<div id="dateModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+<div class="bg-white rounded-3xl p-8 w-full max-w-md mx-4 shadow-2xl">
+<h3 class="text-lg font-bold mb-6">Chọn thời gian lưu trú</h3>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="text-xs font-bold text-primary">Nhận phòng</label>
+<input type="date" id="inputCheckin" class="w-full bg-surface-container-low border-none rounded-lg p-3 focus:ring-2 focus:ring-primary" onchange="updateNights()"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold text-primary">Trả phòng</label>
+<input type="date" id="inputCheckout" class="w-full bg-surface-container-low border-none rounded-lg p-3 focus:ring-2 focus:ring-primary" onchange="updateNights()"/>
+</div>
+<p class="text-sm text-center text-on-surface-variant">Số đêm: <strong id="nightsDisplay">3</strong></p>
+</div>
+<div class="flex gap-3 mt-6">
+<button onclick="closeDateModal()" class="flex-1 py-3 border border-outline-variant rounded-xl font-bold">Hủy</button>
+<button onclick="applyDates()" class="flex-1 py-3 bg-primary text-white rounded-xl font-bold">Xác nhận</button>
+</div>
 </div>
 </div>
 </section>
@@ -182,15 +224,15 @@
 <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(0,109,67,0.06)] group">
 <div class="relative h-48 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="luxurious resort room with balcony overlooking lush tropical garden and distant mountains in Vietnam, soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuDYQ0OpKOEXU-ULj5F3NfSVyJ86TSsrDIIIRubUaXdKGkoKen9diiIfkYjUghG-g_uYJogkcm8UpWxTIpy17bmAUl487zB28wK5E6ixG-1UlGNfT2X-OkKkAWjovkypmqgFG8fqBNyIsfPg83PNH8fhUJuKuNLL7jrHektVwkCaCz0Z-K9jeNK6Owo3QqlCAOmVZWJoN9zDd5qf-SOq5H-9j47Vw_QVzcVgugO5Zo5JWLKPBdBnNpw_NrIqfA5GPRg-hbwhliLg"/>
-<div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Phòng Deluxe</div>
+<div id="bookingRoomBadge" class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Phòng Deluxe</div>
 </div>
 <div class="p-6 space-y-4">
 <div>
-<h3 class="text-xl font-bold text-on-surface">The Verdant Sanctuary Resort</h3>
+<h3 class="text-xl font-bold text-on-surface" id="bookingHotelName">The Verdant Sanctuary Resort</h3>
 <p class="text-sm text-on-surface-variant flex items-center gap-1 mt-1">
 <span class="material-symbols-outlined text-base">location_on</span>
-                                Sapa, Lào Cai, Việt Nam
-                            </p>
+<span id="bookingHotelLocation">Sapa, Lào Cai, Việt Nam</span>
+</p>
 </div>
 <div class="flex flex-wrap gap-3">
 <div class="flex items-center gap-1.5 text-xs font-medium text-tertiary bg-tertiary-fixed px-2 py-1 rounded-md">
@@ -210,12 +252,12 @@
 <h3 class="text-lg font-bold">Chi tiết giá</h3>
 <div class="space-y-3">
 <div class="flex justify-between text-on-surface-variant">
-<span>Giá phòng (3 đêm)</span>
-<span>4.500.000 ₫</span>
+<span id="bookingNightsLabel">Giá phòng (3 đêm)</span>
+<span id="bookingRoomPrice">5.550.000 ₫</span>
 </div>
 <div class="flex justify-between text-on-surface-variant">
 <span>Thuế &amp; Phí phục vụ (10%)</span>
-<span>450.000 ₫</span>
+<span id="bookingTax">555.000 ₫</span>
 </div>
 <div class="flex justify-between text-secondary font-medium">
 <span>Giảm giá thành viên</span>
@@ -228,7 +270,7 @@
 <p class="text-xs text-on-surface-variant italic">Đã bao gồm VAT</p>
 </div>
 <div class="text-right">
-<span class="text-3xl font-black text-primary">4.700.000 ₫</span>
+<span class="text-3xl font-black text-primary" id="bookingTotal">5.855.000 ₫</span>
 </div>
 </div>
 <button class="w-full bg-gradient-to-r from-primary to-primary-container text-white font-bold py-4 rounded-xl shadow-[0_8px_20px_rgba(0,109,67,0.2)] hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 text-lg" onclick="window.location.href='../6._payment_customer_1/code.html'">
@@ -242,6 +284,113 @@
 </aside>
 </div>
 </main>
+<script>
+var _bk = {
+  hotel: 'Emerald Bay Resort & Spa',
+  location: 'Bãi Dài, Phú Quốc, Kiên Giang',
+  room: 'Phòng Deluxe Hướng Biển',
+  price: 1850000,
+  nights: 3,
+  adults: 2,
+  children: 1,
+  checkin: '2026-10-15',
+  checkout: '2026-10-18'
+};
+
+function formatDateVN(dateStr) {
+  var d = new Date(dateStr + 'T00:00:00');
+  var months = ['Thg 1','Thg 2','Thg 3','Thg 4','Thg 5','Thg 6','Thg 7','Thg 8','Thg 9','Thg 10','Thg 11','Thg 12'];
+  return d.getDate() + ' ' + months[d.getMonth()];
+}
+
+function calcNights(ci, co) {
+  var a = new Date(ci + 'T00:00:00'), b = new Date(co + 'T00:00:00');
+  return Math.max(1, Math.round((b - a) / 86400000));
+}
+
+function refreshPricing() {
+  var roomTotal = _bk.price * _bk.nights;
+  var tax = Math.round(roomTotal * 0.1);
+  var discount = 250000;
+  var total = roomTotal + tax - discount;
+  document.getElementById('bookingNightsLabel').textContent = 'Giá phòng (' + _bk.nights + ' đêm)';
+  document.getElementById('bookingRoomPrice').textContent = roomTotal.toLocaleString('vi-VN') + ' ₫';
+  document.getElementById('bookingTax').textContent = tax.toLocaleString('vi-VN') + ' ₫';
+  document.getElementById('bookingTotal').textContent = total.toLocaleString('vi-VN') + ' ₫';
+  sessionStorage.setItem('tmBooking', JSON.stringify(_bk));
+}
+
+function refreshDisplay() {
+  document.getElementById('bookingHotelName').textContent = _bk.hotel;
+  document.getElementById('bookingHotelLocation').textContent = _bk.location;
+  document.getElementById('bookingRoomBadge').textContent = _bk.room;
+  document.getElementById('displayCheckin').textContent = formatDateVN(_bk.checkin);
+  document.getElementById('displayCheckout').textContent = formatDateVN(_bk.checkout);
+  document.getElementById('adultsCount').textContent = _bk.adults;
+  document.getElementById('childrenCount').textContent = _bk.children;
+  var guestText = _bk.adults + ' Người lớn' + (_bk.children > 0 ? ', ' + _bk.children + ' Trẻ em' : '');
+  document.getElementById('guestDisplay').textContent = guestText;
+  refreshPricing();
+}
+
+window.addEventListener('load', function() {
+  var saved = sessionStorage.getItem('tmBooking');
+  if (saved) { try { _bk = JSON.parse(saved); } catch(e) {} }
+  document.getElementById('inputCheckin').value = _bk.checkin;
+  document.getElementById('inputCheckout').value = _bk.checkout;
+  refreshDisplay();
+});
+
+function toggleGuestPicker() {
+  var p = document.getElementById('guestPicker');
+  p.classList.toggle('hidden');
+}
+
+function changeGuest(type, delta) {
+  if (type === 'adults') {
+    _bk.adults = Math.max(1, _bk.adults + delta);
+    document.getElementById('adultsCount').textContent = _bk.adults;
+  } else {
+    _bk.children = Math.max(0, _bk.children + delta);
+    document.getElementById('childrenCount').textContent = _bk.children;
+  }
+}
+
+function applyGuests() {
+  var guestText = _bk.adults + ' Người lớn' + (_bk.children > 0 ? ', ' + _bk.children + ' Trẻ em' : '');
+  document.getElementById('guestDisplay').textContent = guestText;
+  document.getElementById('guestPicker').classList.add('hidden');
+  sessionStorage.setItem('tmBooking', JSON.stringify(_bk));
+}
+
+function openDateModal() {
+  document.getElementById('inputCheckin').value = _bk.checkin;
+  document.getElementById('inputCheckout').value = _bk.checkout;
+  document.getElementById('nightsDisplay').textContent = _bk.nights;
+  document.getElementById('dateModal').classList.remove('hidden');
+}
+
+function closeDateModal() {
+  document.getElementById('dateModal').classList.add('hidden');
+}
+
+function updateNights() {
+  var ci = document.getElementById('inputCheckin').value;
+  var co = document.getElementById('inputCheckout').value;
+  if (ci && co) document.getElementById('nightsDisplay').textContent = calcNights(ci, co);
+}
+
+function applyDates() {
+  var ci = document.getElementById('inputCheckin').value;
+  var co = document.getElementById('inputCheckout').value;
+  if (!ci || !co || new Date(co) <= new Date(ci)) { alert('Vui lòng chọn ngày hợp lệ (trả phòng phải sau nhận phòng).'); return; }
+  _bk.checkin = ci;
+  _bk.checkout = co;
+  _bk.nights = calcNights(ci, co);
+  closeDateModal();
+  refreshDisplay();
+}
+</script>
 <!-- Footer -->
 <footer class="bg-stone-100 dark:bg-stone-900 border-t border-stone-200/50 dark:border-stone-800/50">
 <div class="max-w-screen-2xl mx-auto py-12 px-8 grid grid-cols-1 md:grid-cols-4 gap-8">

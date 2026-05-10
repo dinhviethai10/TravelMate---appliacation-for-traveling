@@ -112,7 +112,7 @@
 <div class="lg:col-span-3 space-y-6">
 <div class="bg-surface-container-lowest p-8 rounded-3xl shadow-[0_12px_40px_rgba(0,109,67,0.06)] overflow-hidden relative">
 <div class="absolute top-0 right-0 p-6">
-<span class="text-label-sm font-bold text-on-surface-variant opacity-50">#TM-20260411</span>
+<span class="text-label-sm font-bold text-on-surface-variant opacity-50" id="confirmBookingId">#TM-20260411</span>
 </div>
 <h2 class="text-headline-md font-bold text-on-surface mb-6 pr-24">Thông tin chuyến đi</h2>
 <div class="flex gap-6 mb-8">
@@ -121,22 +121,22 @@
 </div>
 <div class="flex flex-col justify-center">
 <p class="text-primary font-bold text-sm mb-1 uppercase tracking-wider">Khách sạn &amp; Khu nghỉ dưỡng</p>
-<h3 class="text-xl font-bold text-on-surface mb-1">Silk Path Grand Resort &amp; Spa</h3>
+<h3 class="text-xl font-bold text-on-surface mb-1" id="confirmHotelName">Silk Path Grand Resort &amp; Spa</h3>
 <div class="flex items-center gap-1 text-on-surface-variant">
 <span class="material-symbols-outlined text-sm">location_on</span>
-<span class="text-sm">Sapa, Lào Cai, Việt Nam</span>
+<span class="text-sm" id="confirmHotelLocation">Sapa, Lào Cai, Việt Nam</span>
 </div>
 </div>
 </div>
 <div class="grid grid-cols-2 gap-4 pt-6 border-t border-dashed border-outline-variant/30">
 <div class="space-y-1">
 <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-widest">Nhận phòng</p>
-<p class="text-base font-bold text-on-surface">14 Tháng 4, 2026</p>
+<p class="text-base font-bold text-on-surface" id="confirmCheckin">14 Tháng 4, 2026</p>
 <p class="text-sm text-on-surface-variant">Sau 14:00</p>
 </div>
 <div class="space-y-1">
 <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-widest">Trả phòng</p>
-<p class="text-base font-bold text-on-surface">17 Tháng 4, 2026</p>
+<p class="text-base font-bold text-on-surface" id="confirmCheckout">17 Tháng 4, 2026</p>
 <p class="text-sm text-on-surface-variant">Trước 12:00</p>
 </div>
 </div>
@@ -144,15 +144,15 @@
 <div class="bg-surface-container-low p-8 rounded-3xl space-y-4">
 <div class="flex justify-between items-center">
 <span class="text-on-surface-variant">Hạng phòng</span>
-<span class="font-bold">Grand Deluxe Mountain View</span>
+<span class="font-bold" id="confirmRoomType">Grand Deluxe Mountain View</span>
 </div>
 <div class="flex justify-between items-center">
 <span class="text-on-surface-variant">Số lượng khách</span>
-<span class="font-bold">2 Người lớn, 1 Trẻ em</span>
+<span class="font-bold" id="confirmGuests">2 Người lớn, 1 Trẻ em</span>
 </div>
 <div class="flex justify-between items-center pt-4 border-t border-outline-variant/20">
 <span class="text-on-surface-variant font-bold">Tổng thanh toán</span>
-<span class="text-2xl font-black text-primary">8.450.000₫</span>
+<span class="text-2xl font-black text-primary" id="confirmTotal">8.450.000₫</span>
 </div>
 </div>
 </div>
@@ -185,6 +185,41 @@
 </div>
 </div>
 </main>
+<script>
+function formatDateLong(dateStr) {
+  var d = new Date(dateStr + 'T00:00:00');
+  var months = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+  return d.getDate() + ' ' + months[d.getMonth()] + ', ' + d.getFullYear();
+}
+
+window.addEventListener('load', function() {
+  var saved = sessionStorage.getItem('tmBooking');
+  if (!saved) return;
+  var bk;
+  try { bk = JSON.parse(saved); } catch(e) { return; }
+
+  if (bk.hotel) document.getElementById('confirmHotelName').textContent = bk.hotel;
+  if (bk.location) document.getElementById('confirmHotelLocation').textContent = bk.location;
+  if (bk.room) document.getElementById('confirmRoomType').textContent = bk.room;
+  if (bk.checkin) document.getElementById('confirmCheckin').textContent = formatDateLong(bk.checkin);
+  if (bk.checkout) document.getElementById('confirmCheckout').textContent = formatDateLong(bk.checkout);
+
+  var adults = bk.adults || 2;
+  var children = bk.children || 0;
+  var guestText = adults + ' Người lớn' + (children > 0 ? ', ' + children + ' Trẻ em' : '');
+  document.getElementById('confirmGuests').textContent = guestText;
+
+  var nights = bk.nights || 3;
+  var roomTotal = (bk.price || 1850000) * nights;
+  var tax = Math.round(roomTotal * 0.1);
+  var discount = 250000;
+  var total = roomTotal + tax - discount;
+  document.getElementById('confirmTotal').textContent = total.toLocaleString('vi-VN') + '₫';
+
+  var bookingId = '#TM-' + Date.now().toString().slice(-8);
+  document.getElementById('confirmBookingId').textContent = bookingId;
+});
+</script>
 <footer class="w-full py-12 px-8 bg-stone-100 dark:bg-stone-900 border-t border-stone-200/50 dark:border-stone-800/50 font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
 <div class="space-y-4">

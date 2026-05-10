@@ -231,7 +231,7 @@
 <p class="text-xs text-on-surface-variant line-through">2.500.000đ</p>
 <p class="text-xl font-black text-primary">1.850.000đ<span class="text-sm font-medium text-on-surface-variant">/đêm</span></p>
 </div>
-<button class="px-5 py-2 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-colors">Chọn</button>
+<button class="room-select-btn px-5 py-2 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-colors" onclick="selectRoom('Phòng Deluxe Hướng Biển', 1850000, 2, 0, this)">Chọn</button>
 </div>
 </div>
 <!-- Room Card 2 -->
@@ -249,7 +249,7 @@
 <p class="text-xs text-on-surface-variant line-through">4.200.000đ</p>
 <p class="text-xl font-black text-primary">3.150.000đ<span class="text-sm font-medium text-on-surface-variant">/đêm</span></p>
 </div>
-<button class="px-5 py-2 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-colors">Chọn</button>
+<button class="room-select-btn px-5 py-2 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-colors" onclick="selectRoom('Phòng Executive Suite', 3150000, 3, 0, this)">Chọn</button>
 </div>
 </div>
 </div>
@@ -293,10 +293,10 @@
 </div>
 <div class="mt-8 pt-6 border-t border-dashed border-stone-200">
 <div class="flex justify-between items-center mb-6">
-<span class="text-on-surface-variant">Tổng cộng (1 đêm)</span>
-<span class="text-2xl font-black text-primary tracking-tight">1.850.000đ</span>
+<span class="text-on-surface-variant" id="sidebarNightsLabel">Tổng cộng (3 đêm)</span>
+<span class="text-2xl font-black text-primary tracking-tight" id="sidebarPrice">1.850.000đ</span>
 </div>
-<button class="w-full py-4 editorial-gradient text-white font-bold rounded-2xl shadow-[0_8px_24px_rgba(0,109,67,0.2)] active:scale-95 transition-transform" onclick="window.location.href='../5._booking_form_customer_1/code.html'">Đặt ngay</button>
+<button class="w-full py-4 editorial-gradient text-white font-bold rounded-2xl shadow-[0_8px_24px_rgba(0,109,67,0.2)] active:scale-95 transition-transform" onclick="bookNow()">Đặt ngay</button>
 <button class="w-full py-3 mt-3 border border-primary text-primary font-bold rounded-2xl hover:bg-primary/5 active:scale-95 transition-transform flex items-center justify-center gap-2" onclick="window.location.href='../9._ai_chat_customer/code.html'"><span class="material-symbols-outlined text-base">smart_toy</span> Hỏi AI về khách sạn này</button>
 <p class="text-center text-[11px] text-on-surface-variant mt-4">Không thu phí hủy phòng trước 48h</p>
 </div>
@@ -386,8 +386,45 @@
 <p class="text-[10px] font-bold text-primary uppercase">Giá từ</p>
 <p class="text-xl font-black text-primary">1.850.000đ<span class="text-xs font-medium text-on-surface-variant">/đêm</span></p>
 </div>
-<button class="px-8 py-4 editorial-gradient text-white font-bold rounded-2xl active:scale-95 transition-transform" onclick="window.location.href='../5._booking_form_customer_1/code.html'">Đặt ngay</button>
+<button class="px-8 py-4 editorial-gradient text-white font-bold rounded-2xl active:scale-95 transition-transform" onclick="bookNow()">Đặt ngay</button>
 </div>
+<script>
+var _booking = {
+  hotel: 'Emerald Bay Resort & Spa',
+  location: 'Bãi Dài, Phú Quốc, Kiên Giang',
+  room: 'Phòng Deluxe Hướng Biển',
+  price: 1850000,
+  nights: 3,
+  adults: 2,
+  children: 1,
+  checkin: '2026-10-15',
+  checkout: '2026-10-18'
+};
+
+function selectRoom(roomName, price, adults, children, btn) {
+  _booking.room = roomName;
+  _booking.price = price;
+  _booking.adults = adults;
+  _booking.children = children;
+  document.querySelectorAll('.room-select-btn').forEach(function(b) {
+    b.classList.remove('bg-primary','text-white');
+    b.classList.add('border-primary','text-primary');
+    b.textContent = 'Chọn';
+  });
+  btn.classList.add('bg-primary','text-white');
+  btn.classList.remove('text-primary');
+  btn.textContent = '✓ Đã chọn';
+  var total = price * _booking.nights;
+  document.getElementById('sidebarPrice').textContent = total.toLocaleString('vi-VN') + 'đ';
+  document.getElementById('sidebarNightsLabel').textContent = 'Tổng cộng (' + _booking.nights + ' đêm)';
+  sessionStorage.setItem('tmBooking', JSON.stringify(_booking));
+}
+
+function bookNow() {
+  sessionStorage.setItem('tmBooking', JSON.stringify(_booking));
+  window.location.href = '../5._booking_form_customer_1/code.html';
+}
+</script>
 <!-- Footer -->
 <footer class="w-full py-12 px-8 bg-stone-100 dark:bg-stone-900 border-t border-stone-200/50 dark:border-stone-800/50 font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
